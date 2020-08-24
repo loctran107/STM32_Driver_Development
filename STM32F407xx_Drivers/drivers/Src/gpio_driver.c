@@ -93,13 +93,6 @@ void GPIO_Init(GPIO_Handle_t* pGPIOHandler) {
 
 	/*Note: before setting the bits: make sure those registers are clear */
 	//Clearing the registers
-	GPIOx->MODER &= ~0xFFFFFFFF;
-	GPIOx->OTYPER &= ~0xFFFFFFFF;
-	GPIOx->OSPEEDR &= ~0xFFFFFFFF;
-	GPIOx->PUPDR &= ~0xFFFFFFFF;
-	GPIOx->AFR[0] &= ~0xFFFFFFFF;
-	GPIOx->AFR[1] &= ~0xFFFFFFFF;
-
 	//Setting the bits register
 	for (uint16_t i = 0U; i < GPIO_PIN_NUMBER; i++) {
 
@@ -193,10 +186,10 @@ void GPIO_DeInit(GPIO_Reg_t *pGPIOx) {
  * @return				- unsigned 8 bit integer
  * @note				- none
  */
-uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber) {
+uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint16_t pinNumber) {
 	//value = (uint8_t) ((pGPIOx->IDR & (1 << pinNumber)) >> pinNumber);
 	/*or value = (uint8_t) ((pGPIOx->IDR >> pinNumber) & 0x1);*/
-	return (uint8_t) ((pGPIOx->IDR >> pinNumber) & 0x1);
+	return (pGPIOx->IDR & pinNumber == pinNumber) ? 1 : 0;
 }
 
 /*****************************************************
@@ -225,11 +218,11 @@ uint16_t GPIO_ReadFromInputPort(GPIO_Reg_t* pGPIOx) {
  * @return				- none
  * @note				- none
  */
-void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint8_t value) {
+void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint16_t pinNumber, uint8_t value) {
 	if (value) {
-		pGPIOx->ODR |= (1 << pinNumber);
+		pGPIOx->BSRR = pinNumber;
 	} else {
-		pGPIOx->ODR &= ~(1 << pinNumber);
+		pGPIOx->BSRR = pinNumber << GPIO_PIN_NUMBER;
 	}
 }
 

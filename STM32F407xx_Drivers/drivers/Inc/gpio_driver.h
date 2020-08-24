@@ -144,9 +144,9 @@ void GPIO_DeInit(GPIO_Reg_t *pGPIOx);
 /*
  * GPIO Data Read/Write
  */
-uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber);
+uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint16_t pinNumber);
 uint16_t GPIO_ReadFromInputPort(GPIO_Reg_t* pGPIOx);
-void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint8_t value);
+void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint16_t pinNumber, uint8_t value);
 void GPIO_WriteToOutputPort(GPIO_Reg_t* pGPIOx, uint16_t value);
 
 /*

@@ -1,0 +1,25 @@
+/*
+ * gpio_driver.h
+ *
+ *  Created on: Aug 18, 2020
+ *      Author: Donavan Tran
+ *      Description: This header file contains specific details
+ *      			 related to the GPIO peripherals of the STM32F407xx
+ */
+
+#ifndef INC_GPIO_DRIVER_H_
+#define INC_GPIO_DRIVER_H_
+#include <stdlib.h>
+#include "stm32f407xx.h"
+
+
+/*
+ * Handle structure for GPIO pins
+ */
+
+typedef struct {
+
+	/* Pointer to hold the base address of the GPIO peripherals*/
+	GPIO_Reg_t* GPIOx;
+};
+#endif /* INC_GPIO_DRIVER_H_ */

@@ -1,0 +1,104 @@
+/*
+ * gpio_driver.h
+ *
+ *  Created on: Aug 18, 2020
+ *      Author: Donavan Tran
+ *      Description: This header file contains specific details
+ *      			 related to the GPIO peripherals of the STM32F407xx
+ */
+
+#ifndef INC_GPIO_DRIVER_H_
+#define INC_GPIO_DRIVER_H_
+#include <stdlib.h>
+#include "stm32f407xx.h"
+
+/*
+ * GPIO Moder Macros
+ */
+#define GPIO_INPUT_MODE				0x0
+#define GPIO_OUTPUT_MODE			0x1
+#define GPIO_ALT_FUNC_MODE			0x2
+#define GPIO_ANALOG_MODE			0x3
+#define GPIO_IT_FT_MODE				0x4 /* GPIO Interrupt Falling Edge Trigger*/
+#define GPIO_IT_RT_MODE				0x5 /* GPIO Interrupt Rising Edge Trigger */
+#define GPIO_IT_RFT_MODE			0x6 /* GPIO Interrupt Both Falling and Rising Edge Trigger*/
+
+
+
+/*
+ * GPIO output type macros
+ */
+#define GPIO_PUSH_PULL_STATE		0x0
+#define GPIO_OPEN_DRAIN_STATE		0x1
+
+/*
+ *
+ */
+
+/*
+ * Configuration structure of the GPIO pins
+ */
+typedef struct {
+	uint8_t GPIO_PinNumber;
+	uint8_t GPIO_PinMode;
+	uint8_t GPIO_PinSpeed;
+	uint8_t GPIO_PinPuPdCtrl;
+	uint8_t GPIO_PinOPType;
+	uint8_t GPIO_PinAltFuncMode;
+} GPIO_PinConfig_t;
+
+/*
+ * Handle structure for GPIO pins
+ */
+typedef struct {
+
+	/* Pointer to hold the base address of the GPIO peripherals*/
+	GPIO_Reg_t* pGPIOx; //This holds the base address of the GPIO port which the pins belong to
+	GPIO_PinConfig_t* GPIOx_PinConfig; //configure structure of the GPIO pin
+
+} GPIO_Handle_t;
+
+/*****************************************************************************************************
+ *									API SUPPORTED FOR THIS GPIO DRIVER 								 *
+ *				For more information about this API, check the function description.				 *
+ *****************************************************************************************************/
+
+/* GPIO Function Prototype Declaration */
+
+/*
+ * Peripheral clock control
+ * Parameter 1: Pointer to the base address of the GPIO port
+ * Parameter 2: 8 bit integer that tells whether to enable or disable
+ *              the clock peripheral
+ */
+void GPIO_PeriClkCtrl(GPIO_Reg_t* pGPIOx, uint8_t EnOrDi);
+
+/*
+ * GPIO initialization and de-initialization
+ * Parameter: Pointer to the GPIO Handle Structure
+ */
+void GPIO_Init(GPIO_Handle_t* pGPIOHandler);
+
+/* Consult the RCC Peripheral reset registers for more details*/
+void GPIO_DeInit(GPIO_Reg_t *pGPIOx);
+
+/*
+ * GPIO Data Read/Write
+ */
+uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber);
+uint16_t GPIO_ReadFromInputPort(GPIO_Reg_t* pGPIOx);
+void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint8_t value);
+void GPIO_WriteToOutputPort(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint16_t value);
+
+/*
+ * GPIO Toggle Output pin
+ */
+void GPIO_ToggleOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber);
+
+/*
+ * GPIO Interrupt Configuration and Handling
+ */
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi);
+void GPIO_IRQHandling(uint8_t pinNumber);
+
+#endif /* INC_GPIO_DRIVER_H_ */

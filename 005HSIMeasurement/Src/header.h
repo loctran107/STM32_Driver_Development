@@ -1,0 +1,25 @@
+/*
+ * header.h
+ *
+ *  Created on: Aug 11, 2020
+ *      Author: Donavan Tran
+ */
+
+#ifndef HEADER_H_
+#define HEADER_H_
+#include <stdint.h>
+
+#define RCC						0x40023800UL
+#define RCC_CFGR_OFFSET			0x08UL
+#define RCC_CFGR				(RCC + RCC_CFGR_OFFSET)
+
+#define RCC_AHB1ENR_OFFSET		0x30UL
+#define RCC_AHB1ENR				(RCC + RCC_AHB1ENR_OFFSET)
+
+#define GPIOA 					0x40020000UL
+#define GPIO_MODER_OFFSET		0x00UL
+#define GPIOA_MODER				(GPIOA + GPIO_MODER_OFFSET)
+
+#define GPIOA_AFRH_OFFSET		0x24UL
+#define GPIOA_AFRH				(GPIOA + GPIOA_AFRH_OFFSET)
+#endif /* HEADER_H_ */

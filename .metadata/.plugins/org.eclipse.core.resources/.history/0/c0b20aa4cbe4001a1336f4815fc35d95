@@ -1,0 +1,212 @@
+/*
+ * gpio_driver.c
+ *
+ *  Created on: Aug 18, 2020
+ *      Author: Donavan Tran
+ *      Description: This is the source code specific to the GPIO driver
+ *      			 of the STM32F407xx architecture
+ */
+#include "../Inc/gpio_driver.h"
+
+/*****************************************************
+ * @fn					- GPIO_PeriClkCtrl
+ *
+ * @brief				- Enable or disable the GPIOx clock peripherals
+ *
+ * @param[in]			- GPIO_Reg_t* pGPIOx: Base address of the GPIO port
+ * @param[in]			- ENABLE or DISABLE macro
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_PeriClkCtrl(GPIO_Reg_t* pGPIOx, uint8_t EnOrDi) {
+
+	//Enable or disable the GPIO clock peripherals
+	if (EnOrDi) {
+		switch (pGPIOx) {
+			case GPIOA: GPIOA_PCLK_EN();
+			case GPIOB: GPIOB_PCLK_EN();
+			case GPIOC: GPIOC_PCLK_EN();
+			case GPIOD: GPIOD_PCLK_EN();
+			case GPIOE: GPIOE_PCLK_EN();
+			case GPIOF: GPIOF_PCLK_EN();
+			case GPIOG: GPIOG_PCLK_EN();
+			case GPIOH: GPIOH_PCLK_EN();
+			case GPIOI: GPIOI_PCLK_EN();
+			case GPIOJ: GPIOJ_PCLK_EN();
+			case GPIOK: GPIOK_PCLK_EN();
+		}
+	} else {
+		switch (pGPIOx) {
+			case GPIOA: GPIOA_PCLK_DI();
+			case GPIOB: GPIOB_PCLK_DI();
+			case GPIOC: GPIOC_PCLK_DI();
+			case GPIOD: GPIOD_PCLK_DI();
+			case GPIOE: GPIOE_PCLK_DI();
+			case GPIOF: GPIOF_PCLK_DI();
+			case GPIOG: GPIOG_PCLK_DI();
+			case GPIOH: GPIOH_PCLK_DI();
+			case GPIOI: GPIOI_PCLK_DI();
+			case GPIOJ: GPIOJ_PCLK_DI();
+			case GPIOK: GPIOK_PCLK_DI();
+		}
+	}
+}
+
+
+/*****************************************************
+ * @fn					- GPIO_Init
+ *
+ * @brief				- Initialize the given GPIO port
+ *
+ * @param[in]			- Handle structure of the GPIO pin
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_Init(GPIO_Handle_t* pGPIOHandler) {
+	GPIO_Reg_t* GPIOx = pGPIOHandler->pGPIOx;
+	GPIO_PinConfig_t* GPIOx_PinConf = pGPIOHandler->GPIOx_PinConfig;
+
+	for (uint16_t i = 0U; i < )
+	//Configure the mode of the GPIO pin
+	/*if (GPIOx_PinConf->GPIO_PinMode <= GPIO_ANALOG_MODE) {
+
+	} else {
+
+		//this part will code later (interrupt mode)
+	}*/
+
+	//Configure the speed of the GPIO pin
+
+	//Configure the pull-up/pull-down setting of the GPIO pin
+
+	//Configure the pin output type of the GPIO pin
+
+	//Configure the pin alternate function mode of the GPIO pin
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				-  Consult the RCC Peripheral reset registers for more details
+ */
+
+void GPIO_DeInit(GPIO_Reg_t *pGPIOx) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+uint8_t GPIO_ReadFromInputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+uint16_t GPIO_ReadFromInputPort(GPIO_Reg_t* pGPIOx) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_WriteToOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint8_t value) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_WriteToOutputPort(GPIO_Reg_t* pGPIOx, uint8_t pinNumber, uint16_t value) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_ToggleOutputPin(GPIO_Reg_t* pGPIOx, uint8_t pinNumber) {
+
+}
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi) {
+
+}
+
+
+/*****************************************************
+ * @fn					-
+ *
+ * @brief				-
+ *
+ * @param[in]			-
+ * @param[in]			-
+ *
+ * @return				- none
+ * @note				- none
+ */
+void GPIO_IRQHandling(uint8_t pinNumber) {
+
+}
+

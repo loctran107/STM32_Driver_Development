@@ -1,0 +1,10 @@
+20:36:38 **** Incremental Build of configuration Debug for project 006HSEMeasurement ****
+make -j8 all 
+arm-none-eabi-size   006HSEMeasurement.elf 
+   text	   data	    bss	    dec	    hex	filename
+    856	      8	   1568	   2432	    980	006HSEMeasurement.elf
+Finished building: default.size.stdout
+ 
+
+20:36:39 Build Finished. 0 errors, 0 warnings. (took 1s.58ms)
+

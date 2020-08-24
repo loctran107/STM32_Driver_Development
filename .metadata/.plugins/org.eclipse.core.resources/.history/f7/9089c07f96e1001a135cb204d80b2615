@@ -1,0 +1,26 @@
+/*
+ * stm32f407xx.h
+ *
+ *  Created on: Aug 17, 2020
+ *      Author: Donavan Tran
+ */
+
+#ifndef INC_STM32F407XX_H_
+#define INC_STM32F407XX_H_
+
+/* Flash and SRAM memories */
+#define FLASH_BASEADDR			(*(volatile unsigned long*) 0x08000000)
+#define ROM_BASEADDR			(*(volatile unsigned long*) 0x1FFF0000)
+#define SRAM1_BASEADDR			(*(volatile unsigned long*) 0x20000000)
+#define SRAM2_BASEADDR			(*(volatile unsigned long*) 0x2001C000)
+#define SRAM					SRAM1_BASEADDR //SRAM1 is commonly used
+
+/* Bus clock */
+#define PERIPH_BASEADDR			(*(volatile unsigned long*) 0x40000000)
+#define APB1_BASEADDR			PERIPH_BASEADDR
+#define APB2_BASEADDR			(*(volatile unsigned long*) 0x40010000)
+#define AHB1_BASEADDR			(*(volatile unsigned long*) 0x40020000)
+#define AHB2_BASEADDR			(*(volatile unsigned long*) 0x50000000)
+
+
+#endif /* INC_STM32F407XX_H_ */

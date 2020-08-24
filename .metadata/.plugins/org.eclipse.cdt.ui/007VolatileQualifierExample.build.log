@@ -1,0 +1,10 @@
+20:36:39 **** Incremental Build of configuration Debug for project 007VolatileQualifierExample ****
+make -j8 all 
+arm-none-eabi-size   007VolatileQualifierExample.elf 
+   text	   data	    bss	    dec	    hex	filename
+    696	      8	   1568	   2272	    8e0	007VolatileQualifierExample.elf
+Finished building: default.size.stdout
+ 
+
+20:36:40 Build Finished. 0 errors, 0 warnings. (took 1s.81ms)
+

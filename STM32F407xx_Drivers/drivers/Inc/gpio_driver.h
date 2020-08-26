@@ -13,11 +13,51 @@
 #include "stm32f407xx.h"
 
 /*
- * GPIO Pin Config
+ * @GPIO Pin Config
  */
 #define GPIO_PIN_SET	SET
 #define GPIO_PIN_RESET	RESET
+#define BUTTON_PRESSED 	RESET //LOW
 
+/*
+ * @GPIO_PCLK_EN
+ */
+#define GPIO_PCLK_EN(__GPIOx__)    ((__GPIOx__) == (GPIOA)) ? GPIOA_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOB)) ? GPIOB_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOC)) ? GPIOC_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOD)) ? GPIOD_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOE)) ? GPIOE_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOF)) ? GPIOF_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOG)) ? GPIOG_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOH)) ? GPIOH_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOI)) ? GPIOI_PCLK_EN() :\
+								   ((__GPIOx__) == (GPIOJ)) ? GPIOJ_PCLK_EN() : GPIOK_PCLK_EN()
+
+/*
+ * @GPIO_PCLK_DI
+ */
+#define GPIO_PCLK_DI(__GPIOx__)    ((__GPIOx__) == (GPIOA)) ? GPIOA_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOB)) ? GPIOB_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOC)) ? GPIOC_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOD)) ? GPIOD_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOE)) ? GPIOE_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOF)) ? GPIOF_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOG)) ? GPIOG_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOH)) ? GPIOH_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOI)) ? GPIOI_PCLK_DI() :\
+								   ((__GPIOx__) == (GPIOJ)) ? GPIOJ_PCLK_DI() : GPIOK_PCLK_DI()
+
+/*
+ * @GPIO_PORT_INDEX
+ */
+#define GPIO_PORT_INDEX(__GPIOx__) 	((uint8_t) ((__GPIOx__) == (GPIOA)) ? 0U :\
+											   ((__GPIOx__) == (GPIOB)) ? 1U :\
+											   ((__GPIOx__) == (GPIOC)) ? 2U :\
+											   ((__GPIOx__) == (GPIOD)) ? 3U :\
+											   ((__GPIOx__) == (GPIOE)) ? 4U :\
+											   ((__GPIOx__) == (GPIOF)) ? 5U :\
+											   ((__GPIOx__) == (GPIOG)) ? 6U :\
+											   ((__GPIOx__) == (GPIOH)) ? 7U : 8U)
 /*
  * @GPIO_PIN_NUMBER
  */

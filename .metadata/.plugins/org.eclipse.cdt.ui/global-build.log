@@ -363,3 +363,479 @@ arm-none-eabi-size   STM32F407xx_Drivers.elf
    1740	      8	   1568	   3316	    cf4	STM32F407xx_Drivers.elf
 Finished building: default.size.stdout
  
+22:50:02 **** Clean-only build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 clean 
+rm -rf *
+ 
+22:50:03 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../drivers/Src/gpio_driver.c: In function 'GPIO_ReadFromInputPin':
+../drivers/Src/gpio_driver.c:192:34: warning: self-comparison always evaluates to true [-Wtautological-compare]
+  return (pGPIOx->IDR & pinNumber == pinNumber) ? 1 : 0;
+                                  ^~
+../drivers/Src/gpio_driver.c:192:34: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  return (pGPIOx->IDR & pinNumber == pinNumber) ? 1 : 0;
+                        ~~~~~~~~~~^~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1732	      8	   1568	   3308	    cec	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:50:47 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+22:50:55 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:51:11 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:51:15 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:51:31 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:51:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:51:53 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:55:50 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+22:56:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:56:10 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1736	      8	   1568	   3312	    cf0	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+23:07:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+../Src/004LEDHandlingUsingExternalButton.c: In function 'main':
+../Src/004LEDHandlingUsingExternalButton.c:66:1: error: expected declaration or statement at end of input
+ }
+ ^
+make: *** [Src/subdir.mk:24: Src/004LEDHandlingUsingExternalButton.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:07:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+23:07:56 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+23:08:46 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+23:09:25 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+23:09:28 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+23:27:44 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+23:27:54 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+23:29:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+23:30:49 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+23:36:06 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/004LEDHandlingUsingExternalButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/004LEDHandlingUsingExternalButton.d" -MT"Src/004LEDHandlingUsingExternalButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/004LEDHandlingUsingExternalButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+23:36:11 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+23:36:25 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1768	      8	   1568	   3344	    d10	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+22:26:38 **** Clean-only build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 clean 
+rm -rf *
+ 
+22:26:39 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../drivers/Src/gpio_driver.c: In function 'GPIO_Init':
+../drivers/Src/gpio_driver.c:104:38: error: 'PIO_ANALOG_MODE' undeclared (first use in this function); did you mean 'GPIO_ANALOG_MODE'?
+    if (GPIOx_PinConf.GPIO_PinMode <= PIO_ANALOG_MODE) {
+                                      ^~~~~~~~~~~~~~~
+                                      GPIO_ANALOG_MODE
+../drivers/Src/gpio_driver.c:104:38: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/gpio_driver.c:139:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR |= (1 << i);
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:144:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR &= ~(1 << i); //Clear the corresponding FTSR bit
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:147:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR |= (1 << i);
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:148:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'RTSR'; did you mean 'RSTR'?
+      EXTI->RTSR |= (1 << i);
+            ^~~~
+            RSTR
+In file included from ../drivers/Src/gpio_driver.c:9:0:
+../drivers/Src/../Inc/gpio_driver.h:33:44: error: expected ':' before ')' token
+               ((__GPIOx__) == (GPIOI)) ? 8U)
+                                            ^
+../drivers/Src/gpio_driver.c:156:32: note: in expansion of macro 'GPIO_PORT_INDEX'
+     SYSCFG->EXTICR[i >> 2U] |= GPIO_PORT_INDEX(GPIOx) << ((i & 0x03U) * 4U);
+                                ^~~~~~~~~~~~~~~
+../drivers/Src/gpio_driver.c:91:11: warning: unused variable 'temp' [-Wunused-variable]
+  uint32_t temp;
+           ^~~~
+make: *** [drivers/Src/subdir.mk:18: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:28:13 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+../drivers/Src/gpio_driver.c: In function 'GPIO_Init':
+../drivers/Src/gpio_driver.c:104:38: error: 'PIO_ANALOG_MODE' undeclared (first use in this function); did you mean 'GPIO_ANALOG_MODE'?
+    if (GPIOx_PinConf.GPIO_PinMode <= PIO_ANALOG_MODE) {
+                                      ^~~~~~~~~~~~~~~
+                                      GPIO_ANALOG_MODE
+../drivers/Src/gpio_driver.c:104:38: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/gpio_driver.c:139:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR |= (1 << i);
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:144:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR &= ~(1 << i); //Clear the corresponding FTSR bit
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:147:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'FTSR'; did you mean 'FSTR'?
+      EXTI->FTSR |= (1 << i);
+            ^~~~
+            FSTR
+../drivers/Src/gpio_driver.c:148:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'RTSR'; did you mean 'RSTR'?
+      EXTI->RTSR |= (1 << i);
+            ^~~~
+            RSTR
+../drivers/Src/gpio_driver.c:91:11: warning: unused variable 'temp' [-Wunused-variable]
+  uint32_t temp;
+           ^~~~
+make: *** [drivers/Src/subdir.mk:18: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:29:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+../drivers/Src/gpio_driver.c: In function 'GPIO_Init':
+../drivers/Src/gpio_driver.c:140:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'RSTR'; did you mean 'RTSR'?
+      EXTI->RSTR &= ~(1 << i); //Clear the corresponding RTSR bit
+            ^~~~
+            RTSR
+../drivers/Src/gpio_driver.c:143:12: error: 'EXTI_Reg_t {aka struct EXTI_Register}' has no member named 'RSTR'; did you mean 'RTSR'?
+      EXTI->RSTR |= (1 << i);
+            ^~~~
+            RTSR
+../drivers/Src/gpio_driver.c:91:11: warning: unused variable 'temp' [-Wunused-variable]
+  uint32_t temp;
+           ^~~~
+make: *** [drivers/Src/subdir.mk:18: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:29:53 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+../drivers/Src/gpio_driver.c: In function 'GPIO_Init':
+../drivers/Src/gpio_driver.c:91:11: warning: unused variable 'temp' [-Wunused-variable]
+  uint32_t temp;
+           ^~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   2128	      8	   1568	   3704	    e78	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:42:25 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2128	      8	   1568	   3704	    e78	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+22:46:34 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+In file included from ../drivers/Src/../Inc/gpio_driver.h:13:0,
+                 from ../drivers/Src/gpio_driver.c:9:
+../drivers/Src/gpio_driver.c: In function 'GPIO_DeInit':
+../drivers/Src/../Inc/stm32f407xx.h:288:26: error: expected expression before 'do'
+ #define GPIOA_PCLK_RST() do { (RCC->AHB1RSTR |= (1 << 0));  (RCC->AHB1RSTR &= ~(1 << 0)); } while (0)
+                          ^
+../drivers/Src/../Inc/gpio_driver.h:53:63: note: in expansion of macro 'GPIOA_PCLK_RST'
+ #define GPIO_PCLK_RST(__GPIOx__)   ((__GPIOx__) == (GPIOA)) ? GPIOA_PCLK_RST() :\
+                                                               ^~~~~~~~~~~~~~
+../drivers/Src/gpio_driver.c:137:2: note: in expansion of macro 'GPIO_PCLK_RST'
+  GPIO_PCLK_RST(pGPIOx);
+  ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:18: drivers/Src/gpio_driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:48:43 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2128	      8	   1568	   3704	    e78	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+23:04:51 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2128	      8	   1568	   3704	    e78	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 

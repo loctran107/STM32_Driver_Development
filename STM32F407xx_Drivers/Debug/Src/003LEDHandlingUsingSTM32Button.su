@@ -1,4 +1,0 @@
-003LEDHandlingUsingSTM32Button.c:12:6:delay	16	static
-003LEDHandlingUsingSTM32Button.c:16:6:LEDEnable	16	static
-003LEDHandlingUsingSTM32Button.c:28:6:ButtonEnable	16	static
-003LEDHandlingUsingSTM32Button.c:42:5:main	64	static

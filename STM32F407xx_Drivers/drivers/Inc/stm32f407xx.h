@@ -20,6 +20,7 @@
 #define SET				ENABLE
 #define RESET			DISABLE
 
+
 /*
  * Flash and SRAM memories
  */
@@ -76,6 +77,27 @@
 #define EXTI_BASEADDR			(APB2_BASEADDR + 0x3C00)
 #define SYSCFG_BASEADDR			(APB2_BASEADDR + 0x3800)
 
+/*
+ * SYSCFG registers definition
+ */
+typedef struct SYSCFG_Register {
+	__vo uint32_t MEMRMP; 	//offset: 0x00
+	__vo uint32_t PMC;		//offset: 0x04
+	__vo uint32_t EXTICR[4];	//offset: 0x08 - 0x14
+	uint32_t RESERVED[2];	//reserved: 0x18 - 0x1C
+	__vo uint32_t CMPCR;		//offset: 0x20
+} SYSCFG_Reg_t;
+/*
+ * EXTI registers
+ */
+typedef struct EXTI_Register {
+	__vo uint32_t IMR;   //offset: 0x00
+	__vo uint32_t EMR;   //offset: 0x04
+	__vo uint32_t RTSR;  //offset: 0x08
+	__vo uint32_t FTSR;  //offset: 0x0C
+	__vo uint32_t SWIER; //offset: 0x10
+	__vo uint32_t PR; 	//offset: 0x14
+} EXTI_Reg_t;
 /*
  * GPIOx peripheral registers declaration
  */
@@ -148,6 +170,16 @@ typedef struct RCC_Register {
  * RCC clock bus definition
  */
 #define RCC				((RCC_Reg_t*) RCC_BASEADDR)
+
+/*
+ * EXTI definition
+ */
+#define EXTI			((EXTI_Reg_t*) EXTI_BASEADDR)
+
+/*
+ * SYSCFG definition
+ */
+#define SYSCFG			((SYSCFG_Reg_t*) SYSCFG_BASEADDR)
 
 /**********************************PERIPHERAL CLOCK ENABLE********************************/
 /*

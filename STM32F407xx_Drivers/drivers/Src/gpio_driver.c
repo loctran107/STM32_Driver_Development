@@ -258,33 +258,71 @@ void GPIO_ToggleOutputPin(GPIO_Reg_t* pGPIOx, uint32_t pinNumber) {
 }
 
 /*****************************************************
- * @fn					-
+ * @fn					- GPIO_IRQITConfig
  *
- * @brief				-
+ * @brief				- Interrupt Request configuration of the GPIO
  *
- * @param[in]			-
- * @param[in]			-
+ * @param[in]			- unsigned integer 8 bit interrupt request number
+ * @param[in]			- unsigned integer 8 bit interrupt request priority
+ * @param[in]			- unsigned integer 8 bit enable or disable macros
  *
  * @return				- none
- * @note				- none
+ * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
  */
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi) {
+void GPIO_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi) {
 
+	//In order to trigger the interrupt on the processor side,
+	//configuration enable on the ISER of the NVIC is needed
+	//Note: There are 7 different NVIC_ISER and NVIC_ICER register
+	//at certain range
+	uint32_t indx, remainder;
+	indx = IRQNumber >> 5U; //Index to configure the correct NVIC_ISER
+	if (indx >= 0U  && indx <= 7U) {
+		remainder = IRQNumber & (~(~(int)0 << 5U)); //find the remainder
+		if (EnOrDi) {
+			NVIC_ISER(indx) |= 1 << remainder; //See NVIC_ISER(__INDEX__) declaration for more implementation details
+		} else {
+			NVIC_ICER(indx) |= 1 << remainder; //See NVIC_ICER(__INDEX__) declaration for more implementation details
+		}
+	}
+}
+
+/*****************************************************
+ * @fn					- GPIO_IRQPriorityConfig
+ *
+ * @brief				- Configuring the priority of the specific IRQ Number
+ *
+ * @param[in]			- unsigned integer 8 bit interrupt request number
+ * @param[in]			- unsigned integer 8 bit interrupt request priority
+ *
+ * @return				- none
+ * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
+ */
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriorityValue) {
+	uint32_t indx = IRQNumber >> 2U; //Note: There are IRQ Priority field in each IPR register
+	uint32_t remainder = IRQNumber & (~(~(int)0 << 2U));
+	uint32_t shift_amount = (remainder * 8U) + IMPLEMENTED_IRQ_PRIORITY_BIT;
+
+	//Configure the IRQ_PR register
+	NVIC_IPR(indx) |= IRQPriorityValue << shift_amount;
 }
 
 
 /*****************************************************
- * @fn					-
+ * @fn					- GPIO_IRQHandling
  *
- * @brief				-
+ * @brief				- Handling the GPIO interrupt by clearing the EXTI pending register bit
  *
- * @param[in]			-
+ * @param[in]			- GPIOx pin number
  * @param[in]			-
  *
  * @return				- none
- * @note				- none
+ * @note				- Interrupt handling may varies depending on the peripheral you're using
  */
 void GPIO_IRQHandling(uint8_t pinNumber) {
 
+	if ((EXTI->PR & pinNumber) == pinNumber) {
+		EXTI->PR |= 1 << pinNumber; //clear the EXTI pending register bit at the corresponding pin number
+	}
 }
 

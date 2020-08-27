@@ -1,4 +1,4 @@
-23:04:51 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+17:08:43 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
 arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -16,5 +16,5 @@ Finished building: STM32F407xx_Drivers.list
  
  
 
-23:04:53 Build Finished. 0 errors, 0 warnings. (took 1s.872ms)
+17:08:45 Build Finished. 0 errors, 0 warnings. (took 1s.957ms)
 

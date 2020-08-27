@@ -197,7 +197,8 @@ void GPIO_ToggleOutputPin(GPIO_Reg_t* pGPIOx, uint32_t pinNumber);
 /*
  * GPIO Interrupt Configuration and Handling
  */
-void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority, uint8_t EnOrDi);
+void GPIO_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriorityValue);
 void GPIO_IRQHandling(uint8_t pinNumber);
 
 #endif /* INC_GPIO_DRIVER_H_ */

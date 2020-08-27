@@ -10,6 +10,7 @@
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 #include <stdint.h>
+#include <string.h>
 
 /*
  * Some generic macros
@@ -20,47 +21,56 @@
 #define SET				ENABLE
 #define RESET			DISABLE
 
-/*******************************************PROCESSOR SPECIFIC DETAILS*******************************************
- *
+/*******************************************PROCESSOR SPECIFIC DETAILS*******************************************/
+/*
+ * @NVIC_IRQ_PRIORITY macros
+ */
+#define NVIC_IRQ_PR1		1U
+#define NVIC_IRQ_PR2		2U
+#define NVIC_IRQ_PR3		3U
+#define NVIC_IRQ_PR4		4U
+#define NVIC_IRQ_PR5		5U
+#define NVIC_IRQ_PR6		6U
+#define NVIC_IRQ_PR7		7U
+#define NVIC_IRQ_PR8		8U
+#define NVIC_IRQ_PR9		9U
+#define NVIC_IRQ_PR10		10U
+#define NVIC_IRQ_PR11		11U
+#define NVIC_IRQ_PR12		12U
+#define NVIC_IRQ_PR13		13U
+#define NVIC_IRQ_PR14		14U
+#define NVIC_IRQ_PR15		15U
+
+/*
+ * IRQ (Interrupt Request) Number of STM32F407xx MCU
+ *  Note: Update these macros in accordance to MCU specific EXTI pins
+ */
+#define EXTI0_IRQ_NO		((uint8_t) 6)
+#define EXTI1_IRQ_NO		((uint8_t) 7)
+#define EXTI2_IRQ_NO		((uint8_t) 8)
+#define EXTI3_IRQ_NO		((uint8_t) 9)
+#define EXTI4_IRQ_NO		((uint8_t) 10)
+#define EXTI5_9_IRQ_NO		((uint8_t) 23)
+#define EXTI10_15_IRQ_NO	((uint8_t) 40)
+
+/*
  * ARM Cortex Mx Processor NVIC Interrupt Set-Enable Register (ISER) base address
  */
-
 #define NVIC_ISER_BASEADDR	(__vo uint32_t*) 0xE000E100
-#define NVIC_ISER(__INDEX__) *((NVIC_ISER_BASEADDR) + ((__INDEX__) * 0x04U))
+#define NVIC_ISER(__INDEX__) *((NVIC_ISER_BASEADDR) + ((__INDEX__))) //Pointer arithmetic
 
- /*
+/*
  * ARM Cortex Mx Processor NVIC Interrupt Clear-Enable Register (ICER) base address
  */
-
 #define NVIC_ICER_BASEADDR	(__vo uint32_t*) 0xE000E180
-#define NVIC_ICER(__INDEX__) *((NVIC_ICER_BASEADDR) + ((__INDEX__) * 0x04U))
-
-/*#define NVIC_ICER0			((__vo uint32_t*) 0xE000E180)
-#define NVIC_ICER1			((__vo uint32_t*) 0xE000E184)
-#define NVIC_ICER2			((__vo uint32_t*) 0xE000E188)
-#define NVIC_ICER3			((__vo uint32_t*) 0xE000E18C)
-#define NVIC_ICER4			((__vo uint32_t*) 0xE000E190)
-#define NVIC_ICER5			((__vo uint32_t*) 0xE000E194)
-#define NVIC_ICER6			((__vo uint32_t*) 0xE000E198)
-#define NVIC_ICER7			((__vo uint32_t*) 0xE000E19C)*/
+#define NVIC_ICER(__INDEX__) *((NVIC_ICER_BASEADDR) + ((__INDEX__))) //pointer arithmetic
 
 /*
  * ARM Cortex Mx Processor NVIC Interrupt Priority Register (IPR) base address
  */
-/*typedef struct NVIC_IPR_Register {
-	__vo uint32_t IPR[60];
-} NVIC_IPR_Reg_t; */
 #define NVIC_IPR_BASEADDR	(__vo uint32_t *) 0xE000E400
-#define NVIC_IPR(__INDEX__) *((NVIC_IPR_BASEADDR) + ((__INDEX__) * 0x04U))
+#define NVIC_IPR(__INDEX__) *((NVIC_IPR_BASEADDR) + (__INDEX__)) //Pointer arithmetic
 
-/*#define NVIC_IPR0			((__vo uint32_t*) 0xE000E400)
-#define NVIC_IPR1			((__vo uint32_t*) 0xE000E404)
-#define NVIC_IPR2			((__vo uint32_t*) 0xE000E408)
-#define NVIC_IPR3			((__vo uint32_t*) 0xE000E40C)
-#define NVIC_IPR4			((__vo uint32_t*) 0xE000E410)
-#define NVIC_IPR5			((__vo uint32_t*) 0xE000E414)
-#define NVIC_IPR6			((__vo uint32_t*) 0xE000E418)
-#define NVIC_IPR7			((__vo uint32_t*) 0xE000E41C)*/
 
 /*
  * ARM Cortex Mx Processor NVIC Interrupt Priority Level Bit
@@ -69,6 +79,7 @@
  */
 #define NO_IMPLEMENTED_IRQ_PRIORITY_BIT 			4U
 #define IMPLEMENTED_IRQ_PRIORITY_BIT				8U - NO_IMPLEMENTED_IRQ_PRIORITY_BIT
+
 /*
  * Flash and SRAM memories
  */
@@ -345,16 +356,6 @@ typedef struct RCC_Register {
 #define GPIOJ_PCLK_RST() do { (RCC->AHB1RSTR |= (1 << 9));  (RCC->AHB1RSTR &= ~(1 << 9)); } while (0)
 #define GPIOK_PCLK_RST() do { (RCC->AHB1RSTR |= (1 << 10)); (RCC->AHB1RSTR &= ~(1 << 10));} while (0)
 
-/*
- * IRQ (Interrupt Request) Number of STM32F407xx MCU
- *  Note: Update these macros in accordance to MCU specific EXTI pins
- */
-#define EXTI0_IRQ_NO		((uint8_t) 6)
-#define EXTI1_IRQ_NO		((uint8_t) 7)
-#define EXTI2_IRQ_NO		((uint8_t) 8)
-#define EXTI3_IRQ_NO		((uint8_t) 9)
-#define EXTI4_IRQ_NO		((uint8_t) 10)
-#define EXTI5_9_IRQ_NO		((uint8_t) 23)
-#define EXTI10_15_IRQ_NO	((uint8_t) 40)
+
 
 #endif /* INC_STM32F407XX_H_ */

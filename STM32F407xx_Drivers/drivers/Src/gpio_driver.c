@@ -55,36 +55,28 @@ void GPIO_Init(GPIO_Handle_t* pGPIOHandler) {
 		//Check if the ith bit is set
 		if (GPIOx_PinConf.GPIO_PinNumber & (1 << i)) {
 
-			//Handle the non-interrupt case ifG the ith bit is set
-			if (GPIOx_PinConf.GPIO_PinMode <= GPIO_ANALOG_MODE) {
+			//Handle the GPIO pin OUTPUT Mode
+			if (GPIOx_PinConf.GPIO_PinMode == GPIO_OUTPUT_MODE) {
 
-				//Handle the GPIO pin OUTPUT Mode
-				if (GPIOx_PinConf.GPIO_PinMode == GPIO_OUTPUT_MODE) {
+				//Configure the OTYPER register
+				GPIOx->OTYPER |= (GPIOx_PinConf.GPIO_PinOPType << i);
 
-					//Configure the OTYPER register
-					GPIOx->OTYPER |= (GPIOx_PinConf.GPIO_PinOPType << i);
+				//Configure the OSPEED register
+				GPIOx->OSPEEDR |= (GPIOx_PinConf.GPIO_PinSpeed << i * 2U);
+			}
 
-					//Configure the OSPEED register
-					GPIOx->OSPEEDR |= (GPIOx_PinConf.GPIO_PinSpeed << i * 2U);
+			//Handle the GPIO pin alternate function mode
+			if (GPIOx_PinConf.GPIO_PinMode == GPIO_ALT_FUNC_MODE) {
+				if (i < (GPIO_PIN_NUMBER / 2)) {
+					GPIOx->AFR[0] |= (GPIOx_PinConf.GPIO_PinAltFuncMode << i * 4U);
+				} else {
+					GPIOx->AFR[1] |= (GPIOx_PinConf.GPIO_PinAltFuncMode << (i % (GPIO_PIN_NUMBER / 2)) * 4U);
 				}
+			}
 
-				if (GPIOx_PinConf.GPIO_PinMode == GPIO_ALT_FUNC_MODE) {
-
-					//Handle the alternate function mode register
-					if (i < (GPIO_PIN_NUMBER / 2)) {
-						GPIOx->AFR[0] |= (GPIOx_PinConf.GPIO_PinAltFuncMode << i * 4U);
-					} else {
-						GPIOx->AFR[1] |= (GPIOx_PinConf.GPIO_PinAltFuncMode << (i % (GPIO_PIN_NUMBER / 2)) * 4U);
-					}
-				}
-
-				//Handle the MODER register
-				GPIOx->MODER |= (GPIOx_PinConf.GPIO_PinMode << i * 2U);
-
-				//Handle the PuPdCtrl Register
-				GPIOx->PUPDR |= (GPIOx_PinConf.GPIO_PinPuPdCtrl << i * 2U);
-
-			} else {
+			//Handle the GPIO pin interrupt mode
+			if ((GPIOx_PinConf.GPIO_PinMode == GPIO_IT_FT_MODE) || (GPIOx_PinConf.GPIO_PinMode == GPIO_IT_RT_MODE)
+				|| (GPIOx_PinConf.GPIO_PinMode == GPIO_IT_RFT_MODE)) {
 
 				//Enable the clock for SYSCFG registers
 				SYSCFG_PCLK_EN();
@@ -113,8 +105,13 @@ void GPIO_Init(GPIO_Handle_t* pGPIOHandler) {
 
 				//Enable the EXTI interrupt delivery using IMR
 				EXTI->IMR |= (1 << i);
-
 			}
+
+			//Handle the MODER register
+			GPIOx->MODER |= (GPIOx_PinConf.GPIO_PinMode << i * 2U);
+
+			//Handle the PuPdCtrl Register
+			GPIOx->PUPDR |= (GPIOx_PinConf.GPIO_PinPuPdCtrl << i * 2U);
 		}
 	}
 }
@@ -298,7 +295,7 @@ void GPIO_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi) {
  * @return				- none
  * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
  */
-void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriorityValue) {
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue) {
 	uint32_t indx = IRQNumber >> 2U; //Note: There are IRQ Priority field in each IPR register
 	uint32_t remainder = IRQNumber & (~(~(int)0 << 2U));
 	uint32_t shift_amount = (remainder * 8U) + IMPLEMENTED_IRQ_PRIORITY_BIT;

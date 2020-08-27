@@ -12,7 +12,9 @@
 #include "../drivers/Inc/gpio_driver.h"
 
 void delay() {
-	for (uint32_t i = 0; i < 1000000 / 4; i++);
+
+	//This will introduce ~200ms delay when system clock is 16MHz
+	for (uint32_t i = 0; i < 500000 / 2; i++);
 }
 
 void LEDEnable(GPIO_Handle_t* GPIO_LED) {
@@ -33,7 +35,7 @@ void ButtonEnable(GPIO_Handle_t* GPIO_Button) {
 	GPIO_Button->pGPIOx = GPIOD;
 	GPIO_Button->GPIOx_PinConfig.GPIO_PinNumber = GPIO_PIN_4;
 	GPIO_Button->GPIOx_PinConfig.GPIO_PinPuPdCtrl = GPIO_NO_PU_PD;
-	GPIO_Button->GPIOx_PinConfig.GPIO_PinMode = GPIO_INPUT_MODE;
+	GPIO_Button->GPIOx_PinConfig.GPIO_PinMode = GPIO_IT_FT_MODE;
 	GPIO_Init(GPIO_Button);
 }
 
@@ -51,19 +53,27 @@ int main(void)
 
 	//On-board hardware enable
 	GPIO_Handle_t GPIO_LED, GPIO_Button;
+	memset(&GPIO_LED, 0, sizeof(GPIO_LED)); //filled the register with 0 by default
+	memset(&GPIO_Button, 0, sizeof(GPIO_Button)); //filled the register with 0 by default
 	LEDEnable(&GPIO_LED);
 	ButtonEnable(&GPIO_Button);
 
-	//handle the LED pressing application
-	while (1) {
-		if (GPIO_ReadFromInputPin(GPIO_Button.pGPIOx, GPIO_Button.GPIOx_PinConfig.GPIO_PinNumber) == BUTTON_PRESSED) {
-			delay();
-			//GPIO_WriteToOutputPin(GPIOD, GPIO_LED.GPIOx_PinConfig.GPIO_PinNumber, 1);
-			GPIO_ToggleOutputPin(GPIO_LED.pGPIOx, GPIO_LED.GPIOx_PinConfig.GPIO_PinNumber);
-			//delay();
-		}
-		/*} else {
-			GPIO_WriteToOutputPin(GPIOD, GPIO_LED.GPIOx_PinConfig.GPIO_PinNumber, 0);
-		}*/
-	}
+	//IRQ configuration for the button using available GPIO IRQ API
+	GPIO_IRQITConfig(EXTI4_IRQ_NO, ENABLE);
+
+	//Configure the IRQ priority
+	GPIO_IRQPriorityConfig(EXTI4_IRQ_NO, NVIC_IRQ_PR1);
+
+	while(1);
+	return 0;
+}
+
+void EXTI4_IRQHandler(void) {
+
+	//Handle the GPIO button interrupt
+	delay(); //~200ms
+	GPIO_IRQHandling(GPIO_PIN_4); //clear the the EXTI line pending register
+	GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_2);
+
+
 }

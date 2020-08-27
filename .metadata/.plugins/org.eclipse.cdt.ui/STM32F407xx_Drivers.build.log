@@ -1,6 +1,7 @@
-17:08:43 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+22:19:55 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
 make -j8 all 
 arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/005LEDInterruptTogglingButton.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/005LEDInterruptTogglingButton.d" -MT"Src/005LEDInterruptTogglingButton.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/005LEDInterruptTogglingButton.o"
 arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: STM32F407xx_Drivers.elf
  
@@ -8,7 +9,7 @@ arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.lis
 arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
 arm-none-eabi-size   STM32F407xx_Drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   2128	      8	   1568	   3704	    e78	STM32F407xx_Drivers.elf
+   2432	      8	   1568	   4008	    fa8	STM32F407xx_Drivers.elf
 Finished building: default.size.stdout
 Finished building: STM32F407xx_Drivers.bin
 Finished building: STM32F407xx_Drivers.list
@@ -16,5 +17,5 @@ Finished building: STM32F407xx_Drivers.list
  
  
 
-17:08:45 Build Finished. 0 errors, 0 warnings. (took 1s.957ms)
+22:19:57 Build Finished. 0 errors, 0 warnings. (took 1s.942ms)
 

@@ -43,9 +43,13 @@ void GPIO_PeriClkCtrl(GPIO_Reg_t* pGPIOx, uint8_t EnOrDi) {
  * @note				- none
  */
 void GPIO_Init(GPIO_Handle_t* pGPIOHandler) {
+
 	//uint32_t temp;
 	GPIO_Reg_t* GPIOx = pGPIOHandler->pGPIOx;
 	GPIO_PinConfig_t GPIOx_PinConf = pGPIOHandler->GPIOx_PinConfig;
+
+	//Enable the GPIO Clock
+	GPIO_PeriClkCtrl(GPIOx, ENABLE);
 
 	/*Note: before setting the bits: make sure those registers are clear */
 	//Clearing the registers
@@ -251,7 +255,6 @@ void GPIO_ToggleOutputPin(GPIO_Reg_t* pGPIOx, uint32_t pinNumber) {
 	} else {
 		pGPIOx->BSRR = pinNumber;
 	}
-
 }
 
 /*****************************************************

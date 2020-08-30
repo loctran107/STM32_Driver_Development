@@ -1,0 +1,84 @@
+/*
+ * STM32F407xx_SPI_Driver.h
+ *
+ *  Created on: Aug 28, 2020
+ *      Author: Donavan Tran
+ *      Description: This header file contains specific details and implementations
+ *      			 of the SPI peripheral interface
+ */
+
+#ifndef INC_STM32F407XX_SPI_DRIVER_H_
+#define INC_STM32F407XX_SPI_DRIVER_H_
+#include "stm32f407xx.h"
+
+/*****************SPECIFIC MACROS FOR SPI*********************/
+
+/*
+ * @SPI_DEVICE_MODE
+ */
+#define SPI_MASTER_MODE				0U
+#define SPI_SLAVE_MODE				1U
+
+/*
+ * @SPI_BUS
+ */
+#define SPI_FULL_DUPLX				0U
+#define SPI_HALF_DUPLX				1U
+#define SPI_SIMPLEX					2U
+
+/*
+ * DFF SET or RESET
+ */
+#define DFF_8_BIT					0U
+#define DFF_16_BIT					1U
+
+/*
+ * CPOL SET or RESET
+ */
+#define	CPOL_SET					SET
+#define DFF_RESET					RESET
+
+/*
+ * CPHA SET or RESET
+ */
+#define CPHA_SET					SET
+#define CPHA_RESET					RESET
+/*************************************************************/
+
+/*
+ * SPI configuration structure
+ */
+typedef struct {
+	uint8_t  SclkSpeed;
+	uint8_t  DeviceMode;	//@SPI_DEVICE_MODE
+	uint8_t  BusConfig;		//@SPI_BUS
+	uint8_t  SSM;			//Slave Select Management
+	uint8_t  DFF;   		//Data Frame Format
+	uint8_t  CPOL;  		//Clock Polarity
+	uint8_t  CPHA;  		//Clock Phase
+} SPI_Config_t;
+
+
+/*
+ * SPI Handle structure
+ */
+typedef struct {
+	SPI_Reg_t*		SPIx;
+	SPI_Config_t	SPI_Config;
+} SPI_Handle_t;
+
+/********************************SPI FUNCTION API DECLARATION*************************/
+
+/*
+ * SPI initialization and peripheral clock enable
+ */
+void SPI_PeriClkCtrl(uint8_t EnOrDi);
+void SPI_Init(SPI_Handle_t* SPI_Handler);
+
+/*
+ * SPI Receive and transmit API
+ */
+void SPI_Rx(SPI_Handle_t* SPI_Handler);
+void SPI_Tx(SPI_Handle_t* SPI_Handler);
+
+#endif /* INC_STM32F407XX_SPI_DRIVER_H_ */

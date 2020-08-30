@@ -1,5 +1,0 @@
-005LEDInterruptTogglingButton.c:14:6:delay	16	static
-005LEDInterruptTogglingButton.c:20:6:LEDEnable	16	static
-005LEDInterruptTogglingButton.c:32:6:ButtonEnable	16	static
-005LEDInterruptTogglingButton.c:46:5:main	64	static
-005LEDInterruptTogglingButton.c:71:6:EXTI4_IRQHandler	8	static

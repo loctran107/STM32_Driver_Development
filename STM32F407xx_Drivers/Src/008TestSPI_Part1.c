@@ -36,13 +36,17 @@ int main() {
 	GPIO_Handler_Setup(&GPIO_Handler);
 
 	//Enable the SPI2 Peripherals
-	SPI_PeripheralControl(SPI2, ENABLE);
+	SPI_PeripheralEnable(SPI2, ENABLE);
 
 	char* str = "Hello World";
 	SPI_SendData(SPI_Handler.pSPIx, (uint8_t*) str, strlen(str));
 
+	//Wait until the Master is done transferring the bytes of data
+	//If busy, stay there. Otherwise, disable the peripheral
+	while (SPI_CheckStatusFlag(SPI_Master.pSPIx, SPI_BUSY_FLAG));
+
 	//Disable the peripherals after the str transmission
-	SPI_PeripheralControl(SPI2, DISABLE);
+	SPI_PeripheralEnable(SPI2, DISABLE);
 
 	while (1);
 	return 0;

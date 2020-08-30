@@ -90,7 +90,7 @@
 /*
  * SPI Disable
  */
-#define SPIx_DI(__INDEX__)		(__INDEX__)->CR1 &= ~(1 << SPI_CR1_SPE)
+#define SPIx_DI(__INDEX__)		(__INDEX__)->CR1 &= (1 << SPI_CR1_SPE)
 
 /*************************************************************/
 
@@ -132,7 +132,7 @@ void SPI_Init(SPI_Handle_t* pSPIHandler);
 /*
  * Enable the SPI peripherals
  */
-void SPI_Enable(SPI_Reg_t* pSPIx, uint8_t EnOrDi);
+void SPI_PeripheralEnable(SPI_Reg_t* pSPIx, uint8_t EnOrDi);
 
 /* Consult the RCC Peripheral reset registers for more details*/
 void SPI_DeInit(SPI_Reg_t* pSPIx);
@@ -153,4 +153,12 @@ void SPI_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
 void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
 void SPI_IRQHandling(SPI_Handle_t* pSPIHandler);
 
+/*
+ * Other controllers API
+ */
+
+/*
+ * Check if the SPI is still busy transmitting bytes of data
+ */
+uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
 #endif /* INC_STM32F407XX_SPI_DRIVER_H_ */

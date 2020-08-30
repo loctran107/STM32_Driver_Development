@@ -1,3 +1,0 @@
-006TestSpi.c:27:5:main	64	static
-006TestSpi.c:51:6:SPI2_Handler_Setup	16	static
-006TestSpi.c:65:6:GPIO_Handler_Setup	16	static

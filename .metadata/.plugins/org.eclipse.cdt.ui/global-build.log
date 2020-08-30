@@ -6264,3 +6264,291 @@ arm-none-eabi-size   STM32F407xx_Drivers.elf
    2684	      8	   1568	   4260	   10a4	STM32F407xx_Drivers.elf
 Finished building: default.size.stdout
  
+17:50:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2684	      8	   1568	   4260	   10a4	STM32F407xx_Drivers.elf
+Finished building: STM32F407xx_Drivers.bin
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+20:05:44 **** Clean-only build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 clean 
+rm -rf *
+ 
+20:05:45 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+    676	      8	   1568	   2252	    8cc	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+20:48:28 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+../Src/009SPIMasterArduinoSlave.c: In function 'main':
+../Src/009SPIMasterArduinoSlave.c:50:2: warning: implicit declaration of function 'SPI_PeripheralControl'; did you mean 'SPI_PeriClkCtrl'? [-Wimplicit-function-declaration]
+  SPI_PeripheralControl(SPI1, ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~
+  SPI_PeriClkCtrl
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+20:48:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+20:51:14 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+20:51:27 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+21:44:10 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+21:44:16 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+21:44:31 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2820	      8	   1568	   4396	   112c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+22:11:39 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2836	      8	   1568	   4412	   113c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+22:19:34 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2892	      8	   1568	   4468	   1174	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+22:28:16 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+In file included from ../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:12:0,
+                 from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:
+../drivers/Src/STM32F407xx_SPI_Driver.c: In function 'SPI_CheckBusy':
+../drivers/Src/../Inc/stm32f407xx.h:22:19: warning: 'return' with a value, in function returning void
+ #define ENABLE    1
+                   ^
+../drivers/Src/../Inc/stm32f407xx.h:24:16: note: in expansion of macro 'ENABLE'
+ #define SET    ENABLE
+                ^~~~~~
+../drivers/Src/../Inc/stm32f407xx.h:26:19: note: in expansion of macro 'SET'
+ #define FLAG_SET  SET
+                   ^~~
+../drivers/Src/STM32F407xx_SPI_Driver.c:245:10: note: in expansion of macro 'FLAG_SET'
+   return FLAG_SET;
+          ^~~~~~~~
+../drivers/Src/STM32F407xx_SPI_Driver.c:243:6: note: declared here
+ void SPI_CheckBusy(SPI_Reg_t* pSPIx) {
+      ^~~~~~~~~~~~~
+In file included from ../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:12:0,
+                 from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:
+../drivers/Src/../Inc/stm32f407xx.h:23:19: warning: 'return' with a value, in function returning void
+ #define DISABLE   0
+                   ^
+../drivers/Src/../Inc/stm32f407xx.h:25:17: note: in expansion of macro 'DISABLE'
+ #define RESET   DISABLE
+                 ^~~~~~~
+../drivers/Src/../Inc/stm32f407xx.h:27:21: note: in expansion of macro 'RESET'
+ #define FLAG_RESET  RESET
+                     ^~~~~
+../drivers/Src/STM32F407xx_SPI_Driver.c:247:9: note: in expansion of macro 'FLAG_RESET'
+  return FLAG_RESET;
+         ^~~~~~~~~~
+../drivers/Src/STM32F407xx_SPI_Driver.c:243:6: note: declared here
+ void SPI_CheckBusy(SPI_Reg_t* pSPIx) {
+      ^~~~~~~~~~~~~
+../Src/009SPIMasterArduinoSlave.c: In function 'main':
+../Src/009SPIMasterArduinoSlave.c:66:35: error: invalid type argument of '->' (have 'SPI_Handle_t {aka struct <anonymous>}')
+    while (SPI_CheckBusy(SPI_Master->pSPIx));
+                                   ^~
+make: *** [Src/subdir.mk:24: Src/009SPIMasterArduinoSlave.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:28:37 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+../Src/009SPIMasterArduinoSlave.c: In function 'main':
+../Src/009SPIMasterArduinoSlave.c:66:35: error: invalid type argument of '->' (have 'SPI_Handle_t {aka struct <anonymous>}')
+    while (SPI_CheckBusy(SPI_Master->pSPIx));
+                                   ^~
+make: *** [Src/subdir.mk:24: Src/009SPIMasterArduinoSlave.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:28:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+../Src/009SPIMasterArduinoSlave.c: In function 'main':
+../Src/009SPIMasterArduinoSlave.c:66:11: error: void value not ignored as it ought to be
+    while (SPI_CheckBusy(SPI_Master.pSPIx));
+           ^~~~~~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/009SPIMasterArduinoSlave.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:31:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2944	      8	   1568	   4520	   11a8	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+22:41:33 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/009SPIMasterArduinoSlave.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/009SPIMasterArduinoSlave.d" -MT"Src/009SPIMasterArduinoSlave.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/009SPIMasterArduinoSlave.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2940	      8	   1568	   4516	   11a4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 

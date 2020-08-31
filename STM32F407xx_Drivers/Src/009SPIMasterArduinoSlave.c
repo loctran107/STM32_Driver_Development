@@ -56,7 +56,7 @@ int main(void) {
 			delay(); //wait until the debouncing is over ~200ms
 
 			//Enable the SPI peripheral
-			SPI_PeripheralEnable(SPI1, ENABLE);
+			SPI_PeripheralEnable(SPI2, ENABLE);
 
 			//First, send the length information
 			uint8_t dataLen = strlen(str);
@@ -70,7 +70,7 @@ int main(void) {
 			while (SPI_CheckStatusFlag(SPI_Master.pSPIx, SPI_BUSY_FLAG));
 
 			//Disable the SPI peripheral
-			SPI_PeripheralEnable(SPI1, DISABLE);
+			SPI_PeripheralEnable(SPI2, DISABLE);
 		}
 
 	}
@@ -97,18 +97,18 @@ void SPI_GPIOInit(GPIO_Handle_t* SPI_GPIO) {
 	//PA5 --> SPI1_SCK
 	//PA6 --> SPI1_MISO
 	//PA7 --> SPI1_MOSI
-	SPI_GPIO->pGPIOx = GPIOA;
+	SPI_GPIO->pGPIOx = GPIOB;
 	SPI_GPIO->GPIOx_PinConfig.GPIO_PinMode = GPIO_ALT_FUNC_MODE;
 	SPI_GPIO->GPIOx_PinConfig.GPIO_PinAltFuncMode = AF5;
-	SPI_GPIO->GPIOx_PinConfig.GPIO_PinNumber = GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_7;
+	SPI_GPIO->GPIOx_PinConfig.GPIO_PinNumber = GPIO_PIN_13 | GPIO_PIN_15 | GPIO_PIN_12;
 	SPI_GPIO->GPIOx_PinConfig.GPIO_PinOPType = GPIO_PUSH_PULL;
-	SPI_GPIO->GPIOx_PinConfig.GPIO_PinPuPdCtrl = GPIO_NO_PU_PD;
+	SPI_GPIO->GPIOx_PinConfig.GPIO_PinPuPdCtrl = GPIO_PU;
 	SPI_GPIO->GPIOx_PinConfig.GPIO_PinSpeed = GPIO_HIGH_SPEED;
 	GPIO_Init(SPI_GPIO);
 }
 
 void SPI_MasterInit(SPI_Handle_t* SPI_Master) {
-	SPI_Master->pSPIx = SPI1;
+	SPI_Master->pSPIx = SPI2;
 	SPI_Master->SPI_Config.BusConfig = SPI_BUS_CONFIG_FULL_DUPLX;
 	SPI_Master->SPI_Config.DeviceMode = SPI_DEVICE_MASTER_MODE;
 	SPI_Master->SPI_Config.DFF = SPI_DFF_8_BIT;

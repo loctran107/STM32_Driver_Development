@@ -6,6 +6,10 @@
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+		<item key="size.width" value="706"/>
+		<item key="size.height" value="477"/>
+		<item key="location.x" value="504"/>
+		<item key="location.y" value="152"/>
 	</section>
 	<section name="org.eclipse.cdt.internal.ui.text.QuickOutline">
 		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_WIDTH" value="550"/>

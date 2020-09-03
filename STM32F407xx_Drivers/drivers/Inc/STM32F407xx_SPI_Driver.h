@@ -57,6 +57,8 @@
 #define SPI_TXE_FLAG							(1 << SPI_SR_TXE)
 #define SPI_RXNE_FLAG							(1 << SPI_SR_RXNE)
 #define SPI_BUSY_FLAG							(1 << SPI_SR_BSY)
+#define SPI_OVR_FLAG							(1 << SPI_SR_OVR)
+
 /*
  *  Baud Rate Control Macros
  */
@@ -69,6 +71,19 @@
 #define SPI_SCLK_SPEED_DIV128					6U
 #define SPI_SCLK_SPEED_DIV256					7U
 
+/*
+ * SPI application states
+ */
+#define SPI_READY								0U
+#define SPI_BUSY_IN_RX							1U
+#define SPI_BUSY_IN_TX							2U
+
+/*
+ * SPI Application event
+ */
+#define SPI_EVNT_TX_CMPLT						1U
+#define SPI_EVNT_RX_CMPLT						2U
+#define SPI_EVNT_OVR_ERR						3U
 /*************************************************************/
 /***************************FUNCTION MACRO********************/
 /*
@@ -112,8 +127,14 @@ typedef struct {
  * SPI Handle structure
  */
 typedef struct {
-	SPI_Reg_t*		pSPIx;
+	SPI_Reg_t*		pSPIx; 			//Base address of the SPI peripherals
 	SPI_Config_t	SPI_Config;
+	uint8_t*		pTxBuffer;		//Global Tx buffer pointer to store the buffer address
+	uint8_t*		pRxBuffer;		//Global Rx buffer pointer to store the buffer address
+	uint32_t		TxLen;			//global length information of the Tx buffer
+	uint32_t 		RxLen;			//global length information of the Rx buffer
+	uint8_t			TxState;		//global state of Tx
+	uint8_t 		RxState;		//global state of Rx
 } SPI_Handle_t;
 
 /********************************SPI FUNCTION API DECLARATION*************************/
@@ -145,6 +166,11 @@ void SPI_DeInit(SPI_Reg_t* pSPIx);
 void SPI_SendData(SPI_Reg_t* pSPIx, uint8_t* pTxBuffer, uint32_t len); //Note: it is a standard practice to define len as uint32_t
 void SPI_ReceiveData(SPI_Reg_t* pSPIx, uint8_t* pRxBuffer, uint32_t len);
 
+/*
+ * SPI Send and Receive API using non-blocking method (interrupt approaches)
+ */
+uint8_t SPI_SendDataIT(SPI_Handle_t* pSPIHandler, uint8_t* pTxBuffer, uint32_t len); //Note: it is a standard practice to define len as uint32_t
+uint8_t SPI_ReceiveDataIT(SPI_Handle_t* pSPIHandler, uint8_t* pRxBuffer, uint32_t len);
 
 /*
  * SPI Interrupt Configuration and Handling
@@ -161,4 +187,12 @@ void SPI_IRQHandling(SPI_Handle_t* pSPIHandler);
  * Check if the SPI is still busy transmitting bytes of data
  */
 uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
+void SPI_ClearOVRFlag(SPI_Reg_t* pSPIx);
+void SPI_CloseTransmission(SPI_Handle_t* pSPIHandler);
+void SPI_CloseReception(SPI_Handle_t* pSPIHandler);
+
+/*
+ * Application callback
+ */
+void SPI_ApplicationEvent(SPI_Handle_t* pSPIHandler, uint8_t appEvent);
 #endif /* INC_STM32F407XX_SPI_DRIVER_H_ */

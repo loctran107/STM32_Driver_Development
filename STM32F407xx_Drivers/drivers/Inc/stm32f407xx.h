@@ -14,8 +14,6 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-
-
 /*
  * Some generic macros
  */
@@ -170,7 +168,7 @@ typedef struct EXTI_Register {
 	__vo uint32_t RTSR;  //offset: 0x08
 	__vo uint32_t FTSR;  //offset: 0x0C
 	__vo uint32_t SWIER; //offset: 0x10
-	__vo uint32_t PR; 	//offset: 0x14
+	__vo uint32_t PR; 	 //offset: 0x14
 } EXTI_Reg_t;
 /*
  * GPIOx peripheral registers declaration
@@ -238,6 +236,19 @@ typedef struct SPI_Register {
 	__vo uint32_t I2SPR;	//offset: 0x20
 } SPI_Reg_t;
 
+
+typedef struct I2C_Register {
+	__vo uint32_t CR1;		//offset: 0x00
+	__vo uint32_t CR2;		//offset: 0x04
+	__vo uint32_t OAR1; 	//offset: 0x08
+	__vo uint32_t OAR2; 	//offset: 0x0C
+	__vo uint32_t DR;		//offset: 0x10
+	__vo uint32_t SR1;		//offset: 0x14
+	__vo uint32_t SR2;		//offset: 0x18
+	__vo uint32_t CCR;		//offset: 0x1C
+	__vo uint32_t TRISE;	//offset: 0x20
+	__vo uint32_t FLTR;		//offset: 0x24
+} I2C_Reg_t;
 /********************************************************************************************************************/
 
 /*
@@ -276,6 +287,13 @@ typedef struct SPI_Register {
 #define SPI1			((SPI_Reg_t*) SPI1_BASEADDR)
 #define SPI2			((SPI_Reg_t*) SPI2_BASEADDR)
 #define SPI3			((SPI_Reg_t*) SPI3_BASEADDR)
+
+/*
+ * I2C Peripherals macro
+ */
+#define I2C1			((I2C_Reg_t*) I2C1_BASEADDR)
+#define I2C2			((I2C_Reg_t*) I2C2_BASEADDR)
+#define I2C3			((I2C_Reg_t*) I2C3_BASEADDR)
 
 /**********************************PERIPHERAL CLOCK ENABLE********************************/
 /*
@@ -400,6 +418,12 @@ typedef struct SPI_Register {
 #define SPI2_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 14); RCC->APB1RSTR &= ~(1 << 14); } while (0)
 #define SPI3_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while (0)
 
+/*
+ * Reset the I2C peripheral registers
+ */
+#define I2C1_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 21); RCC->APB1RSTR &= ~(1 << 21); } while(0)
+#define I2C2_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 22); RCC->APB1RSTR &= ~(1 << 22); } while(0)
+#define I2C3_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 23); RCC->APB1RSTR &= ~(1 << 23); } while(0)
 /********************BIT DEFINITION OF SPI_PERIPHERALS*********************/
 
 /*
@@ -449,6 +473,11 @@ typedef struct SPI_Register {
  */
 #define SPI_DR							0U		//Transmit or Receive Data Starting bit [15:0}
 
+/**********************************************************************************************/
+
+
+
 #include "../Inc/gpio_driver.h"
 #include "../Inc/STM32F407xx_SPI_Driver.h"
+#include "../Inc/STM32F407xx_I2C_Driver.h"
 #endif /* INC_STM32F407XX_H_ */

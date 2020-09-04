@@ -1,0 +1,141 @@
+/*
+ * STM32F407xx_I2C_Driver.c
+ *
+ *  Created on: Sep 3, 2020
+ *      Author: Donavan Tran
+ */
+
+#include "../drivers/Inc/STM32F407xx_I2C_Driver.h"
+
+/*****************************************************
+ * @fn					- I2C_PeriClkCtrl
+ *
+ * @brief				- Enable or disable the SPIx clock peripherals
+ *
+ * @param[in]			- I2C_Reg_t* pI2Cx: Base address of the specific I2C
+ * @param[in]			- ENABLE or DISABLE macro
+ *
+ * @return				- none
+ * @note				- none
+ */
+void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		I2Cx_PCLK_EN(pI2Cx); //Go to I2Cx_PCLK_EN macro for more details
+	} else {
+		I2Cx_PCLK_DI(pI2Cx); //Go to I2Cx_PCLK_DI macro for more details
+	}
+}
+
+/*****************************************************
+ * @fn					- SPI_Init
+ *
+ * @brief				- Initialize the SPI port given the handle structure
+ *
+ * @param[in]			- Handle Structure of SPI that contains all SPI configuration and port
+ *
+ * @return				- none
+ * @note				- none
+ */
+void SPI_Init(SPI_Handle_t* pSPIHandler) {
+	uint32_t temp;
+	SPI_Config_t SPIConf;
+
+	temp     = 0;
+	SPIConf  = pSPIHandler->SPI_Config;
+
+	//Enable the SPI Clock Peripheral
+	SPI_PeriClkCtrl(pSPIHandler->pSPIx, ENABLE);
+
+	//Set the SPI interface as Master or Slave
+	temp |= SPIConf.DeviceMode << SPI_CR1_MSTR;
+
+	//Configure Clock baud rate (only required in Master Mode)
+	if (SPIConf.DeviceMode == SPI_DEVICE_MASTER_MODE) {
+		temp |= SPIConf.SclkSpeed << SPI_CR1_BR;
+	}
+
+	//Configure the Bus Config.
+	//Note: if BIDIMODE = 0, the SPI is in full-duplex
+	//		if BIDIMODE = 1, the SPI is in half-duplex
+	//To select simplex receive only configuration, RDONLY = 1 & BIDIMODE = 0
+	switch (SPIConf.BusConfig) {
+	case SPI_BUS_CONFIG_FULL_DUPLX: 		temp &= ~(1 << SPI_CR1_BIDIMODE); //Clear the BIDIMODE bit
+											break;
+	case SPI_BUS_CONFIG_HALF_DUPLX: 		temp |= 1 << SPI_CR1_BIDIMODE; //Set the BIDIMODE bit
+											break;
+	case SPI_BUS_CONFIG_SIMPLEX_RX_ONLLY:	temp &= ~(1 << SPI_CR1_BIDIMODE); //Clear the BIDIMODE bit
+											temp |= 1 << SPI_CR1_RXONLY; //Set the RXONLY bit
+											break;
+	}
+
+	//Set the DFF bit to define 8- or 16-bit data frame format
+	temp |= SPIConf.DFF << SPI_CR1_DFF;
+
+	//Select the CPOL and CPHA bits to define one of the 4 relationships
+	//between the data transfer and the serial clock
+	temp |= SPIConf.CPOL << SPI_CR1_CPOL;
+	temp |= SPIConf.CPHA << SPI_CR1_CPHA;
+
+	//Set the SSM pin to select either Hardware Slave Management
+	//Software Slave Management (potentially configure the SSI pin)
+	temp |= SPIConf.SSM << SPI_CR1_SSM;
+
+	//Unless the SSI bit is set when the master is in master mode
+	//and master mode is enables software slave management, a master
+	//mode fault (MODF) bit will be set in SPI_SR register.
+	//By setting SSI = 1 when SSM = 1, this sets the NSS set internally high,
+	//avoiding MODF error. Remember, SSI influences the NSS state when SSM = 1
+	//By default, SSI = 0, which is not an acceptable configuration when working
+	//in an non-multi\-master application
+	if (SPIConf.SSM) {
+		temp |= 1 << SPI_CR1_SSI; //Set the SSI bit
+	} else {
+		//Making SSOE 1 does NSS output enable.
+		//The NSS pin is automatically managed by the hardware.
+		//i.e. when SPE = 1, NSS will be automatically pulled to low
+		//and NSS pin will be high when SPE = 0
+		pSPIHandler->pSPIx->CR2 |= 1 << SPI_CR2_SSOE;
+	}
+
+	//Configure the SPI_CR1 Register based on the above configuration
+	pSPIHandler->pSPIx->CR1 = temp;
+
+}
+
+/*****************************************************
+ * @fn					- SPI_Enable
+ *
+ * @brief				- Enable the specific SPI peripherals
+ *
+ * @param[in]			- Base address of the specific SPI peripherals (SPI_Reg_t* pSPIx)
+ *
+ * @return				- none
+ * @note				- The implementation so far only covers only 3 SPI ports
+ */
+void SPI_PeripheralEnable(SPI_Reg_t* pSPIx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		SPIx_EN(pSPIx);
+	} else {
+		SPIx_DI(pSPIx);
+	}
+}
+
+/*****************************************************
+ * @fn					- SPI_DeInit
+ *
+ * @brief				- Reset the entire register configuration of the specific SPI port
+ *
+ * @param[in]			- Base address of the specific SPI peripherals (SPI_Reg_t* pSPIx)
+ *
+ * @return				- none
+ * @note				- The implementation so far only covers only 3 SPI ports
+ */
+void SPI_DeInit(SPI_Reg_t* pSPIx) {
+	if (pSPIx == SPI1) {
+		SPI1_PCLK_RST();
+	} else if (pSPIx == SPI2) {
+		SPI2_PCLK_RST();
+	} else {
+		SPI3_PCLK_RST();
+	}
+}

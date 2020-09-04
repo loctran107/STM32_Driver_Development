@@ -2,5 +2,6 @@
 "Src/syscalls.o"
 "Src/sysmem.o"
 "Startup/startup_stm32f407vgtx.o"
+"drivers/Src/STM32F407xx_I2C_Driver.o"
 "drivers/Src/STM32F407xx_SPI_Driver.o"
 "drivers/Src/gpio_driver.o"

@@ -954,3 +954,328 @@ Finished building: STM32F407xx_Drivers.bin
 Finished building: STM32F407xx_Drivers.list
  
  
+19:17:01 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+19:17:13 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+19:18:32 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+ 
+19:24:38 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+21:09:07 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+21:14:42 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+21:18:44 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+21:25:16 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:8:10: fatal error: ../drivers/Inc/STM32F407xx_I2C_Driver.h: No such file or directory
+ #include "../drivers/Inc/STM32F407xx_I2C_Driver.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:29:24 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:8:10: fatal error: ../drivers/Inc/STM32F407xx_I2C_Driver.h: No such file or directory
+ #include "../drivers/Inc/STM32F407xx_I2C_Driver.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:29:33 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:8:10: fatal error: ../drivers/Inc/STM32F407xx_I2C_Driver.h: No such file or directory
+ #include "../drivers/Inc/STM32F407xx_I2C_Driver.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:29:35 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:8:10: fatal error: ../drivers/Inc/STM32F407xx_I2C_Driver.h: No such file or directory
+ #include "../drivers/Inc/STM32F407xx_I2C_Driver.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:29:49 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:14:26: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_MODE_SLAVE_TX;  //Slave Transmitter
+                          ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:15:26: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_MODE_SLAVE_RX;  //Slave Receiver
+                          ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:16:27: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_MODE_MASTER_TX; //Master Transmitter
+                           ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:17:27: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_MODE_MASTER_RX; //Master Receiver
+                           ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:23:24: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_BUS_FREQ_SM; //Standard Mode
+                        ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:24:24: warning: ISO C99 requires whitespace after the macro name
+ #define I2C_BUS_FREQ_FM; //Fast Mode
+                        ^
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:49:2: error: unknown type name 'uint8_t'
+  uint8_t Mode;    //Note: by default, I2C operates in Slave mode. See @I2C_MODE_SELECTION macro
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:50:2: error: unknown type name 'uint8_t'
+  uint8_t BusFrequencyMode; //See @I2C_BUS_FREQ_MODE macros for more details
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:51:2: error: unknown type name 'uint8_t'
+  uint8_t PeriClkFreq;  //2MHz-50MHz
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:52:2: error: unknown type name 'uint8_t'
+  uint8_t AddressingMode;  //See @I2C_ADDRESSING_MODE macros for more details
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:59:2: error: unknown type name 'I2C_Reg_t'
+  I2C_Reg_t*  pI2Cx;   //I2Cx peripheral base address
+  ^~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:68:22: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~
+                      I2C_Config_t
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:68:40: error: unknown type name 'uint8_t'
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+                                        ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:17: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_DeInit(I2C_Reg_t* pI2Cx);
+                 ^~~~~~~~~
+                 I2C_Config_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:21:22: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+                      ^~~~~~~~~
+                      I2C_Config_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:21:40: error: unknown type name 'uint8_t'
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+                                        ^~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:39:15: error: unknown type name 'SPI_Handle_t'; did you mean 'I2C_Handle_t'?
+ void I2C_Init(SPI_Handle_t* pI2CHandler) {
+               ^~~~~~~~~~~~
+               I2C_Handle_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:53:17: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_DeInit(I2C_Reg_t* pI2Cx) {
+                 ^~~~~~~~~
+                 I2C_Config_t
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:31:56 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:49:2: error: unknown type name 'uint8_t'
+  uint8_t Mode;    //Note: by default, I2C operates in Slave mode. See @I2C_MODE_SELECTION macro
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:50:2: error: unknown type name 'uint8_t'
+  uint8_t BusFrequencyMode; //See @I2C_BUS_FREQ_MODE macros for more details
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:51:2: error: unknown type name 'uint8_t'
+  uint8_t PseriClkFreq;  //2MHz-50MHz
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:52:2: error: unknown type name 'uint8_t'
+  uint8_t AddressingMode;  //See @I2C_ADDRESSING_MODE macros for more details
+  ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:59:2: error: unknown type name 'I2C_Reg_t'
+  I2C_Reg_t*  pI2Cx;   //I2Cx peripheral base address
+  ^~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:68:22: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+                      ^~~~~~~~~
+                      I2C_Config_t
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:68:40: error: unknown type name 'uint8_t'
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+                                        ^~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:17: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_DeInit(I2C_Reg_t* pI2Cx);
+                 ^~~~~~~~~
+                 I2C_Config_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:21:22: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+                      ^~~~~~~~~
+                      I2C_Config_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:21:40: error: unknown type name 'uint8_t'
+ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+                                        ^~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:39:15: error: unknown type name 'SPI_Handle_t'; did you mean 'I2C_Handle_t'?
+ void I2C_Init(SPI_Handle_t* pI2CHandler) {
+               ^~~~~~~~~~~~
+               I2C_Handle_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:53:17: error: unknown type name 'I2C_Reg_t'; did you mean 'I2C_Config_t'?
+ void I2C_DeInit(I2C_Reg_t* pI2Cx) {
+                 ^~~~~~~~~
+                 I2C_Config_t
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:33:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:39:6: error: conflicting types for 'I2C_Init'
+ void I2C_Init(SPI_Handle_t* pI2CHandler) {
+      ^~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:6: note: previous declaration of 'I2C_Init' was here
+ void I2C_Init(I2C_Handle_t* pI2CHandler);
+      ^~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:33:49 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+21:33:54 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+21:35:12 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+23:30:54 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/011STMMasterArduinoSlaveReceive&Transmit.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"Src/011STMMasterArduinoSlaveReceive&Transmit.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/011STMMasterArduinoSlaveReceive&Transmit.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 

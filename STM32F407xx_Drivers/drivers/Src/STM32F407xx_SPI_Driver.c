@@ -16,10 +16,6 @@ static void SPI_TXE_IT_Handle(SPI_Handle_t* pSPIHandler);
 static void SPI_RXNE_IT_Handle(SPI_Handle_t* pSPIHandler);
 static void SPI_OVR_IT_Handle(SPI_Handle_t* pSPIHandler);
 
-/*
- * Global variable declarations
- */
-
 /*****************************************************
  * @fn					- SPI_PeriClkCtrl
  *

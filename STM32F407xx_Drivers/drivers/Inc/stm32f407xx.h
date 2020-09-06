@@ -67,6 +67,16 @@
 #define SPI3_IRQ_NO			((uint8_t) 51)
 
 /*
+ * I2C IRQ Number of STM32F407xx MCU
+ */
+#define I2C1_EV_IRQ_NO		((uint8_t) 31)
+#define I2C1_ER_IRQ_NO		((uint8_t) 32)
+#define I2C2_EV_IRQ_NO		((uint8_t) 33)
+#define I2C2_ER_IRQ_NO		((uint8_t) 34)
+#define I2C3_EV_IRQ_NO		((uint8_t) 72)
+#define I2C3_ER_IRQ_NO		((uint8_t) 73)
+
+/*
  * ARM Cortex Mx Processor NVIC Interrupt Set-Enable Register (ISER) base address
  */
 #define NVIC_ISER_BASEADDR	 (__vo uint32_t*) 0xE000E100
@@ -92,6 +102,20 @@
  */
 #define NO_IMPLEMENTED_IRQ_PRIORITY_BIT 			4U
 #define IMPLEMENTED_IRQ_PRIORITY_BIT				8U - NO_IMPLEMENTED_IRQ_PRIORITY_BIT
+
+/*
+ * STM32F407xx System Clock
+ */
+#define RCC_HSE					0U
+#define RCC_HSI					1U
+#define RCC_PLL					2U
+
+/*
+ * HSE and HSI Clock Frequency
+ */
+#define HSE_CLK_FREQ			8000000U
+#define HSI_CLK_FREQ			16000000U
+
 
 /*
  * Flash and SRAM memories
@@ -153,10 +177,10 @@
  * SYSCFG registers definition
  */
 typedef struct SYSCFG_Register {
-	__vo uint32_t MEMRMP; 	//offset: 0x00
-	__vo uint32_t PMC;		//offset: 0x04
+	__vo uint32_t MEMRMP; 		//offset: 0x00
+	__vo uint32_t PMC;			//offset: 0x04
 	__vo uint32_t EXTICR[4];	//offset: 0x08 - 0x14
-	uint32_t RESERVED[2];	//reserved: 0x18 - 0x1C
+	uint32_t RESERVED[2];		//reserved: 0x18 - 0x1C
 	__vo uint32_t CMPCR;		//offset: 0x20
 } SYSCFG_Reg_t;
 /*

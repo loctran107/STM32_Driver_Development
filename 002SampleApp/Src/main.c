@@ -128,7 +128,7 @@ int main()
 
     display_numbers(numbers,len,"I-sorted array   :");
 
-    insertion_sort(pNumbers, len);
+    insertion_sort(numbers, len);
 
     return 0;
 }

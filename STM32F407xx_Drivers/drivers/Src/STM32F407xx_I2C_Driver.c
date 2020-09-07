@@ -12,6 +12,10 @@
  */
 static uint32_t getAPB1ClkFreq();
 static uint32_t getPLLClkFreq();
+static void generateStartCondition(I2C_Reg_t* pI2Cx);
+static void generateStopCondition(I2C_Reg_t* pI2Cx);
+static void clearFlagSB(I2C_Reg_t* pI2Cx);
+static void clearFlagADDR(I2C_Reg_t* pI2Cx);
 
 /*****************************************************
  * @fn					- I2C_PeriClkCtrl
@@ -72,7 +76,7 @@ static uint32_t getAPB1ClkFreq() {
 	APB1Prescalar = (temp < 4U) ? APB1PreSclr[0] : APB1PreSclr[temp % 8 + 1];
 
 	//Return the APB1 clock freq
-	return (sysClk / AHB1Prescalar / APB1Prescalar);
+	return ((uint32_t) ((float) sysClk / AHB1Prescalar / APB1Prescalar));
 }
 
 /*****************************************************
@@ -80,7 +84,8 @@ static uint32_t getAPB1ClkFreq() {
  *
  * @brief				- Initialize the I2C port given the handle structure
  *
- * @param[in]			- Handle Structure of I2C that contains all I2C configuration and port
+ * @param[in]			- Handle Structure of I2C that contains all I2C configuration
+ * 						  and port
  *
  * @return				- none
  * @note				- none
@@ -128,30 +133,32 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 	if (pI2CHandler->pI2Cx->CCR & (1 << I2C_CCR_F_S)) { //Fast mode
 		if (pI2CHandler->pI2Cx->CCR & (1 << I2C_CCR_DUTY)) { //To reach 400khz
 
-			//Calculation: T(High) = 9 * CCR * T(PCLK1)
-			//			   T(Low) = 16 * CCR * T(PCLK1)
-			//			   T(High) + T(Low) = 25 * CCR * T(PCLK1)
-			//			   CCR = (T(High) + T(Low)) / (25 * T(PCLK1))
-			pI2CHandler->pI2Cx->CCR |= (uint32_t) ((T_I2C_SCL_SPEED) / (25 * T_APB1ClkFreq));
+			/*	Calculation: T(High) = 9 * CCR * T(PCLK1)
+			 *		   		 T(Low) = 16 * CCR * T(PCLK1)
+			 *			     T(High) + T(Low) = 25 * CCR * T(PCLK1)
+			 *			     CCR = (T(High) + T(Low)) / (25 * T(PCLK1))
+			 */
+			pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (25 * T_APB1ClkFreq))) & 0xFFF;
 		} else { //To reach 100kHz
 
-			//Calculation: T(High) = CCR * T(PCLK1)
-			//			   T(Low) = 2 * CCR * T(PCLK1)
-			//			   T(High) + T(Low) = 3 * CCR * T(PCLK1)
-			//			   CCR = (T(High) + T(Low)) / (3 * T(PCLK1))
-			pI2CHandler->pI2Cx->CCR |= (uint32_t) ((T_I2C_SCL_SPEED) / (3 * T_APB1ClkFreq));
+			/*	Calculation: T(High) = 1 * CCR * T(PCLK1)
+			 *		   		 T(Low) = 2 * CCR * T(PCLK1)
+			 *			     T(High) + T(Low) = 3 * CCR * T(PCLK1)
+			 *			     CCR = (T(High) + T(Low)) / (3 * T(PCLK1))
+			 */
+			pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (3 * T_APB1ClkFreq))) & 0xFFF;
 		}
 	} else { //Standard Mode
 
-		//Calculation: T(High) = CCR * T(PCLK1)
-		//			   T(Low)  =  CCR * T(PCLK1)
-		//			   T(High) + T(Low) = 2 * CCR * T(PCLK1)
-		//			   CCR = (T(High) + T(Low)) / (2 * T(PCLK1))
-		pI2CHandler->pI2Cx->CCR |= (uint32_t) ((T_I2C_SCL_SPEED) / (2 * T_APB1ClkFreq));
+		/*	Calculation: T(High) = CCR * T(PCLK1)
+		 *		   		 T(Low) =   CCR * T(PCLK1)
+		 *			     T(High) + T(Low) = 2 * CCR * T(PCLK1)
+		 *			     CCR = (T(High) + T(Low)) / (2 * T(PCLK1))
+		 */
+		pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (2 * T_APB1ClkFreq))) & 0xFFF;
 	}
 
 	//Configure the Rise Time
-
 
 
 }
@@ -181,7 +188,7 @@ void I2C_DeInit(I2C_Reg_t* pI2Cx) {
  *
  * @brief				- Enable that specific I2C peripheral
  *
- * @param[in]			- Base address of the specific SPI peripherals (SPI_Reg_t* pI2Cx)
+ * @param[in]			- Base address of the specific SPI peripherals (I2C_Reg_t* pI2Cx)
  * @param[in]			= ENABLE or DISABLE macro
  *
  * @return				- none
@@ -193,6 +200,104 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
 	} else {
 		pI2Cx->CR1 &= ~(1 << I2C_CR1_PE);
 	}
+}
+
+/*****************************************************
+ * @fn					- I2C_MasterSendData
+ *
+ * @brief				- Sending the data to slave as master
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ * @param[in]			- buffer for transmission (TxBuffer)
+ * @param[in]			- length of the buffer (len)
+ * @param[in]			- slave address
+ *
+ * @return				- none
+ * @note				- See the Transfer Sequence diagram for master transmitter on page 849
+ * 						  in MCU Reference Manual for more details
+ */
+void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
+		                uint32_t len, uint8_t* pSlaveAddress) {
+
+    // Activate the Start condition
+    // Note: Setting the START bit causes the interface to generate
+    //	  	a Start condition and switch to Master Mode (MSL bit set) when
+    //	  	the BUSY bit is cleared.
+    //	  	This also set the SB bit by hardware (see I2C_SR1 register for details)
+    //      You may also need to enable the I2C_CR1 PE register
+    //
+	generateStartCondition(pI2CHandler->pI2Cx);
+
+	// Poll until the SB bit in SR1 register is set
+	// This is important if any of the bit is set by HARDWARE
+	while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_SB));
+
+	// Clear the SB bit by reading SR1 register followed by
+	// writing DR register with Address. If SB bit not clear,
+	// SCL will be pulled low and the transmission is delay (which
+	// we don't want, obviously)
+	clearFlagSB(pI2CHandler->pI2Cx);
+	pI2CHandler->pI2Cx->DR = (*pSlaveAddress) << 1; //Write the slave address to DR register
+
+	//Polling until the ADDR bit is set
+	while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_ADDR));
+
+	//As soon as the slave address is sent, the ADDR bit is set by HARDWARE
+	//and an interrupt is generated if the ITEVFEN bit is set (which we don't cover in
+	//this case). Clear this by reading SR1 register followed by reading SR2
+	clearFlagADDR(pI2CHandler->pI2Cx);
+
+	//Sending bytes of data to slave
+	//Note: writing TxBuffer to DR register clears the BTF bit
+	while (len) {
+
+		//Polling until the Transmit register buffer is empty (TXE = 1)
+		//Then write first data into DR
+		while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_TXE));
+
+		//Write TxBuffer into DR
+		pI2CHandler->pI2Cx->DR = *pTxBuffer;
+		len--;
+		pTxBuffer++;
+	}
+
+	//Wait for both TXE and BTF is set before closing the communication
+	while (!(I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_BTF) &&
+			 I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_TXE)));
+
+	//Generate the Stop condition to terminate the sending request
+	generateStopCondition(pI2CHandler->pI2Cx);
+
+	//Memo: Cover the 10-bit addressing mode scenario later
+
+}
+
+uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag) {
+	if ((*statusReg) & flag) {
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}
+
+static void generateStartCondition(I2C_Reg_t* pI2Cx) {
+	pI2Cx->CR1 |= 1 << I2C_CR1_START;
+}
+
+static void generateStopCondition(I2C_Reg_t* pI2Cx) {
+	pI2Cx->CR1 |= 1 << I2C_CR1_STOP;
+}
+
+static void clearFlagSB(I2C_Reg_t* pI2Cx) {
+	uint32_t temp;
+	temp = pI2Cx->SR1;
+	(void) temp; //resolve unused variable warning
+}
+
+static void clearFlagADDR(I2C_Reg_t* pI2Cx) {
+	uint32_t temp;
+	temp = pI2Cx->SR1;
+	temp = pI2Cx->SR2;
+	(void) temp; //resolve unused vriable warning
 }
 
 /*****************************************************

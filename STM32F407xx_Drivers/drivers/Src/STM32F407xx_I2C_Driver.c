@@ -76,7 +76,7 @@ static uint32_t getAPB1ClkFreq() {
 	APB1Prescalar = (temp < 4U) ? APB1PreSclr[0] : APB1PreSclr[temp % 8 + 1];
 
 	//Return the APB1 clock freq
-	return ((uint32_t) ((float) sysClk / AHB1Prescalar / APB1Prescalar));
+	return (sysClk / AHB1Prescalar) / APB1Prescalar;
 }
 
 /*****************************************************
@@ -92,8 +92,9 @@ static uint32_t getAPB1ClkFreq() {
  */
 void I2C_Init(I2C_Handle_t* pI2CHandler) {
 
-	uint16_t APB1ClkFreq;
-	float T_I2C_SCL_SPEED, T_APB1ClkFreq;
+	uint16_t APB1ClkFreq, ccr_value;
+	uint32_t temp;
+	temp = 0, ccr_value = 0;
 
 	//Enable the peripheral clock
 	I2C_PeriClkCtrl(pI2CHandler->pI2Cx, ENABLE);
@@ -124,12 +125,12 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 
 	//Configure the SCL clock frequencies depending on the mode
 	//standard mode/Fast mode and duty cycle bit
-	pI2CHandler->pI2Cx->CCR |= pI2CHandler->I2C_Config.SCLSpeed << I2C_CCR_F_S;
-	pI2CHandler->pI2Cx->CCR |= pI2CHandler->I2C_Config.FMDutyCycle << I2C_CCR_DUTY;
+	temp |= pI2CHandler->I2C_Config.SCLSpeed << I2C_CCR_F_S;
+	temp |= pI2CHandler->I2C_Config.FMDutyCycle << I2C_CCR_DUTY;
 
 	//Given: T(High) + T(Low) = T(I2C_SCL_SPEED)
-	T_I2C_SCL_SPEED = (float) 1 / I2C_SCL_SPEED;
-	T_APB1ClkFreq	= (float) 1 / APB1ClkFreq;
+	//T_I2C_SCL_SPEED = (float) 1 / I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed);
+	//T_APB1ClkFreq	= (float) 1 / APB1ClkFreq;
 	if (pI2CHandler->pI2Cx->CCR & (1 << I2C_CCR_F_S)) { //Fast mode
 		if (pI2CHandler->pI2Cx->CCR & (1 << I2C_CCR_DUTY)) { //To reach 400khz
 
@@ -138,7 +139,7 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 			 *			     T(High) + T(Low) = 25 * CCR * T(PCLK1)
 			 *			     CCR = (T(High) + T(Low)) / (25 * T(PCLK1))
 			 */
-			pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (25 * T_APB1ClkFreq))) & 0xFFF;
+			ccr_value |= APB1ClkFreq / (25 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 		} else { //To reach 100kHz
 
 			/*	Calculation: T(High) = 1 * CCR * T(PCLK1)
@@ -146,7 +147,7 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 			 *			     T(High) + T(Low) = 3 * CCR * T(PCLK1)
 			 *			     CCR = (T(High) + T(Low)) / (3 * T(PCLK1))
 			 */
-			pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (3 * T_APB1ClkFreq))) & 0xFFF;
+			ccr_value |= APB1ClkFreq / (3 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 		}
 	} else { //Standard Mode
 
@@ -155,11 +156,14 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 		 *			     T(High) + T(Low) = 2 * CCR * T(PCLK1)
 		 *			     CCR = (T(High) + T(Low)) / (2 * T(PCLK1))
 		 */
-		pI2CHandler->pI2Cx->CCR |= ((uint16_t) ((T_I2C_SCL_SPEED) / (2 * T_APB1ClkFreq))) & 0xFFF;
+		ccr_value |= APB1ClkFreq / (2 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 	}
+	temp |= (ccr_value & 0xFFF);
+	pI2CHandler->pI2Cx->CCR = temp;
 
-	//Configure the Rise Time
-
+	//Configure the Rise Time (TRISE)
+	temp = (APB1ClkFreq * (I2C_T_RISE(pI2CHandler->I2C_Config.SCLSpeed))) / 1000000000U;
+	pI2CHandler->pI2Cx->TRISE = (temp + 1) & 0x3F;
 
 }
 
@@ -225,7 +229,6 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
     //	  	the BUSY bit is cleared.
     //	  	This also set the SB bit by hardware (see I2C_SR1 register for details)
     //      You may also need to enable the I2C_CR1 PE register
-    //
 	generateStartCondition(pI2CHandler->pI2Cx);
 
 	// Poll until the SB bit in SR1 register is set
@@ -265,13 +268,24 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
 	while (!(I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_BTF) &&
 			 I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_TXE)));
 
-	//Generate the Stop condition to terminate the sending request
+	//Generate the Stop condition to terminate the communication_SR1_BTF
 	generateStopCondition(pI2CHandler->pI2Cx);
 
 	//Memo: Cover the 10-bit addressing mode scenario later
 
 }
 
+/*****************************************************
+ * @fn					- I2C_CheckStatusFlag
+ *
+ * @brief				- Check the status of the given flag in either SR1 or SR2 register
+ *
+ * @param[in]			- address of status register of specific I2C peripherals
+ * @param[in]			- the status flag
+ *
+ * @return				- none
+ * @note				- none
+ */
 uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag) {
 	if ((*statusReg) & flag) {
 		return FLAG_SET;
@@ -279,25 +293,65 @@ uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag) {
 	return FLAG_RESET;
 }
 
+/*****************************************************
+ * @fn					- generateStartCondition()
+ *
+ * @brief				- helper function that generates the start condition for master
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ *
+ * @return				- none
+ * @note				- none
+ */
 static void generateStartCondition(I2C_Reg_t* pI2Cx) {
 	pI2Cx->CR1 |= 1 << I2C_CR1_START;
 }
 
+/*****************************************************
+ * @fn					- generateStopCondition()
+ *
+ * @brief				- helper function that generates the stop condition for master
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ *
+ * @return				- none
+ * @note				- none
+ */
 static void generateStopCondition(I2C_Reg_t* pI2Cx) {
 	pI2Cx->CR1 |= 1 << I2C_CR1_STOP;
 }
 
+/*****************************************************
+ * @fn					- clearFlagSB()
+ *
+ * @brief				- helper function that clear the SB status flag
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ *
+ * @return				- none
+ * @note				- none
+ */
 static void clearFlagSB(I2C_Reg_t* pI2Cx) {
 	uint32_t temp;
 	temp = pI2Cx->SR1;
 	(void) temp; //resolve unused variable warning
 }
 
+/*****************************************************
+ * @fn					- clearFlagADDR()
+ *
+ * @brief				- helper function that clear the ADDR status flag
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ *
+ * @return				- none
+ * @note				- none
+ */
 static void clearFlagADDR(I2C_Reg_t* pI2Cx) {
 	uint32_t temp;
 	temp = pI2Cx->SR1;
 	temp = pI2Cx->SR2;
-	(void) temp; //resolve unused vriable warning
+	(void) temp; //resolve unused variable warning
 }
 
 /*****************************************************

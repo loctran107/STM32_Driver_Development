@@ -30,8 +30,15 @@
  */
 #define I2C_SCL_SPEED_SM		0U		//Standard Mode (100Kbps)
 #define I2C_SCL_SPEED_FM		1U		//Fast Mode 	(400Kbps)
+#define I2C_SCL_SPEED(__SCL_SPEED__)    ((__SCL_SPEED__) ==  I2C_SCL_SPEED_FM) ? 400000U : 100000U
 
-#define I2C_SCL_SPEED			(I2C_SCL_SPEED_FM) ? 400000U : 100000U
+/*
+ * Maximum Rise time in Sm/Fm mode (microsecond)
+ * Note: Maximum rise time of Sm is 1000ns = 1 microseconds = 1/1000000 s
+ * 	     Maximum rise time of Fm is 300ns = 0.3 microseconds = 1/300000 s
+ */
+#define I2C_T_RISE(__SCL_SPEED__) 		((__SCL_SPEED__) == I2C_SCL_SPEED_FM) ? 300U : 1000U
+
 /*
  * @I2C_ACK_CTRL macros
  */

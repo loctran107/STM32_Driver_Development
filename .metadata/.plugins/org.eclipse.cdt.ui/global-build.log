@@ -2481,3 +2481,169 @@ Finished building: STM32F407xx_Drivers.bin
 Finished building: STM32F407xx_Drivers.list
  
  
+21:49:29 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+21:53:46 **** Clean-only build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 clean 
+rm -rf *
+ 
+21:53:47 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+    684	      8	   1568	   2260	    8d4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:47:09 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+../Src/012MasterSTMSlaveArduinoI2C.c: In function 'main':
+../Src/012MasterSTMSlaveArduinoI2C.c:24:10: error: 'GPIO_button' undeclared (first use in this function); did you mean 'GPIO_Button'?
+  memset(&GPIO_button, 0, sizeof(GPIO_Button));
+          ^~~~~~~~~~~
+          GPIO_Button
+../Src/012MasterSTMSlaveArduinoI2C.c:24:10: note: each undeclared identifier is reported only once for each function it appears in
+../Src/012MasterSTMSlaveArduinoI2C.c: In function 'GPIO_ButtonInit':
+../Src/012MasterSTMSlaveArduinoI2C.c:38:30: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  GPIO_Button->GPIOx_PinConfig->GPIO_PinMode = GPIO_INPUT_MODE;
+                              ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:39:30: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  GPIO_Button->GPIOx_PinConfig->GPIO_PinNumber = GPIO_PIN_0;
+                              ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:40:30: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  GPIO_Button->GPIOx_PinConfig->GPIO_PinPuPdCtrl = GPIO_NO_PU_PD;
+                              ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:41:30: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  GPIO_Button->GPIOx_PinConfig->GPIO_PinSpeed = GPIO_HIGH_SPEED;
+                              ^~
+../Src/012MasterSTMSlaveArduinoI2C.c: In function 'GPIO_I2CInit':
+../Src/012MasterSTMSlaveArduinoI2C.c:46:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinMode = GPIO_ALT_FUNC_MODE;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:47:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinAltFuncMode = AF4;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:48:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinNumber = GPIO_PIN_10 | GPIO_PIN_11;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:49:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinOPType = GPIO_OPEN_DRAIN;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:50:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinPuPdCtrl = GPIO_PU;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:51:27: error: invalid type argument of '->' (have 'GPIO_PinConfig_t {aka struct <anonymous>}')
+  I2C_GPIO->GPIOx_PinConfig->GPIO_PinSpeed = GPIO_HIGH_SPEED;
+                           ^~
+../Src/012MasterSTMSlaveArduinoI2C.c: In function 'I2C_HandlerInit':
+../Src/012MasterSTMSlaveArduinoI2C.c:56:25: error: invalid type argument of '->' (have 'I2C_Config_t {aka struct <anonymous>}')
+  I2C_Handler->I2C_Config->ACKControl = I2C_ACK_EN;
+                         ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:57:25: error: invalid type argument of '->' (have 'I2C_Config_t {aka struct <anonymous>}')
+  I2C_Handler->I2C_Config->FMDutyCycle = I2C_FM_DUTY_2;
+                         ^~
+../Src/012MasterSTMSlaveArduinoI2C.c:58:25: error: invalid type argument of '->' (have 'I2C_Config_t {aka struct <anonymous>}')
+  I2C_Handler->I2C_Config->SCLSpeed = I2C_SCL_SPEED_SM;
+                         ^~
+make: *** [Src/subdir.mk:24: Src/012MasterSTMSlaveArduinoI2C.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:48:08 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+../Src/012MasterSTMSlaveArduinoI2C.c: In function 'main':
+../Src/012MasterSTMSlaveArduinoI2C.c:24:10: error: 'GPIO_button' undeclared (first use in this function); did you mean 'GPIO_Button'?
+  memset(&GPIO_button, 0, sizeof(GPIO_Button));
+          ^~~~~~~~~~~
+          GPIO_Button
+../Src/012MasterSTMSlaveArduinoI2C.c:24:10: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:24: Src/012MasterSTMSlaveArduinoI2C.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:48:21 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    940	      8	   1568	   2516	    9d4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:48:51 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    940	      8	   1568	   2516	    9d4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:49:02 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    940	      8	   1568	   2516	    9d4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+22:49:58 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/012MasterSTMSlaveArduinoI2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/012MasterSTMSlaveArduinoI2C.d" -MT"Src/012MasterSTMSlaveArduinoI2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/012MasterSTMSlaveArduinoI2C.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+    940	      8	   1568	   2516	    9d4	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.list
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 

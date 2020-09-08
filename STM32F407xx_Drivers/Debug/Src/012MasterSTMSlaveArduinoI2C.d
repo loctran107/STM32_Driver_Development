@@ -1,5 +1,4 @@
-Src/011STMMasterArduinoSlaveReceive&Transmit.o: \
- ../Src/011STMMasterArduinoSlaveReceive&Transmit.c \
+Src/012MasterSTMSlaveArduinoI2C.o: ../Src/012MasterSTMSlaveArduinoI2C.c \
  ../Src/../drivers/Inc/stm32f407xx.h \
  ../Src/../drivers/Inc/../Inc/gpio_driver.h \
  ../Src/../drivers/Inc/../Inc/stm32f407xx.h \

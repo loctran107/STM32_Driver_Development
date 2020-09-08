@@ -1,0 +1,4 @@
+012MasterSTMSlaveArduinoI2C.c:19:5:main	72	static
+012MasterSTMSlaveArduinoI2C.c:35:6:GPIO_ButtonInit	16	static
+012MasterSTMSlaveArduinoI2C.c:43:6:GPIO_I2CInit	16	static
+012MasterSTMSlaveArduinoI2C.c:53:6:I2C_HandlerInit	16	static

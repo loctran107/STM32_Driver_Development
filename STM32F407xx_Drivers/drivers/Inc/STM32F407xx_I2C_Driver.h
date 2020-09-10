@@ -37,7 +37,7 @@
  * Note: Maximum rise time of Sm is 1000ns = 1 microseconds = 1/1000000 s
  * 	     Maximum rise time of Fm is 300ns = 0.3 microseconds = 1/300000 s
  */
-#define I2C_T_RISE(__SCL_SPEED__) 		((__SCL_SPEED__) == I2C_SCL_SPEED_FM) ? 300U : 1000U
+#define I2C_T_RISE(__SCL_SPEED__) 		((__SCL_SPEED__) == I2C_SCL_SPEED_FM) ? 3U : 10U
 
 /*
  * @I2C_ACK_CTRL macros
@@ -115,8 +115,8 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
  * I2C Master Tx and Rx
  * Note: len should always be in uint32_t
  */
-void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len, uint8_t* pSlaveAddress);
-void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len, uint8_t* pSlaveAddress);
+void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len, uint8_t pSlaveAddress);
+void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len, uint8_t pSlaveAddress);
 
 /*
  * I2C Slave Tx and Rx
@@ -136,6 +136,5 @@ void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
  */
 uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag);
 //uint8_t I2C_CheckStatusSR2Flag(I2C_Reg_t* pI2Cx, uint8_t flag);
-
 
 #endif /* INC_STM32F407XX_I2C_DRIVER_H_ */

@@ -62,9 +62,9 @@ static uint32_t getAPB1ClkFreq() {
 
 	//Determine what system clock the MCU is running
 	switch ((RCC->CFGR >> 2U) & 0x3) {
-	case RCC_HSE:	sysClk = HSE_CLK_FREQ;	//8MHz
-	case RCC_HSI:	sysClk = HSI_CLK_FREQ;	//16MHz
-	case RCC_PLL:	sysClk = getPLLClkFreq();	//See this function implementation for details
+	case RCC_HSE:	sysClk = HSE_CLK_FREQ; break; //8MHz
+	case RCC_HSI:	sysClk = HSI_CLK_FREQ; break; //16MHz
+	case RCC_PLL:	sysClk = getPLLClkFreq(); break; //See this function implementation for details
 	}
 
 	//Determine the prescalar factor AHB1 is using
@@ -92,9 +92,10 @@ static uint32_t getAPB1ClkFreq() {
  */
 void I2C_Init(I2C_Handle_t* pI2CHandler) {
 
-	uint16_t APB1ClkFreq, ccr_value;
-	uint32_t temp;
-	temp = 0, ccr_value = 0;
+	uint16_t ccr_value;
+	uint32_t APB1ClkFreq;
+	uint64_t temp;
+	temp = 0;
 
 	//Enable the peripheral clock
 	I2C_PeriClkCtrl(pI2CHandler->pI2Cx, ENABLE);
@@ -106,14 +107,13 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 	//Clock stretching is enabled by default in slave mode. To disable it,
 	//configure the I2C_CR1 register bit 7.
 
-	//Enable the Acknowledge bit
-	pI2CHandler->pI2Cx->CR1 |= (1 << I2C_CR1_ACK);
+	//I2C1->CR1 |= (1 << I2C_CR1_ACK);
 
 	//Select the peripheral clock frequency
 	//The other bits are ignored and set to 0 by default
 	APB1ClkFreq = getAPB1ClkFreq();
 	pI2CHandler->pI2Cx->CR2 |= (APB1ClkFreq / 1000000U) & 0x3F;
-
+	//I2C1->CR2 |= (APB1ClkFreq / 1000000U) & 0x3F;
 	//You may have option to configure the addressing mode in the I2C_OAR1
 	//register. However, we don't implement that as part of the configuration
 	//option in I2C. If you so wish to do it, implement that yourself!!!
@@ -139,7 +139,7 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 			 *			     T(High) + T(Low) = 25 * CCR * T(PCLK1)
 			 *			     CCR = (T(High) + T(Low)) / (25 * T(PCLK1))
 			 */
-			ccr_value |= APB1ClkFreq / (25 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
+			ccr_value = APB1ClkFreq / (25 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 		} else { //To reach 100kHz
 
 			/*	Calculation: T(High) = 1 * CCR * T(PCLK1)
@@ -147,7 +147,7 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 			 *			     T(High) + T(Low) = 3 * CCR * T(PCLK1)
 			 *			     CCR = (T(High) + T(Low)) / (3 * T(PCLK1))
 			 */
-			ccr_value |= APB1ClkFreq / (3 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
+			ccr_value = APB1ClkFreq / (3 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 		}
 	} else { //Standard Mode
 
@@ -156,13 +156,16 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 		 *			     T(High) + T(Low) = 2 * CCR * T(PCLK1)
 		 *			     CCR = (T(High) + T(Low)) / (2 * T(PCLK1))
 		 */
-		ccr_value |= APB1ClkFreq / (2 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
+		ccr_value = APB1ClkFreq / (2 * (I2C_SCL_SPEED(pI2CHandler->I2C_Config.SCLSpeed)));
 	}
 	temp |= (ccr_value & 0xFFF);
 	pI2CHandler->pI2Cx->CCR = temp;
 
+	//Clear the TRISE reg
+	pI2CHandler->pI2Cx->TRISE &= ~((int) 1);
+
 	//Configure the Rise Time (TRISE)
-	temp = (APB1ClkFreq * (I2C_T_RISE(pI2CHandler->I2C_Config.SCLSpeed))) / 1000000000U;
+	temp = APB1ClkFreq * (I2C_T_RISE(pI2CHandler->I2C_Config.SCLSpeed)) / (10000000U);
 	pI2CHandler->pI2Cx->TRISE = (temp + 1) & 0x3F;
 
 }
@@ -201,8 +204,11 @@ void I2C_DeInit(I2C_Reg_t* pI2Cx) {
 void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
 	if (EnOrDi) {
 		pI2Cx->CR1 |= (1 << I2C_CR1_PE);
+
+		//Enable the Acknowledge bit
+		pI2Cx->CR1 |=  1 << I2C_CR1_ACK;
 	} else {
-		pI2Cx->CR1 &= ~(1 << I2C_CR1_PE);
+		pI2Cx->CR1 &= ~(1 << I2C_CR1_PE); //clearing PE also clears ACK
 	}
 }
 
@@ -221,7 +227,7 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
  * 						  in MCU Reference Manual for more details
  */
 void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
-		                uint32_t len, uint8_t* pSlaveAddress) {
+		                uint32_t len, uint8_t pSlaveAddress) {
 
     // Activate the Start condition
     // Note: Setting the START bit causes the interface to generate
@@ -240,7 +246,7 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
 	// SCL will be pulled low and the transmission is delay (which
 	// we don't want, obviously)
 	clearFlagSB(pI2CHandler->pI2Cx);
-	pI2CHandler->pI2Cx->DR = (*pSlaveAddress) << 1; //Write the slave address to DR register
+	pI2CHandler->pI2Cx->DR = (pSlaveAddress << 1); //Write the slave address to DR register
 
 	//Polling until the ADDR bit is set
 	while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_ADDR));

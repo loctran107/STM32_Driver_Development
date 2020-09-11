@@ -16,6 +16,12 @@ static void generateStartCondition(I2C_Reg_t* pI2Cx);
 static void generateStopCondition(I2C_Reg_t* pI2Cx);
 static void clearFlagSB(I2C_Reg_t* pI2Cx);
 static void clearFlagADDR(I2C_Reg_t* pI2Cx);
+static void ctrlBitACK(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+static void ctrlBitPOS(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+
+static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer);
+static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len);
+
 
 /*****************************************************
  * @fn					- I2C_PeriClkCtrl
@@ -106,8 +112,6 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
 	//important features in I2C, used by both master and slave.
 	//Clock stretching is enabled by default in slave mode. To disable it,
 	//configure the I2C_CR1 register bit 7.
-
-	//I2C1->CR1 |= (1 << I2C_CR1_ACK);
 
 	//Select the peripheral clock frequency
 	//The other bits are ignored and set to 0 by default
@@ -206,7 +210,7 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
 		pI2Cx->CR1 |= (1 << I2C_CR1_PE);
 
 		//Enable the Acknowledge bit
-		pI2Cx->CR1 |=  1 << I2C_CR1_ACK;
+		ctrlBitACK(pI2Cx, ENABLE);
 	} else {
 		pI2Cx->CR1 &= ~(1 << I2C_CR1_PE); //clearing PE also clears ACK
 	}
@@ -278,8 +282,149 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
 	generateStopCondition(pI2CHandler->pI2Cx);
 
 	//Memo: Cover the 10-bit addressing mode scenario later
-
 }
+
+/*****************************************************
+ * @fn					- I2C_MasterReceiveData
+ *
+ * @brief				- Receive the data from master to slave
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ * @param[in]			- buffer for reception (RxBuffer)
+ * @param[in]			- length of the buffer (len)
+ * @param[in]			- slave address
+ *
+ * @return				- none
+ * @note				- See the Transfer Sequence diagram for master recevier on page 850
+ * 						  in MCU Reference Manual for more details
+ */
+void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
+		                uint32_t len, uint8_t pSlaveAddress) {
+
+	//Generate a start condition
+	generateStartCondition(pI2CHandler->pI2Cx);
+
+	// Poll until the SB bit in SR1 register is set
+	// This is important if any of the bit is set by HARDWARE
+	while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_SB));
+
+	// Clear the SB bit by reading SR1 register followed by
+	// writing DR register with Address. If SB bit not clear,
+	// SCL will be pulled low and the transmission is delay (which
+	// we don't want, obviously)
+	clearFlagSB(pI2CHandler->pI2Cx);
+	pI2CHandler->pI2Cx->DR = (pSlaveAddress << 1) | 0x1; //Write the slave address to DR register
+														 //with the r/w bit high at the end
+	//Polling until the ADDR bit is set
+	while (!I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_ADDR));
+
+	if (len > 1) {
+		//Handle len > 2 bytes reception
+		multipleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer, len);
+	} else {
+		//Handle single data byte reception
+		singleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer);
+	}
+
+	//Re-enable the ACK
+	if (pI2CHandler->I2C_Config.ACKControl == ENABLE) {
+		ctrlBitACK(pI2CHandler->pI2Cx, ENABLE);
+	}
+}
+
+
+static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer) {
+
+	//In the even of having 1 byte reception, the Acknowledge bit must be disabled
+	//in the EV6 before clearing the ADDR flag
+	ctrlBitACK(pI2Cx, DISABLE);
+
+	//clear the ADDR flag
+	clearFlagADDR(pI2Cx);
+
+	//Wait until the RXNE is set (DR is not empty)
+	while (!I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_RXNE));
+
+	//generate stop condition
+	generateStopCondition(pI2Cx);
+
+	//Finally read the 1 byte data into the buffer
+	*pRxBuffer =  pI2Cx->DR;
+}
+
+
+static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len) {
+
+
+	//Set the POS bit if len is 2
+	if (len == 2) {
+		ctrlBitPOS(pI2Cx, ENABLE);
+	}
+
+	//As soon as the slave address is sent, the ADDR bit is set by HARDWARE
+	//and an interrupt is generated if the ITEVFEN bit is set (which we don't cover in
+	//this case). Clear this by reading SR1 register followed by reading SR2
+	clearFlagADDR(pI2Cx);
+
+	while (len) {
+
+		//Polling until the Transmit register buffer is empty (RXNE = 1)
+		while (!I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_RXNE));
+
+		//Closing the master reception at the second last byte
+		//by sending the NACK to the slave
+		if (len == 2) {
+			ctrlBitACK(pI2Cx, DISABLE);
+
+			//generate stop condition
+			generateStopCondition(pI2Cx);
+		}
+
+		//Read the DR register
+		*pRxBuffer = pI2Cx->DR;
+		len--;
+		pRxBuffer++; //increment a byte
+	}
+}
+
+/*****************************************************
+ * @fn					- ctrlBitACK
+ *
+ * @brief				- Check the status of the given flag in either SR1 or SR2 register
+ *
+ * @param[in]			- address of status register of specific I2C peripherals
+ * @param[in]			- the status flag
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void ctrlBitACK(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		pI2Cx->CR1 |= (1 << I2C_CR1_ACK);
+	} else {
+		pI2Cx->CR1 &= ~(1 << I2C_CR1_ACK);
+	}
+}
+
+/*****************************************************
+ * @fn					- ctrlBitPOS
+ *
+ * @brief				- Check the status of the given flag in either SR1 or SR2 register
+ *
+ * @param[in]			- address of status register of specific I2C peripherals
+ * @param[in]			- the status flag
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void ctrlBitPOS(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		pI2Cx->CR1 |= (1 << I2C_CR1_POS);
+	} else {
+		pI2Cx->CR1 &= ~(1 << I2C_CR1_POS);
+	}
+}
+
 
 /*****************************************************
  * @fn					- I2C_CheckStatusFlag

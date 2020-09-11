@@ -11,6 +11,11 @@
 #include "stm32f407xx.h"
 
 /*
+ * @I2C_SR (Repeated Start)
+ */
+#define I2C_SR_SET				SET
+#define I2C_SR_RESET			RESET
+/*
  * @I2C_MODE_SELECTION macros
  */
 #define I2C_MODE_SLAVE_TX		0U		//Slave Transmitter
@@ -115,8 +120,10 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
  * I2C Master Tx and Rx
  * Note: len should always be in uint32_t
  */
-void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len, uint8_t pSlaveAddress);
-void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len, uint8_t pSlaveAddress);
+void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+						uint8_t pSlaveAddress, uint8_t repeatedStart);
+void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+		 	 	 	 	   uint8_t pSlaveAddress, uint8_t repeatedStart);
 
 /*
  * I2C Slave Tx and Rx

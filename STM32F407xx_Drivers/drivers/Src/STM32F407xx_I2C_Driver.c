@@ -8,7 +8,7 @@
 #include "../Inc/STM32F407xx_I2C_Driver.h"
 
 /*
- * Helper function not accessible by the user application
+ * Helper functions not accessible by the user application
  */
 static uint32_t getAPB1ClkFreq();
 static uint32_t getPLLClkFreq();
@@ -19,8 +19,8 @@ static void clearFlagADDR(I2C_Reg_t* pI2Cx);
 static void ctrlBitACK(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 static void ctrlBitPOS(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 
-static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer);
-static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len);
+static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t repeatedStart);
+static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len,  uint8_t repeatedStart);
 
 
 /*****************************************************
@@ -231,7 +231,7 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
  * 						  in MCU Reference Manual for more details
  */
 void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
-		                uint32_t len, uint8_t pSlaveAddress) {
+		                uint32_t len, uint8_t pSlaveAddress, uint8_t repeatedStart) {
 
     // Activate the Start condition
     // Note: Setting the START bit causes the interface to generate
@@ -278,9 +278,16 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
 	while (!(I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_BTF) &&
 			 I2C_CheckStatusFlag(&pI2CHandler->pI2Cx->SR1, I2C_FLAG_SR1_TXE)));
 
-	//Generate the Stop condition to terminate the communication_SR1_BTF
-	generateStopCondition(pI2CHandler->pI2Cx);
-
+	//When Repeated Start condition is enabled, master halts generating the stop
+	//condition and continues the transaction.
+	//Note: The purpose of using the repeated start condition is especially
+	//		critical in multi-master transaction. Unless the right repeated start
+	//		is inserted, other master can take over the transaction, thus abruptly
+	//		cut off the task that the current master is about to perform.
+	if (!repeatedStart) {
+		//Generate the Stop condition to terminate the communication automatically clears the BTF bit
+		generateStopCondition(pI2CHandler->pI2Cx);
+	}
 	//Memo: Cover the 10-bit addressing mode scenario later
 }
 
@@ -299,7 +306,7 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
  * 						  in MCU Reference Manual for more details
  */
 void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
-		                uint32_t len, uint8_t pSlaveAddress) {
+		                uint32_t len, uint8_t pSlaveAddress, uint8_t repeatedStart) {
 
 	//Generate a start condition
 	generateStartCondition(pI2CHandler->pI2Cx);
@@ -320,10 +327,10 @@ void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
 
 	if (len > 1) {
 		//Handle len > 2 bytes reception
-		multipleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer, len);
+		multipleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer, len, repeatedStart);
 	} else {
 		//Handle single data byte reception
-		singleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer);
+		singleDataRecepHandler(pI2CHandler->pI2Cx, pRxBuffer, repeatedStart);
 	}
 
 	//Re-enable the ACK
@@ -332,8 +339,18 @@ void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
 	}
 }
 
-
-static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer) {
+/*****************************************************
+ * @fn					- singleDataRecepHandler
+ *
+ * @brief				- Handle the case with single byte reception
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ * @param[in]			- buffer for reception (RxBuffer)
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t repeatedStart) {
 
 	//In the even of having 1 byte reception, the Acknowledge bit must be disabled
 	//in the EV6 before clearing the ADDR flag
@@ -345,15 +362,28 @@ static void singleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer) {
 	//Wait until the RXNE is set (DR is not empty)
 	while (!I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_RXNE));
 
-	//generate stop condition
-	generateStopCondition(pI2Cx);
+	if (!repeatedStart) {
+		//generate stop condition
+		generateStopCondition(pI2Cx);
+	}
 
 	//Finally read the 1 byte data into the buffer
 	*pRxBuffer =  pI2Cx->DR;
 }
 
-
-static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len) {
+/*****************************************************
+ * @fn					- multipleDataRecepHandler
+ *
+ * @brief				- handle multiple byte reception
+ *
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
+ * @param[in]			- buffer for reception (RxBuffer)
+ * @param[in]			- length of the buffer (len)
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8_t len, uint8_t repeatedStart) {
 
 
 	//Set the POS bit if len is 2
@@ -376,8 +406,10 @@ static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8
 		if (len == 2) {
 			ctrlBitACK(pI2Cx, DISABLE);
 
-			//generate stop condition
-			generateStopCondition(pI2Cx);
+			if (!repeatedStart) {
+				//generate stop condition
+				generateStopCondition(pI2Cx);
+			}
 		}
 
 		//Read the DR register
@@ -390,10 +422,10 @@ static void multipleDataRecepHandler(I2C_Reg_t* pI2Cx, uint8_t *pRxBuffer, uint8
 /*****************************************************
  * @fn					- ctrlBitACK
  *
- * @brief				- Check the status of the given flag in either SR1 or SR2 register
+ * @brief				- Enable or Disable the ACK bit
  *
- * @param[in]			- address of status register of specific I2C peripherals
- * @param[in]			- the status flag
+ * @param[in]			- Base address of a specific I2C peripheral
+ * @param[in]			- ENABLE or DISABLE macro
  *
  * @return				- none
  * @note				- none
@@ -409,10 +441,10 @@ static void ctrlBitACK(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
 /*****************************************************
  * @fn					- ctrlBitPOS
  *
- * @brief				- Check the status of the given flag in either SR1 or SR2 register
+ * @brief				- Enable or Disable the POS bit
  *
- * @param[in]			- address of status register of specific I2C peripherals
- * @param[in]			- the status flag
+ * @param[in]			- Base address of a specific I2C peripheral
+ * @param[in]			- ENABLE or DISABLE macro
  *
  * @return				- none
  * @note				- none

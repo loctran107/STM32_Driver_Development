@@ -53,26 +53,28 @@ int main() {
 		//to avoid button de-bouncing related issues 200ms of delay
 		delay();
 
-		//Send the command code to slave
+		//Send the command code to slave and enable the repeated start condition
 		uint8_t command = COMMAND_REQUEST;
-		I2C_MasterSendData(&I2C_Handler, &command, 1, SLAVE_ADDR);
+		I2C_MasterSendData(&I2C_Handler, &command, 1, SLAVE_ADDR, I2C_SR_SET);
 
 		delay();
 
 		//Read the length (1 byte) of the data from slave
 		uint8_t len_data;
-		I2C_MasterReceiveData(&I2C_Handler, &len_data, 1, SLAVE_ADDR);
+		I2C_MasterReceiveData(&I2C_Handler, &len_data, 1, SLAVE_ADDR, I2C_SR_SET);
 
 		//Master sends command code 0x52 to read complete data from slave
+		//AND enable the repeated start condition
 		command = COMMAND_READ_DATA;
-		I2C_MasterSendData(&I2C_Handler, &command, 1, SLAVE_ADDR);
+		I2C_MasterSendData(&I2C_Handler, &command, 1, SLAVE_ADDR, I2C_SR_SET);
 
 		delay();
 
 		//Read the complete data from the slave
-		I2C_MasterReceiveData(&I2C_Handler, dummy, sizeof(dummy), SLAVE_ADDR);
+	//	uint8_t dummy[len_data + 1];
+		I2C_MasterReceiveData(&I2C_Handler, dummy, len_data, SLAVE_ADDR, I2C_SR_RESET);
 		dummy[len_data] = '\0';
-		printf("%s", dummy);
+		printf("%s", dummy); //use semi-hosting to print on the terminal instead of ITM (Instrumentation Macrocell)
 
 	}
 

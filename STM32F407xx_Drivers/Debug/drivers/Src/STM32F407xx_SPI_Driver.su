@@ -2,7 +2,7 @@ STM32F407xx_SPI_Driver.c:30:6:SPI_PeriClkCtrl	16	static
 STM32F407xx_SPI_Driver.c:48:6:SPI_Init	32	static
 STM32F407xx_SPI_Driver.c:124:6:SPI_PeripheralEnable	16	static
 STM32F407xx_SPI_Driver.c:142:6:SPI_DeInit	16	static
-STM32F407xx_SPI_Driver.c:155:9:SPI_CheckStatusFlag	16	static
+STM32F407xx_SPI_Driver.c:155:16:SPI_CheckStatusFlag	16	static
 STM32F407xx_SPI_Driver.c:178:6:SPI_SendData	24	static
 STM32F407xx_SPI_Driver.c:209:6:SPI_ReceiveData	24	static
 STM32F407xx_SPI_Driver.c:243:9:SPI_SendDataIT	32	static

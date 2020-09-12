@@ -186,7 +186,6 @@ void SPI_IRQHandling(SPI_Handle_t* pSPIHandler);
 /*
  * Check if the SPI is still busy transmitting bytes of data
  */
-uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
 void SPI_ClearOVRFlag(SPI_Reg_t* pSPIx);
 void SPI_CloseTransmission(SPI_Handle_t* pSPIHandler);
 void SPI_CloseReception(SPI_Handle_t* pSPIHandler);

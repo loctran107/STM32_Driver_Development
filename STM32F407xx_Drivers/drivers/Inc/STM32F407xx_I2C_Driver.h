@@ -11,6 +11,13 @@
 #include "stm32f407xx.h"
 
 /*
+ * @I2C_APPLICATION_STATES
+ */
+#define I2C_READY				0U
+#define I2C_BUSY_IN_RX			1U
+#define I2C_BUSY_IN_TX			2U
+
+/*
  * @I2C_SR (Repeated Start)
  */
 #define I2C_SR_SET				SET
@@ -57,13 +64,34 @@
 #define I2C_FM_DUTY_16_9		SET
 
 /*
- * @I2C Status Flag
+ * @I2C SR1 Status Flag
  */
 #define I2C_FLAG_SR1_SB			(1 << I2C_SR1_SB)
 #define I2C_FLAG_SR1_ADDR		(1 << I2C_SR1_ADDR)
 #define I2C_FLAG_SR1_TXE		(1 << I2C_SR1_TXE)
 #define I2C_FLAG_SR1_RXNE		(1 << I2C_SR1_RXNE)
 #define I2C_FLAG_SR1_BTF		(1 << I2C_SR1_BTF)
+#define I2C_FLAG_SR1_TIMEOUT	(1 << I2C_SR1_TIMEOUT)
+#define I2C_FLAG_SR1_PECERR		(1 << I2C_SR1_PECERR)
+#define I2C_FLAG_SR1_OVR		(1 << I2C_SR1_OVR)
+#define I2C_FLAG_SR1_AF			(1 << I2C_SR1_AF)
+#define I2C_FLAG_SR1_ARLO		(1 << I2C_SR1_ARLO)
+#define I2C_FLAG_SR1_BERR		(1 << I2C_SR1_BERR)
+#define I2C_FLAG_SR1_STOPF		(1 << I2C_SR1_STOPF)
+#define I2C_FLAG_SR1_ADD10		(1 << I2C_SR1_ADD10)
+#define I2C_FLAG_SR1_SMBALERT	(1 << I2C_SR1_SMBALERT)
+
+/*
+ * @I2C SR2 Status flag
+ */
+#define I2C_FLAG_SR2_SML		(1 << I2C_SR2_MSL)
+
+/*
+ * @I2C Application Event Status
+ */
+#define I2C_EVT_TXE_CMPLT		0U
+#define I2C_EVT_RXNE_CMPLT		1U
+#define I2C_EVT_STOPF_CMPLT		2U
 /*******************************I2C FUNCTION MACROS**************************************/
 /*
  * I2C Peripheral Clock Enable
@@ -91,8 +119,16 @@ typedef struct {
  * Handle structure of I2C peripherals
  */
 typedef struct {
-	I2C_Reg_t*		pI2Cx; 		//I2Cx peripheral base address
-	I2C_Config_t	I2C_Config;	//I2C configuration structure
+	I2C_Reg_t*		pI2Cx; 			//I2Cx peripheral base address
+	uint8_t*		pTxBuffer;		//pointer to Tx buffer
+	uint8_t*		pRxBuffer;		//pointer to Rx buffer
+	I2C_Config_t	I2C_Config;		//I2C configuration structure
+	uint32_t 		TxLen;			//length of Tx buffer
+	uint32_t 		RxLen;			//length of Rx buffer
+	uint32_t 		RxSize;			//Size of the Rx buffer
+	uint8_t 		TxRxState;		//since I2C is half-duplex in STM32, we only need 1 state
+	uint8_t 		RepeatedStart;	//repeated Start condition
+	uint8_t 		DeviceAddr;		//storing the device address
 } I2C_Handle_t;
 
 
@@ -119,12 +155,19 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 /*
  * I2C Master Tx and Rx
  * Note: len should always be in uint32_t
+ * 		 The interrupt API returns the application states
  */
 void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
 						uint8_t pSlaveAddress, uint8_t repeatedStart);
 void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
 		 	 	 	 	   uint8_t pSlaveAddress, uint8_t repeatedStart);
-
+/*
+ * I2C Master Tx and RX interrupt API
+ */
+uint8_t I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+						uint8_t pSlaveAddress, uint8_t repeatedStart);
+uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+		 	 	 	 	     uint8_t pSlaveAddress, uint8_t repeatedStart);
 /*
  * I2C Slave Tx and Rx
  */
@@ -139,9 +182,20 @@ void I2C_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
 void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
 
 /*
+ * I2C Event and Error IRQ Handling
+ */
+void I2C_EV_IRQHandling(I2C_Handle_t* pI2CHandler);
+void I2C_ER_IRQHandling(I2C_Handle_t* pI2CHandler);
+
+/*
  * Check if the I2C is still busy transmitting bytes of data
  */
-uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag);
-//uint8_t I2C_CheckStatusSR2Flag(I2C_Reg_t* pI2Cx, uint8_t flag);
+uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag);
+
+/*
+ * Other application APIs
+ */
+void I2C_ApplicationEventCallBack(I2C_Handle_t* pI2CHandler, uint8_t eventStatus);
+
 
 #endif /* INC_STM32F407XX_I2C_DRIVER_H_ */

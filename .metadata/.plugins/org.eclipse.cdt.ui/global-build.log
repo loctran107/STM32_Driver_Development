@@ -157,3 +157,1538 @@ Finished building: STM32F407xx_Drivers.bin
 Finished building: STM32F407xx_Drivers.list
  
  
+23:44:59 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+11:32:43 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+11:36:59 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:233:6: error: conflicting types for 'I2C_MasterSendData'
+ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
+      ^~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:139:9: note: previous declaration of 'I2C_MasterSendData' was here
+ uint8_t I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:308:6: error: conflicting types for 'I2C_MasterReceiveData'
+ void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:141:9: note: previous declaration of 'I2C_MasterReceiveData' was here
+ uint8_t I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:29:12 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:233:6: error: conflicting types for 'I2C_MasterSendData'
+ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
+      ^~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:139:9: note: previous declaration of 'I2C_MasterSendData' was here
+ uint8_t I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:308:6: error: conflicting types for 'I2C_MasterReceiveData'
+ void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:141:9: note: previous declaration of 'I2C_MasterReceiveData' was here
+ uint8_t I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:598:9: error: conflicting types for 'I2C_MasterSendDataIT'
+ uint8_t I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:146:6: note: previous declaration of 'I2C_MasterSendDataIT' was here
+ void I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+      ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:645:9: error: conflicting types for 'I2C_MasterReceiveDataIT'
+ uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:148:6: note: previous declaration of 'I2C_MasterReceiveDataIT' was here
+ void I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+      ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:29:39 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:233:6: error: conflicting types for 'I2C_MasterSendData'
+ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer,
+      ^~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:139:9: note: previous declaration of 'I2C_MasterSendData' was here
+ uint8_t I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:308:6: error: conflicting types for 'I2C_MasterReceiveData'
+ void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer,
+      ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:141:9: note: previous declaration of 'I2C_MasterReceiveData' was here
+ uint8_t I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:598:9: error: conflicting types for 'I2C_MasterSendDataIT'
+ uint8_t I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:146:6: note: previous declaration of 'I2C_MasterSendDataIT' was here
+ void I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+      ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:645:9: error: conflicting types for 'I2C_MasterReceiveDataIT'
+ uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+         ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:148:6: note: previous declaration of 'I2C_MasterReceiveDataIT' was here
+ void I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+      ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:30:27 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+13:41:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+13:54:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+13:54:30 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:07:50 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:3: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+   I2C_TXE_IT_Handle(); //Master Transmit Handle
+   ^~~~~~~~~~~~~~~~~
+   I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:3: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+   I2C_RXNE_IT_Handle(); //Master Receive Handle
+   ^~~~~~~~~~~~~~~~~~
+   I2C_ER_IRQHandling
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:31:30 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:6: error: 'temp1' undeclared (first use in this function); did you mean 'temp'?
+  if (temp1 && temp2) {
+      ^~~~~
+      temp
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:6: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:15: error: 'temp2' undeclared (first use in this function); did you mean 'temp1'?
+  if (temp1 && temp2) {
+               ^~~~~
+               temp1
+../drivers/Src/STM32F407xx_I2C_Driver.c:704:10: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  uint8_t temp;
+          ^~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:31:45 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:6: error: 'temp1' undeclared (first use in this function); did you mean 'temp'?
+  if (temp1 && temp2) {
+      ^~~~~
+      temp
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:6: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:15: error: 'temp2' undeclared (first use in this function); did you mean 'temp1'?
+  if (temp1 && temp2) {
+               ^~~~~
+               temp1
+../drivers/Src/STM32F407xx_I2C_Driver.c:704:10: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  uint8_t temp;
+          ^~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:32:02 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:38:20 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1 << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:708:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:4: warning: implicit declaration of function 'I2C_OVR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_OVR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1 << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:711:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:712:4: warning: implicit declaration of function 'I2C_AF_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_AF_IT_Handle();
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:714:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:715:4: warning: implicit declaration of function 'I2C_BERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_BERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:718:4: warning: implicit declaration of function 'I2C_ARLO_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_ARLO_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1 << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:4: warning: implicit declaration of function 'I2C_PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_PECERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:724:4: warning: implicit declaration of function 'I2C_TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    I2C_TIMEOUT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:727:4: warning: implicit declaration of function 'I2C_SMBALERT_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_SMBALERT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:39:55 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1 << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:708:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:4: warning: implicit declaration of function 'I2C_OVR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_OVR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1 << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:711:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:712:4: warning: implicit declaration of function 'I2C_AF_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_AF_IT_Handle();
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:714:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:715:4: warning: implicit declaration of function 'I2C_BERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_BERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:718:4: warning: implicit declaration of function 'I2C_ARLO_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_ARLO_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1 << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:4: warning: implicit declaration of function 'I2C_PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_PECERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (uint16_t) (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:724:4: warning: implicit declaration of function 'I2C_TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    I2C_TIMEOUT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:727:4: warning: implicit declaration of function 'I2C_SMBALERT_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_SMBALERT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:40:10 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:694:4: warning: implicit declaration of function 'I2C_TXE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_TXE_IT_Handle(); //Master Transmit Handle
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:696:4: warning: implicit declaration of function 'I2C_RXNE_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_RXNE_IT_Handle(); //Master Receive Handle
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1 << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:708:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:709:4: warning: implicit declaration of function 'I2C_OVR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_OVR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1 << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:711:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:712:4: warning: implicit declaration of function 'I2C_AF_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_AF_IT_Handle();
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:714:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:715:4: warning: implicit declaration of function 'I2C_BERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_BERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:718:4: warning: implicit declaration of function 'I2C_ARLO_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_ARLO_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1 << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:4: warning: implicit declaration of function 'I2C_PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_PECERR_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (uint32_t) (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:724:4: warning: implicit declaration of function 'I2C_TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    I2C_TIMEOUT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:727:4: warning: implicit declaration of function 'I2C_SMBALERT_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    I2C_SMBALERT_IT_Handle();
+    ^~~~~~~~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:47:03 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1 << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1 << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1 << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:729:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:732:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:735:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:25:13: warning: 'TXE_IT_Handle' used but never defined
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:26:13: warning: 'RXNE_IT_Handle' used but never defined
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:27:13: warning: 'BERR_IT_Handle' used but never defined
+ static void BERR_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:28:13: warning: 'ARLO_IT_Handle' used but never defined
+ static void ARLO_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:29:13: warning: 'AF_IT_Handle' used but never defined
+ static void AF_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:30:13: warning: 'OVR_IT_Handle' used but never defined
+ static void OVR_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:31:13: warning: 'PECERR_IT_Handle' used but never defined
+ static void PECERR_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:32:13: warning: 'TIMEOUT_IT_Handle' used but never defined
+ static void TIMEOUT_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:33:13: warning: 'SMBALERT_IT_Handle' used but never defined
+ static void SMBALERT_IT_Handle(I2C_Handle_t* pI2CHandler);
+             ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:48:06 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1 << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1 << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1 << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:729:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:732:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:735:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:48:35 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1U << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1U << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1U << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:729:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (1U << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:732:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:735:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:49:16 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1U << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR) == I2C_FLAG_SR1_OVR) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1U << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1U << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:729:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT ((uint16_t) 1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:732:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:735:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:50:17 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:76:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_OVR  (1U << I2C_SR1_OVR)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:717:40: note: in expansion of macro 'I2C_FLAG_SR1_OVR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_OVR)) {
+                                        ^~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:77:27: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_AF   (1U << I2C_SR1_AF)
+                           ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:720:40: note: in expansion of macro 'I2C_FLAG_SR1_AF'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_AF) == I2C_FLAG_SR1_AF) {
+                                        ^~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:79:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_BERR  (1 << I2C_SR1_BERR)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:723:40: note: in expansion of macro 'I2C_FLAG_SR1_BERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_BERR) == I2C_FLAG_SR1_BERR) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:78:28: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_ARLO  (1 << I2C_SR1_ARLO)
+                            ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:726:40: note: in expansion of macro 'I2C_FLAG_SR1_ARLO'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_ARLO) == I2C_FLAG_SR1_ARLO) {
+                                        ^~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:75:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_PECERR  (1U << I2C_SR1_PECERR)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:729:40: note: in expansion of macro 'I2C_FLAG_SR1_PECERR'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_PECERR) == I2C_FLAG_SR1_PECERR) {
+                                        ^~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:74:30: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_TIMEOUT (1 << I2C_SR1_TIMEOUT)
+                              ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:732:40: note: in expansion of macro 'I2C_FLAG_SR1_TIMEOUT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_TIMEOUT) == I2C_FLAG_SR1_TIMEOUT) {
+                                        ^~~~~~~~~~~~~~~~~~~~
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:82:31: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define I2C_FLAG_SR1_SMBALERT (1 << I2C_SR1_SMBALERT)
+                               ^
+../drivers/Src/STM32F407xx_I2C_Driver.c:735:40: note: in expansion of macro 'I2C_FLAG_SR1_SMBALERT'
+   if (I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SMBALERT) == I2C_FLAG_SR1_SMBALERT) {
+                                        ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:51:55 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:480:9: error: conflicting types for 'I2C_CheckStatusFlag'
+ uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag) {
+         ^~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:0:
+../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:182:9: note: previous declaration of 'I2C_CheckStatusFlag' was here
+ uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint8_t flag);
+         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:52:11 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:52:57 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+../drivers/Src/STM32F407xx_SPI_Driver.c:18:16: error: conflicting types for 'SPI_CheckStatusFlag'
+ static uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint16_t flag);
+                ^~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:0:
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:189:9: note: previous declaration of 'SPI_CheckStatusFlag' was here
+ uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
+         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/STM32F407xx_SPI_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:53:42 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+../drivers/Src/STM32F407xx_SPI_Driver.c:18:16: error: conflicting types for 'SPI_CheckStatusFlag'
+ static uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint16_t flag);
+                ^~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:0:
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:189:9: note: previous declaration of 'SPI_CheckStatusFlag' was here
+ uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
+         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/STM32F407xx_SPI_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:54:09 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+../drivers/Src/STM32F407xx_SPI_Driver.c:155:9: error: conflicting types for 'SPI_CheckStatusFlag'
+ uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint16_t flag) {
+         ^~~~~~~~~~~~~~~~~~~
+In file included from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:0:
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:189:9: note: previous declaration of 'SPI_CheckStatusFlag' was here
+ uint8_t SPI_CheckStatusFlag(SPI_Reg_t* pSPIx, uint8_t flag);
+         ^~~~~~~~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/STM32F407xx_SPI_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:54:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+15:10:01 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8836	    108	   1580	  10524	   291c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+20:59:02 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_MasterSendData':
+../drivers/Src/STM32F407xx_I2C_Driver.c:271:26: warning: passing argument 1 of 'sendAddressToSlaveWrite' from incompatible pointer type [-Wincompatible-pointer-types]
+  sendAddressToSlaveWrite(pI2CHandler, pSlaveAddress);
+                          ^~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:22:13: note: expected 'I2C_Reg_t * {aka struct I2C_Register *}' but argument is of type 'I2C_Handle_t * {aka struct <anonymous> *}'
+ static void sendAddressToSlaveWrite(I2C_Reg_t* pI2Cs, uint8_t pSlaveAddress);
+             ^~~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'sendAddressToSlaveWrite':
+../drivers/Src/STM32F407xx_I2C_Driver.c:315:2: error: 'pI2CHandler' undeclared (first use in this function); did you mean 'I2C_Handle_t'?
+  pI2CHandler->pI2Cx->DR = (pSlaveAddress << 1);
+  ^~~~~~~~~~~
+  I2C_Handle_t
+../drivers/Src/STM32F407xx_I2C_Driver.c:315:2: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_MasterReceiveData':
+../drivers/Src/STM32F407xx_I2C_Driver.c:347:25: warning: passing argument 1 of 'sendAddressToSlaveRead' from incompatible pointer type [-Wincompatible-pointer-types]
+  sendAddressToSlaveRead(pI2CHandler, pSlaveAddress);
+                         ^~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:23:13: note: expected 'I2C_Reg_t * {aka struct I2C_Register *}' but argument is of type 'I2C_Handle_t * {aka struct <anonymous> *}'
+ static void sendAddressToSlaveRead(I2C_Reg_t* pI2Cs, uint8_t pSlaveAddress);
+             ^~~~~~~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:740:2: error: 'temp' undeclared (first use in this function); did you mean 'temp2'?
+  temp  = I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SB);
+  ^~~~
+  temp2
+../drivers/Src/STM32F407xx_I2C_Driver.c:730:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'TXE_IT_Handle':
+../drivers/Src/STM32F407xx_I2C_Driver.c:836:7: error: 'repeatedStart' undeclared (first use in this function)
+  if (!repeatedStart) {
+       ^~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:854:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:850:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:846:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:802:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:00:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:740:2: error: 'temp' undeclared (first use in this function); did you mean 'temp2'?
+  temp  = I2C_CheckStatusFlag(&pI2Cx->SR1, I2C_FLAG_SR1_SB);
+  ^~~~
+  temp2
+../drivers/Src/STM32F407xx_I2C_Driver.c:740:2: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c:730:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'TXE_IT_Handle':
+../drivers/Src/STM32F407xx_I2C_Driver.c:836:7: error: 'repeatedStart' undeclared (first use in this function)
+  if (!repeatedStart) {
+       ^~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:854:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:850:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:846:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:802:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:00:25 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:730:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'TXE_IT_Handle':
+../drivers/Src/STM32F407xx_I2C_Driver.c:836:7: error: 'repeatedStart' undeclared (first use in this function)
+  if (!repeatedStart) {
+       ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:836:7: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:854:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:850:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:846:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:802:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+21:01:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:730:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:854:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:850:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:846:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:802:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+21:22:52 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:730:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:888:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:884:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:880:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:836:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+21:30:36 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:731:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:905:13: warning: 'ADDR_IT_Handle' defined but not used [-Wunused-function]
+ static void ADDR_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:901:13: warning: 'SB_IT_Handle' defined but not used [-Wunused-function]
+ static void SB_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:897:13: warning: 'RXNE_IT_Handle' defined but not used [-Wunused-function]
+ static void RXNE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:853:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+ 
+23:21:20 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:810:48: error: 'I2C_EVT_TX_CMPLT' undeclared (first use in this function); did you mean 'I2C_EVT_TXE_CMPLT'?
+      I2C_ApplicationEventCallBack(pI2CHandler, I2C_EVT_TX_CMPLT);
+                                                ^~~~~~~~~~~~~~~~
+                                                I2C_EVT_TXE_CMPLT
+../drivers/Src/STM32F407xx_I2C_Driver.c:810:48: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:886:4: warning: implicit declaration of function 'OVR_IT_Handle' [-Wimplicit-function-declaration]
+    OVR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:889:4: warning: implicit declaration of function 'AF_IT_Handle' [-Wimplicit-function-declaration]
+    AF_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:892:4: warning: implicit declaration of function 'BERR_IT_Handle' [-Wimplicit-function-declaration]
+    BERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:895:4: warning: implicit declaration of function 'ARLO_IT_Handle'; did you mean 'GPIO_IRQHandling'? [-Wimplicit-function-declaration]
+    ARLO_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+    GPIO_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:898:4: warning: implicit declaration of function 'PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    PECERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:901:4: warning: implicit declaration of function 'TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    TIMEOUT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:904:4: warning: implicit declaration of function 'SMBALERT_IT_Handle' [-Wimplicit-function-declaration]
+    SMBALERT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:909:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:21:51 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:810:48: error: 'I2C_EVT_TX_CMPLT' undeclared (first use in this function); did you mean 'I2C_EVT_TXE_CMPLT'?
+      I2C_ApplicationEventCallBack(pI2CHandler, I2C_EVT_TX_CMPLT);
+                                                ^~~~~~~~~~~~~~~~
+                                                I2C_EVT_TXE_CMPLT
+../drivers/Src/STM32F407xx_I2C_Driver.c:810:48: note: each undeclared identifier is reported only once for each function it appears in
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:886:4: warning: implicit declaration of function 'OVR_IT_Handle' [-Wimplicit-function-declaration]
+    OVR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:889:4: warning: implicit declaration of function 'AF_IT_Handle' [-Wimplicit-function-declaration]
+    AF_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:892:4: warning: implicit declaration of function 'BERR_IT_Handle' [-Wimplicit-function-declaration]
+    BERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:895:4: warning: implicit declaration of function 'ARLO_IT_Handle'; did you mean 'GPIO_IRQHandling'? [-Wimplicit-function-declaration]
+    ARLO_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+    GPIO_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:898:4: warning: implicit declaration of function 'PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    PECERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:901:4: warning: implicit declaration of function 'TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    TIMEOUT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:904:4: warning: implicit declaration of function 'SMBALERT_IT_Handle' [-Wimplicit-function-declaration]
+    SMBALERT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:909:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:22:20 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:886:4: warning: implicit declaration of function 'OVR_IT_Handle' [-Wimplicit-function-declaration]
+    OVR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:889:4: warning: implicit declaration of function 'AF_IT_Handle' [-Wimplicit-function-declaration]
+    AF_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:892:4: warning: implicit declaration of function 'BERR_IT_Handle' [-Wimplicit-function-declaration]
+    BERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:895:4: warning: implicit declaration of function 'ARLO_IT_Handle'; did you mean 'GPIO_IRQHandling'? [-Wimplicit-function-declaration]
+    ARLO_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+    GPIO_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:898:4: warning: implicit declaration of function 'PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    PECERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:901:4: warning: implicit declaration of function 'TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    TIMEOUT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:904:4: warning: implicit declaration of function 'SMBALERT_IT_Handle' [-Wimplicit-function-declaration]
+    SMBALERT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:909:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+23:24:26 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/013MasterSTMSlaveArduinoRecepSend.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"Src/013MasterSTMSlaveArduinoRecepSend.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/013MasterSTMSlaveArduinoRecepSend.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_EV_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:721:10: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  uint8_t temp1, temp2, temp;
+          ^~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'I2C_ER_IRQHandling':
+../drivers/Src/STM32F407xx_I2C_Driver.c:890:4: warning: implicit declaration of function 'OVR_IT_Handle' [-Wimplicit-function-declaration]
+    OVR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:893:4: warning: implicit declaration of function 'AF_IT_Handle' [-Wimplicit-function-declaration]
+    AF_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:896:4: warning: implicit declaration of function 'BERR_IT_Handle' [-Wimplicit-function-declaration]
+    BERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:899:4: warning: implicit declaration of function 'ARLO_IT_Handle'; did you mean 'GPIO_IRQHandling'? [-Wimplicit-function-declaration]
+    ARLO_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~
+    GPIO_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:902:4: warning: implicit declaration of function 'PECERR_IT_Handle'; did you mean 'I2C_ER_IRQHandling'? [-Wimplicit-function-declaration]
+    PECERR_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~
+    I2C_ER_IRQHandling
+../drivers/Src/STM32F407xx_I2C_Driver.c:905:4: warning: implicit declaration of function 'TIMEOUT_IT_Handle' [-Wimplicit-function-declaration]
+    TIMEOUT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~
+../drivers/Src/STM32F407xx_I2C_Driver.c:908:4: warning: implicit declaration of function 'SMBALERT_IT_Handle' [-Wimplicit-function-declaration]
+    SMBALERT_IT_Handle(pI2CHandler);
+    ^~~~~~~~~~~~~~~~~~
+At top level:
+../drivers/Src/STM32F407xx_I2C_Driver.c:913:13: warning: 'TXE_IT_Handle' defined but not used [-Wunused-function]
+ static void TXE_IT_Handle(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+00:11:15 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c:891:13: warning: 'closeMasterRx' defined but not used [-Wunused-function]
+ static void closeMasterRx(I2C_Handle_t* pI2CHandler) {
+             ^~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+00:12:59 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+../drivers/Src/STM32F407xx_I2C_Driver.c: In function 'closeMasterRx':
+../drivers/Src/STM32F407xx_I2C_Driver.c:904:14: error: 'pI2Cx' undeclared (first use in this function); did you mean 'I2C1'?
+   ctrlBitACK(pI2Cx, ENABLE);
+              ^~~~~
+              I2C1
+../drivers/Src/STM32F407xx_I2C_Driver.c:904:14: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:13:08 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\OneDrive\Desktop\workspace\STM32_Driver_Development\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8912	    108	   1580	  10600	   2968	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+Finished building: STM32F407xx_Drivers.bin
+ 
+Finished building: STM32F407xx_Drivers.list
+ 
+ 

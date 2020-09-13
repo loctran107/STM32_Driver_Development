@@ -92,6 +92,15 @@
 #define I2C_EVT_TXE_CMPLT		0U
 #define I2C_EVT_RXNE_CMPLT		1U
 #define I2C_EVT_STOPF_CMPLT		2U
+#define I2C_ERR_BERR			3U
+#define I2C_ERR_AF				4U
+#define I2C_ERR_ARLO			5U
+#define I2C_ERR_OVR				6U
+#define I2C_ERR_PECERR			7U
+#define I2C_ERR_TIMEOUT			8U
+#define I2C_ERR_SMBALERT		9U
+
+
 /*******************************I2C FUNCTION MACROS**************************************/
 /*
  * I2C Peripheral Clock Enable

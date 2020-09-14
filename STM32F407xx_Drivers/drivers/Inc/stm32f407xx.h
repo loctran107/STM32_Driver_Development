@@ -10,15 +10,112 @@
 #ifndef INC_STM32F407XX_H_
 #define INC_STM32F407XX_H_
 #include <stdint.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 /*
  * Some generic macros
  */
-#define __vo volatile //making a shortcut for volatile
+#define __vo   			volatile //making a shortcut for volatile
+#define __weak          __attribute__((weak))
 #define ENABLE 			1
 #define DISABLE			0
 #define SET				ENABLE
 #define RESET			DISABLE
+#define FLAG_SET		SET
+#define FLAG_RESET		RESET
+
+/*******************************************PROCESSOR SPECIFIC DETAILS*******************************************/
+/*
+ * @NVIC_IRQ_PRIORITY macros
+ */
+#define NVIC_IRQ_PR1		1U
+#define NVIC_IRQ_PR2		2U
+#define NVIC_IRQ_PR3		3U
+#define NVIC_IRQ_PR4		4U
+#define NVIC_IRQ_PR5		5U
+#define NVIC_IRQ_PR6		6U
+#define NVIC_IRQ_PR7		7U
+#define NVIC_IRQ_PR8		8U
+#define NVIC_IRQ_PR9		9U
+#define NVIC_IRQ_PR10		10U
+#define NVIC_IRQ_PR11		11U
+#define NVIC_IRQ_PR12		12U
+#define NVIC_IRQ_PR13		13U
+#define NVIC_IRQ_PR14		14U
+#define NVIC_IRQ_PR15		15U
+
+/*
+ * EXTI IRQ (Interrupt Request) Number of STM32F407xx MCU
+ *  Note: Update these macros in accordance to MCU specific EXTI pins
+ */
+#define EXTI0_IRQ_NO		((uint8_t) 6)
+#define EXTI1_IRQ_NO		((uint8_t) 7)
+#define EXTI2_IRQ_NO		((uint8_t) 8)
+#define EXTI3_IRQ_NO		((uint8_t) 9)
+#define EXTI4_IRQ_NO		((uint8_t) 10)
+#define EXTI5_9_IRQ_NO		((uint8_t) 23)
+#define EXTI10_15_IRQ_NO	((uint8_t) 40)
+
+/*
+ * SPI IRQ Number of STM32F407xx MCU
+ * Note: Look at the datasheet NVIC table
+ */
+#define SPI1_IRQ_NO			((uint8_t) 35)
+#define SPI2_IRQ_NO			((uint8_t) 36)
+#define SPI3_IRQ_NO			((uint8_t) 51)
+
+/*
+ * I2C IRQ Number of STM32F407xx MCU
+ */
+#define I2C1_EV_IRQ_NO		((uint8_t) 31)
+#define I2C1_ER_IRQ_NO		((uint8_t) 32)
+#define I2C2_EV_IRQ_NO		((uint8_t) 33)
+#define I2C2_ER_IRQ_NO		((uint8_t) 34)
+#define I2C3_EV_IRQ_NO		((uint8_t) 72)
+#define I2C3_ER_IRQ_NO		((uint8_t) 73)
+
+/*
+ * ARM Cortex Mx Processor NVIC Interrupt Set-Enable Register (ISER) base address
+ */
+#define NVIC_ISER_BASEADDR	 (__vo uint32_t*) 0xE000E100
+#define NVIC_ISER(__INDEX__) *((NVIC_ISER_BASEADDR) + ((__INDEX__))) //Pointer arithmetic
+
+/*
+ * ARM Cortex Mx Processor NVIC Interrupt Clear-Enable Register (ICER) base address
+ */
+#define NVIC_ICER_BASEADDR	 (__vo uint32_t*) 0xE000E180
+#define NVIC_ICER(__INDEX__) *((NVIC_ICER_BASEADDR) + ((__INDEX__))) //pointer arithmetic
+
+/*
+ * ARM Cortex Mx Processor NVIC Interrupt Priority Register (IPR) base address
+ */
+#define NVIC_IPR_BASEADDR	(__vo uint32_t *) 0xE000E400
+#define NVIC_IPR(__INDEX__) *((NVIC_IPR_BASEADDR) + (__INDEX__)) //Pointer arithmetic
+
+
+/*
+ * ARM Cortex Mx Processor NVIC Interrupt Priority Level Bit
+ * Note: There are 0-255 values of interrupt priority -> 8 bits
+ * 		 But, the processor stores them as 16 PRIORITY LEVELs -> 4 bits
+ */
+#define NO_IMPLEMENTED_IRQ_PRIORITY_BIT 			4U
+#define IMPLEMENTED_IRQ_PRIORITY_BIT				8U - NO_IMPLEMENTED_IRQ_PRIORITY_BIT
+
+/*
+ * STM32F407xx System Clock
+ */
+#define RCC_HSE					0U
+#define RCC_HSI					1U
+#define RCC_PLL					2U
+
+/*
+ * HSE and HSI Clock Frequency
+ */
+#define HSE_CLK_FREQ			8000000U
+#define HSI_CLK_FREQ			16000000U
+
 
 /*
  * Flash and SRAM memories
@@ -77,6 +174,27 @@
 #define SYSCFG_BASEADDR			(APB2_BASEADDR + 0x3800)
 
 /*
+ * SYSCFG registers definition
+ */
+typedef struct SYSCFG_Register {
+	__vo uint32_t MEMRMP; 		//offset: 0x00
+	__vo uint32_t PMC;			//offset: 0x04
+	__vo uint32_t EXTICR[4];	//offset: 0x08 - 0x14
+	uint32_t RESERVED[2];		//reserved: 0x18 - 0x1C
+	__vo uint32_t CMPCR;		//offset: 0x20
+} SYSCFG_Reg_t;
+/*
+ * EXTI registers
+ */
+typedef struct EXTI_Register {
+	__vo uint32_t IMR;   //offset: 0x00
+	__vo uint32_t EMR;   //offset: 0x04
+	__vo uint32_t RTSR;  //offset: 0x08
+	__vo uint32_t FTSR;  //offset: 0x0C
+	__vo uint32_t SWIER; //offset: 0x10
+	__vo uint32_t PR; 	 //offset: 0x14
+} EXTI_Reg_t;
+/*
  * GPIOx peripheral registers declaration
  */
 typedef struct GPIO_Register {
@@ -129,6 +247,34 @@ typedef struct RCC_Register {
 	__vo uint32_t DCKCFGR; 	  //offset: 0x8C
 } RCC_Reg_t;
 
+/******************************************COMMUNICATION PROTOCOL STRUCTURE******************************************/
+typedef struct SPI_Register {
+	__vo uint32_t CR1;		//offset: 0x00
+	__vo uint32_t CR2; 		//offset: 0x04
+	__vo uint32_t SR;		//offset: 0x08
+	__vo uint32_t DR;		//offset: 0x0C
+	__vo uint32_t CRCPR;	//offset: 0x10
+	__vo uint32_t RXCRCR;	//offset: 0x14
+	__vo uint32_t TXCRCR;	//offset: 0x18
+	__vo uint32_t I2SCFGR;	//offset: 0x1C
+	__vo uint32_t I2SPR;	//offset: 0x20
+} SPI_Reg_t;
+
+
+typedef struct I2C_Register {
+	__vo uint32_t CR1;		//offset: 0x00
+	__vo uint32_t CR2;		//offset: 0x04
+	__vo uint32_t OAR1; 	//offset: 0x08
+	__vo uint32_t OAR2; 	//offset: 0x0C
+	__vo uint32_t DR;		//offset: 0x10
+	__vo uint32_t SR1;		//offset: 0x14
+	__vo uint32_t SR2;		//offset: 0x18
+	__vo uint32_t CCR;		//offset: 0x1C
+	__vo uint32_t TRISE;	//offset: 0x20
+	__vo uint32_t FLTR;		//offset: 0x24
+} I2C_Reg_t;
+/********************************************************************************************************************/
+
 /*
  * GPIO peripherals definition
  */
@@ -148,6 +294,30 @@ typedef struct RCC_Register {
  * RCC clock bus definition
  */
 #define RCC				((RCC_Reg_t*) RCC_BASEADDR)
+
+/*
+ * EXTI definition
+ */
+#define EXTI			((EXTI_Reg_t*) EXTI_BASEADDR)
+
+/*
+ * SYSCFG definition
+ */
+#define SYSCFG			((SYSCFG_Reg_t*) SYSCFG_BASEADDR)
+
+/*
+ * SPI Definition
+ */
+#define SPI1			((SPI_Reg_t*) SPI1_BASEADDR)
+#define SPI2			((SPI_Reg_t*) SPI2_BASEADDR)
+#define SPI3			((SPI_Reg_t*) SPI3_BASEADDR)
+
+/*
+ * I2C Peripherals macro
+ */
+#define I2C1			((I2C_Reg_t*) I2C1_BASEADDR)
+#define I2C2			((I2C_Reg_t*) I2C2_BASEADDR)
+#define I2C3			((I2C_Reg_t*) I2C3_BASEADDR)
 
 /**********************************PERIPHERAL CLOCK ENABLE********************************/
 /*
@@ -265,5 +435,73 @@ typedef struct RCC_Register {
 #define GPIOJ_PCLK_RST() do { (RCC->AHB1RSTR |= (1 << 9));  (RCC->AHB1RSTR &= ~(1 << 9)); } while (0)
 #define GPIOK_PCLK_RST() do { (RCC->AHB1RSTR |= (1 << 10)); (RCC->AHB1RSTR &= ~(1 << 10));} while (0)
 
+/*
+ * Reset SPI Peripheral Registers
+ */
+#define SPI1_PCLK_RST()  do { RCC->APB2RSTR |= (1 << 12); RCC->APB2RSTR &= ~(1 << 12); } while (0)
+#define SPI2_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 14); RCC->APB1RSTR &= ~(1 << 14); } while (0)
+#define SPI3_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 15); RCC->APB1RSTR &= ~(1 << 15); } while (0)
 
+/*
+ * Reset the I2C peripheral registers
+ */
+#define I2C1_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 21); RCC->APB1RSTR &= ~(1 << 21); } while(0)
+#define I2C2_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 22); RCC->APB1RSTR &= ~(1 << 22); } while(0)
+#define I2C3_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 23); RCC->APB1RSTR &= ~(1 << 23); } while(0)
+/********************BIT DEFINITION OF SPI_PERIPHERALS*********************/
+
+/*
+ * SPI_CR1 Register Bit Macro
+ */
+#define SPI_CR1_CPHA					0U		//Clock Phase bit
+#define SPI_CR1_CPOL					1U		//Clock Polarity bit
+#define SPI_CR1_MSTR					2U		//Device Mode bit
+#define SPI_CR1_BR						3U 		//Baud Rate Control bit
+#define SPI_CR1_SPE						6U 		//SPI Enable
+#define SPI_CR1_LSBFIRST				7U		//Frame format
+#define SPI_CR1_SSI						8U		//Slave Select Information
+#define SPI_CR1_SSM						9U		//Slave Select Management Bit
+#define SPI_CR1_RXONLY					10U		//Receive only bit
+#define SPI_CR1_DFF						11U		//Data Frame format bit
+#define SPI_CR1_CRCNEXT					12U		//CRC Transfer Next
+#define SPI_CR1_CRCEN		 			13U		//Hardware CRC Calculation Enable
+#define SPI_CR1_BIDIOE					14U		//Output enable in bidirectional mode
+#define SPI_CR1_BIDIMODE				15U		//Bidirectional Data Mode Enable
+
+/*
+ * SPI_CR2 Register Bit Macro
+ */
+#define SPI_CR2_RXDMAEN					0U		//Rx Buffer DMA Enable
+#define SPI_CR2_TXDMAEN					1U		//Tx Buffer DMA Enable
+#define SPI_CR2_SSOE					2U		//SS Output Enable
+#define SPI_CR2_FRF						4U		//Frame Format
+#define SPI_CR2_ERRIE					5U		//Error Interrupt Enable
+#define SPI_CR2_RXNEIE					6U		//Rx buffer not empty interrupt enable
+#define SPI_CR2_TXEIE					7U		//Tx buffer interrupt enable
+
+/*
+ * SPI_SR Register Bit Macro
+ */
+#define SPI_SR_RXNE						0U		//Receive buffer not empty
+#define SPI_SR_TXE						1U		//Transmit buffer empty
+#define SPI_SR_CHSIDE					2U		//Channel side
+#define SPI_SR_UDR						3U		//Underrun flag
+#define SPI_SR_CRCERR					4U		//CRC Error flag
+#define SPI_SR_MODF						5U		//Mode fault
+#define SPI_SR_OVR						6U		//Overrun flag
+#define SPI_SR_BSY						7U		//Busy flag
+#define SPI_SR_FRE						8U		//Frame format error
+
+/*
+ * SPI_DR Register Bit Macro
+ */
+#define SPI_DR							0U		//Transmit or Receive Data Starting bit [15:0}
+
+/**********************************************************************************************/
+
+
+
+#include "../Inc/gpio_driver.h"
+#include "../Inc/STM32F407xx_SPI_Driver.h"
+#include "../Inc/STM32F407xx_I2C_Driver.h"
 #endif /* INC_STM32F407XX_H_ */

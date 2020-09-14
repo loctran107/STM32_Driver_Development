@@ -1,2 +1,5 @@
 1598216810846	Delete resource 'STM32F407xx_Drivers/Src/Ex2'
 1598217222116	Delete resource 'STM32F407xx_Drivers/Src/Ex2LEDToggleOpenDrain.c'
+1598301746332	Delete resource '002SampleApp'
+1598301898334	Delete resource 'STM32F407xx_Drivers'
+1598303396468	Delete resource 'STM32F407xx_Drivers/Src/003LEDHandlingUsingSTM32Button'

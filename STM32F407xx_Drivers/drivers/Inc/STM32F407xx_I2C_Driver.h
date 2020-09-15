@@ -11,6 +11,18 @@
 #include "stm32f407xx.h"
 
 /*
+ * @I2C_APPLICATION_STATES
+ */
+#define I2C_READY				0U
+#define I2C_BUSY_IN_RX			1U
+#define I2C_BUSY_IN_TX			2U
+
+/*
+ * @I2C_SR (Repeated Start)
+ */
+#define I2C_SR_SET				SET
+#define I2C_SR_RESET			RESET
+/*
  * @I2C_MODE_SELECTION macros
  */
 #define I2C_MODE_SLAVE_TX		0U		//Slave Transmitter
@@ -30,8 +42,15 @@
  */
 #define I2C_SCL_SPEED_SM		0U		//Standard Mode (100Kbps)
 #define I2C_SCL_SPEED_FM		1U		//Fast Mode 	(400Kbps)
+#define I2C_SCL_SPEED(__SCL_SPEED__)    ((__SCL_SPEED__) ==  I2C_SCL_SPEED_FM) ? 400000U : 100000U
 
-#define I2C_SCL_SPEED			(I2C_SCL_SPEED_FM) ? 400000U : 100000U
+/*
+ * Maximum Rise time in Sm/Fm mode (microsecond)
+ * Note: Maximum rise time of Sm is 1000ns = 1 microseconds = 1/1000000 s
+ * 	     Maximum rise time of Fm is 300ns = 0.3 microseconds = 1/300000 s
+ */
+#define I2C_T_RISE(__SCL_SPEED__) 		((__SCL_SPEED__) == I2C_SCL_SPEED_FM) ? 3U : 10U
+
 /*
  * @I2C_ACK_CTRL macros
  */
@@ -43,6 +62,45 @@
  */
 #define I2C_FM_DUTY_2			RESET
 #define I2C_FM_DUTY_16_9		SET
+
+/*
+ * @I2C SR1 Status Flag
+ */
+#define I2C_FLAG_SR1_SB			(1 << I2C_SR1_SB)
+#define I2C_FLAG_SR1_ADDR		(1 << I2C_SR1_ADDR)
+#define I2C_FLAG_SR1_TXE		(1 << I2C_SR1_TXE)
+#define I2C_FLAG_SR1_RXNE		(1 << I2C_SR1_RXNE)
+#define I2C_FLAG_SR1_BTF		(1 << I2C_SR1_BTF)
+#define I2C_FLAG_SR1_TIMEOUT	(1 << I2C_SR1_TIMEOUT)
+#define I2C_FLAG_SR1_PECERR		(1 << I2C_SR1_PECERR)
+#define I2C_FLAG_SR1_OVR		(1 << I2C_SR1_OVR)
+#define I2C_FLAG_SR1_AF			(1 << I2C_SR1_AF)
+#define I2C_FLAG_SR1_ARLO		(1 << I2C_SR1_ARLO)
+#define I2C_FLAG_SR1_BERR		(1 << I2C_SR1_BERR)
+#define I2C_FLAG_SR1_STOPF		(1 << I2C_SR1_STOPF)
+#define I2C_FLAG_SR1_ADD10		(1 << I2C_SR1_ADD10)
+#define I2C_FLAG_SR1_SMBALERT	(1 << I2C_SR1_SMBALERT)
+
+/*
+ * @I2C SR2 Status flag
+ */
+#define I2C_FLAG_SR2_SML		(1 << I2C_SR2_MSL)
+
+/*
+ * @I2C Application Event Status
+ */
+#define I2C_EVT_TXE_CMPLT		0U
+#define I2C_EVT_RXNE_CMPLT		1U
+#define I2C_EVT_STOPF_CMPLT		2U
+#define I2C_ERR_BERR			3U
+#define I2C_ERR_AF				4U
+#define I2C_ERR_ARLO			5U
+#define I2C_ERR_OVR				6U
+#define I2C_ERR_PECERR			7U
+#define I2C_ERR_TIMEOUT			8U
+#define I2C_ERR_SMBALERT		9U
+
+
 /*******************************I2C FUNCTION MACROS**************************************/
 /*
  * I2C Peripheral Clock Enable
@@ -70,8 +128,16 @@ typedef struct {
  * Handle structure of I2C peripherals
  */
 typedef struct {
-	I2C_Reg_t*		pI2Cx; 		//I2Cx peripheral base address
-	I2C_Config_t	I2C_Config;	//I2C configuration structure
+	I2C_Reg_t*		pI2Cx; 			//I2Cx peripheral base address
+	uint8_t*		pTxBuffer;		//pointer to Tx buffer
+	uint8_t*		pRxBuffer;		//pointer to Rx buffer
+	I2C_Config_t	I2C_Config;		//I2C configuration structure
+	uint32_t 		TxLen;			//length of Tx buffer
+	uint32_t 		RxLen;			//length of Rx buffer
+	uint32_t 		RxSize;			//Size of the Rx buffer
+	uint8_t 		TxRxState;		//since I2C is half-duplex in STM32, we only need 1 state
+	uint8_t 		RepeatedStart;	//repeated Start condition
+	uint8_t 		DeviceAddr;		//storing the device address
 } I2C_Handle_t;
 
 
@@ -97,10 +163,20 @@ void I2C_PeripheralEnable(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 
 /*
  * I2C Master Tx and Rx
+ * Note: len should always be in uint32_t
+ * 		 The interrupt API returns the application states
  */
-void I2C_Master_Tx(I2C_Handle_t* I2CHandler);
-void I2C_Master_Rx(I2C_Handle_t* I2CHandler);
-
+void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+						uint8_t pSlaveAddress, uint8_t repeatedStart);
+void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+		 	 	 	 	   uint8_t pSlaveAddress, uint8_t repeatedStart);
+/*
+ * I2C Master Tx and RX interrupt API
+ */
+uint8_t I2C_MasterSendDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t len,
+						uint8_t pSlaveAddress, uint8_t repeatedStart);
+uint8_t I2C_MasterReceiveDataIT(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
+		 	 	 	 	     uint8_t pSlaveAddress, uint8_t repeatedStart);
 /*
  * I2C Slave Tx and Rx
  */
@@ -115,74 +191,20 @@ void I2C_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
 void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
 
 /*
+ * I2C Event and Error IRQ Handling
+ */
+void I2C_EV_IRQHandling(I2C_Handle_t* pI2CHandler);
+void I2C_ER_IRQHandling(I2C_Handle_t* pI2CHandler);
+
+/*
  * Check if the I2C is still busy transmitting bytes of data
  */
-uint8_t I2C_CheckStatusFlag(I2C_Reg_t* pI2Cx, uint8_t flag);
-/***********************************I2C REGISTER BIT MACROS*****************************/
+uint8_t I2C_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag);
 
 /*
- * @I2C_CR1 bit macros
+ * Other application APIs
  */
-#define I2C_CR1_SWRST				15U		//Software Reset
-#define I2C_CR1_ALERT				13U		//SMBus Alert
-#define I2C_CR1_PEC					12U		//Packet Error Checking
-#define I2C_CR1_POS					11U		//Acknowledge/PEC position (for data reception)
-#define I2C_CR1_ACK					10U		//Acknowledge enable
-#define I2C_CR1_STOP				9U		//Stop generation
-#define I2C_CR1_START				8U		//Start generation
-#define I2C_CR1_NOSTRETCH			7U		//Clock stretching disable (Slave mode)
-#define I2C_CR1_ENGC				6U		//General call enable
-#define I2C_CR1_ENPEC				5U		//PEC enable
-#define I2C_CR1_ENARP				4U		//ARP enable
-#define I2C_CR1_SMBTYPE				3U		//SMBus Type
-#define I2C_CR1_SMBUS				1U		//SMBus mode
-#define I2C_CR1_PE					0U 		//Peripheral enable
+void I2C_ApplicationEventCallBack(I2C_Handle_t* pI2CHandler, uint8_t appEvt);
 
-/*
- * @I2C_CR2 bit macros
- */
-#define I2C_CR2_LAST				12U		//DMA Last Transfer
-#define I2C_CR2_DMAEN				11U		//DMA Request Enable
-#define I2C_CR2_ITBUFEN				10U		//Buffer Interrupt Enable
-#define I2C_CR2_ITEVTEN				9U		//Event Interrupt Enable
-#define I2C_CR2_ITERREN				8U		//Error Interrupt Enable
-#define I2C_CR2_FREQ				0U		//Peripheral Clock Frequency
-
-/*
- * @I2C_SR1 bit macros
- */
-#define I2C_SR1_SMBALERT			15U		//SMBus Alert
-#define I2C_SR1_TIMEOUT				14U		//Timeout or Tlow Error
-#define I2C_SR1_PECERR				12U		//PEC Error in Reception
-#define I2C_SR1_OVR					11U		//Overrun/underrun
-#define I2C_SR1_AF					10U		//Acknowledge Failure
-#define I2C_SR1_ARLO				9U		//Arbitration Lost (Master Mode)
-#define I2C_SR1_BERR				8U		//Bus Error
-#define I2C_SR1_TXE					7U		//Data RegisterEmpty (transmitters)
-#define I2C_SR1_RXNE				6U		//Data Register not empty (receivers)
-#define I2C_SR1_STOPF				4U		//Stop Detection (Slave Mode)
-#define I2C_SR1_ADD10				3U		//10-bit Header Sent (Master Mode)
-#define I2C_SR1_BTF					2U		//Byte Transfer Finished
-#define I2C_SR1_ADDR				1U		//Address Sent (Master Mode)/matched (slave mode)
-#define I2C_SR1_SB					0U		//Start Bit(Master Mode)
-
-/*
- * @I2C_SR2 bit macros
- */
-#define I2C_SR2_PEC					8U		//Packet error checking register
-#define I2C_SR2_DUALF				7U		//Dual flag(Slave mode)
-#define I2C_SR2_SMBHOST				6U		//SMBus host header (Slave mode)
-#define I2C_SR2_SMBDEFAULT			5U		//SMBus device default address(Slave mode)
-#define I2C_SR2_GENCALL				4U		//General call address (Slave mode)
-#define I2C_SR2_TRA					2U		//Transmitter/Receiver
-#define I2C_SR2_BUSY				1U		//Bus busy
-#define I2C_SR2_MSL					0U		//Master/Slave
-
-/*
- * @I2C_CCR bit macros
- */
-#define I2C_CCR_F_S					15U		//I2C master mode selection
-#define I2C_CCR_DUTY				14U		//Fm mode duty cycle
-#define I2C_CCR_CCR					0U		//Clock control register in Fm/Sm mode (Master Mode)
 
 #endif /* INC_STM32F407XX_I2C_DRIVER_H_ */

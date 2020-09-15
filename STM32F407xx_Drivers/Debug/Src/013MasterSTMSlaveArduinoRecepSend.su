@@ -1,0 +1,8 @@
+013MasterSTMSlaveArduinoRecepSend.c:34:5:main	112	static
+013MasterSTMSlaveArduinoRecepSend.c:145:6:I2C_ApplicationEventCallBack	16	static
+013MasterSTMSlaveArduinoRecepSend.c:153:6:I2C1_EV_IRQHandler	8	static
+013MasterSTMSlaveArduinoRecepSend.c:158:6:I2C1_ER_IRQHandler	8	static
+013MasterSTMSlaveArduinoRecepSend.c:162:6:GPIO_ButtonInit	16	static
+013MasterSTMSlaveArduinoRecepSend.c:173:6:GPIO_I2CInit	16	static
+013MasterSTMSlaveArduinoRecepSend.c:186:6:I2C_HandlerInit	16	static
+013MasterSTMSlaveArduinoRecepSend.c:197:6:delay	16	static

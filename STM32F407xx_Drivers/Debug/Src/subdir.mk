@@ -4,24 +4,24 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/011STMMasterArduinoSlaveReceive&Transmit.c \
+../Src/013MasterSTMSlaveArduinoRecepSend.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/011STMMasterArduinoSlaveReceive&Transmit.o \
+./Src/013MasterSTMSlaveArduinoRecepSend.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/011STMMasterArduinoSlaveReceive&Transmit.d \
+./Src/013MasterSTMSlaveArduinoRecepSend.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Src/011STMMasterArduinoSlaveReceive&Transmit.o: ../Src/011STMMasterArduinoSlaveReceive&Transmit.c
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011STMMasterArduinoSlaveReceive&Transmit.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+Src/013MasterSTMSlaveArduinoRecepSend.o: ../Src/013MasterSTMSlaveArduinoRecepSend.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/013MasterSTMSlaveArduinoRecepSend.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Src/syscalls.o: ../Src/syscalls.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Src/sysmem.o: ../Src/sysmem.c

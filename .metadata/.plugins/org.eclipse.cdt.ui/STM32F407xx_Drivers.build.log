@@ -1,35 +1,10 @@
-<<<<<<< HEAD
-12:44:04 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
-make -j8 all 
-arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
-arm-none-eabi-gcc "../Src/Ex1LEDTogglePushPull.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/Ex1LEDTogglePushPull.d" -MT"Src/Ex1LEDTogglePushPull.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Ex1LEDTogglePushPull.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\Desktop\workspace_STM32\MCU1\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: STM32F407xx_Drivers.elf
- 
-arm-none-eabi-size   STM32F407xx_Drivers.elf 
-arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
-arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
-=======
-18:35:02 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+22:06:46 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
 make -j8 all 
 arm-none-eabi-size   STM32F407xx_Drivers.elf 
->>>>>>> 526b7d43d0f232661bdb3672f5c01dbcc946ea51
    text	   data	    bss	    dec	    hex	filename
-   8376	    108	   1580	  10064	   2750	STM32F407xx_Drivers.elf
+  10216	    108	   1620	  11944	   2ea8	STM32F407xx_Drivers.elf
 Finished building: default.size.stdout
  
-<<<<<<< HEAD
-Finished building: STM32F407xx_Drivers.list
-Finished building: STM32F407xx_Drivers.bin
- 
- 
 
-12:44:07 Build Finished. 0 errors, 0 warnings. (took 2s.592ms)
-=======
-
-18:35:03 Build Finished. 0 errors, 0 warnings. (took 965ms)
->>>>>>> 526b7d43d0f232661bdb3672f5c01dbcc946ea51
+22:06:48 Build Finished. 0 errors, 0 warnings. (took 1s.305ms)
 

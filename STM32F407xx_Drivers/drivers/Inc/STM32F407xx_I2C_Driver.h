@@ -85,12 +85,12 @@
  * @I2C SR2 Status flag
  */
 #define I2C_FLAG_SR2_SML		(1 << I2C_SR2_MSL)
-
+#define I2C_FLAG_SR2_TRA		(1 << I2C_SR2_TRA)
 /*
  * @I2C Application Event Status
  */
-#define I2C_EVT_TXE_CMPLT		0U
-#define I2C_EVT_RXNE_CMPLT		1U
+#define I2C_EVT_TX_CMPLT		0U
+#define I2C_EVT_RX_CMPLT		1U
 #define I2C_EVT_STOPF_CMPLT		2U
 #define I2C_ERR_BERR			3U
 #define I2C_ERR_AF				4U
@@ -99,7 +99,8 @@
 #define I2C_ERR_PECERR			7U
 #define I2C_ERR_TIMEOUT			8U
 #define I2C_ERR_SMBALERT		9U
-
+#define I2C_EVT_DATA_REQ		10U
+#define I2C_EVT_DATA_RCV		11U
 
 /*******************************I2C FUNCTION MACROS**************************************/
 /*
@@ -170,6 +171,10 @@ void I2C_MasterSendData(I2C_Handle_t* pI2CHandler, uint8_t* pTxBuffer, uint32_t 
 						uint8_t pSlaveAddress, uint8_t repeatedStart);
 void I2C_MasterReceiveData(I2C_Handle_t* pI2CHandler, uint8_t* pRxBuffer, uint32_t len,
 		 	 	 	 	   uint8_t pSlaveAddress, uint8_t repeatedStart);
+
+void I2C_SlaveSendData(I2C_Reg_t* pI2Cx, uint8_t data);
+uint8_t I2C_SlaveReceiveData(I2C_Reg_t* pI2Cx);
+
 /*
  * I2C Master Tx and RX interrupt API
  */
@@ -195,7 +200,7 @@ void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
  */
 void I2C_EV_IRQHandling(I2C_Handle_t* pI2CHandler);
 void I2C_ER_IRQHandling(I2C_Handle_t* pI2CHandler);
-
+void I2C_InterruptCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 /*
  * Check if the I2C is still busy transmitting bytes of data
  */

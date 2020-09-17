@@ -77,6 +77,16 @@
 #define I2C3_ER_IRQ_NO		((uint8_t) 73)
 
 /*
+ * USART IRQ Number of STM32F407xx MCU
+ */
+#define USART1_IRQ_NO		((uint8_t) 37)
+#define USART2_IRQ_NO		((uint8_t) 38)
+#define USART3_IRQ_NO		((uint8_t) 39)
+#define UART4_IRQ_NO		((uint8_t) 52)
+#define UART5_IRQ_NO		((uint8_t) 53)
+#define USART6_IRQ_NO		((uint8_t) 71)
+
+/*
  * ARM Cortex Mx Processor NVIC Interrupt Set-Enable Register (ISER) base address
  */
 #define NVIC_ISER_BASEADDR	 (__vo uint32_t*) 0xE000E100
@@ -248,6 +258,9 @@ typedef struct RCC_Register {
 } RCC_Reg_t;
 
 /******************************************COMMUNICATION PROTOCOL STRUCTURE******************************************/
+/*
+ * SPI register definition
+ */
 typedef struct SPI_Register {
 	__vo uint32_t CR1;		//offset: 0x00
 	__vo uint32_t CR2; 		//offset: 0x04
@@ -260,7 +273,9 @@ typedef struct SPI_Register {
 	__vo uint32_t I2SPR;	//offset: 0x20
 } SPI_Reg_t;
 
-
+/*
+ * I2C register definition
+ */
 typedef struct I2C_Register {
 	__vo uint32_t CR1;		//offset: 0x00
 	__vo uint32_t CR2;		//offset: 0x04
@@ -273,6 +288,19 @@ typedef struct I2C_Register {
 	__vo uint32_t TRISE;	//offset: 0x20
 	__vo uint32_t FLTR;		//offset: 0x24
 } I2C_Reg_t;
+
+/*
+ * USART register definition
+ */
+typedef struct USART_Register {
+	__vo uint32_t SR;		//offset: 0x00
+	__vo uint32_t DR;		//offset: 0x04
+	__vo uint32_t BRR;		//offset: 0x08
+	__vo uint32_t CR1;		//offset: 0x0C
+	__vo uint32_t CR2;		//offset: 0x10
+	__vo uint32_t CR3;		//offset: 0x14
+	__vo uint32_t GTPR;		//offset: 0x18
+} USART_Reg_t;
 /********************************************************************************************************************/
 
 /*
@@ -319,6 +347,15 @@ typedef struct I2C_Register {
 #define I2C2			((I2C_Reg_t*) I2C2_BASEADDR)
 #define I2C3			((I2C_Reg_t*) I2C3_BASEADDR)
 
+/*
+ * USART/UART peripheral macros
+ */
+#define USART1			((USART_Reg_t*) USART1_BASEADDR)
+#define USART2			((USART_Reg_t*) USART2_BASEADDR)
+#define USART3			((USART_Reg_t*) USART3_BASEADDR)
+#define UART4			((USART_Reg_t*) UART4_BASEADDR)
+#define UART5			((USART_Reg_t*) UART5_BASEADDR)
+#define USART6			((USART_Reg_t*) USART6_BASEADDR)
 /**********************************PERIPHERAL CLOCK ENABLE********************************/
 /*
  * Clock enable for GPIOx
@@ -448,6 +485,16 @@ typedef struct I2C_Register {
 #define I2C1_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 21); RCC->APB1RSTR &= ~(1 << 21); } while(0)
 #define I2C2_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 22); RCC->APB1RSTR &= ~(1 << 22); } while(0)
 #define I2C3_PCLK_RST()	 do { RCC->APB1RSTR |= (1 << 23); RCC->APB1RSTR &= ~(1 << 23); } while(0)
+
+/*
+ * Reset for USART/UART peripheral registers
+ */
+#define USART1_PCLK_RST() do { RCC->APB2RSTR |= (1 << 4);  RCC->APB2RSTR &= ~(1 << 4);  } while (0)
+#define USART2_PCLK_RST() do { RCC->APB1RSTR |= (1 << 17); RCC->APB1RSTR &= ~(1 << 17); } while (0)
+#define USART3_PCLK_RST() do { RCC->APB1RSTR |= (1 << 18); RCC->APB1RSTR &= ~(1 << 18); } while (0)
+#define UART4_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 19); RCC->APB1RSTR &= ~(1 << 19); } while (0)
+#define UART5_PCLK_RST()  do { RCC->APB1RSTR |= (1 << 20); RCC->APB1RSTR &= ~(1 << 20); } while (0)
+#define USART6_PCLK_RST() do { RCC->APB2RSTR |= (1 << 5);  RCC->APB2RSTR &= ~(1 << 5);  } while (0)
 /********************BIT DEFINITION OF SPI_PERIPHERALS*********************/
 
 /*
@@ -564,6 +611,83 @@ typedef struct I2C_Register {
 #define I2C_CCR_F_S					15U		//I2C master mode selection
 #define I2C_CCR_DUTY				14U		//Fm mode duty cycle
 #define I2C_CCR_CCR					0U		//Clock control register in Fm/Sm mode (Master Mode)
+/**********************************************************************************************/
+/**********************************BIT DEFINITION OF USART/UART PERIPHERAL*********************/
+/*
+ * Status Register USART_SR macros
+ * Note: Bits 31:10 must be kept at reset value
+ */
+#define CTS		9U		//CST flag
+#define LBD		8U		//LIN break detection flag
+#define TXE		7U		//Transmit data register emtpy
+#define TC		6U		//Transmission complete
+#define RXNE	5U		//Read data register not empty
+#define IDLE	4U		//IDLE line is detected
+#define ORE		3U		//Overrun error
+#define NF		2U		//Noise detection flag
+#define FE		1U		//Framing error
+#define PE		0U		//Parity error
+
+/*
+ * Baud rate register (USART_BRR)
+ * Note: Bits 31:16 must be kept at reset value
+ */
+#define DIV_Mantissa		0U 				//Mantissa of USARTDIV, [11:0]
+#define DIV_Fraction		DIV_Mantissa	//Fraction of USARTDIV, [3:0]
+
+/*
+ * Control register 1 (USART_CR1)
+ * Note: Bit 31:16 must be kept at reset value
+ */
+#define OVER8	15U		//Over-sampling mode
+//Bit 14 must be kept at reset value
+#define UE		13U		//USART enable
+#define M		12U		//Word length
+#define WAKE	11U		//Wake-up method
+#define PCE		10U		//Parity control enable
+#define PS		9U		//Parity selection
+#define PEIE	8U		//Interrupt enable
+#define TXEIE	7U		//TXE interrupt enable
+#define TCIE	6U		//Transmission complete interrupt enable
+#define RXNEIE	5U		//RXNE interrupt enable
+#define IDLEIE	4U		//IDLE interrupt enable
+#define TE		3U		//Transmitter enable
+#define RE		2U		//Receiver enable
+#define RWU		1U		//Receiver wake-up
+#define SBK		0U		//Send break
+
+/*
+ * Control Register 2 (USART_CR2)
+ * Note: Bits 31:15 must be kept at reset value
+ */
+#define LINEN	14U		//LIN mode enable
+#define STOP	12U		//STOP bits
+#define CLKEN	11U		//Clock enable
+#define CPOL	10U		//Clock polarity
+#define CPHA	9U		//Clock phase
+#define BCL		8U		//Last bit clock pulse
+//Bit 7 is reserved, must be kept at reset value
+#define LBDIE	6U		//LIN break detection interrupt enable
+#define LBDL	5U		//LIN break detection length
+//Bit 4 is reserved, must be kept at reset value
+#define ADD		0U		//Address of the USART node
+
+/*
+ * Control Register 3 (USART_CR3)
+ * Note: Bits 31:12 are reserved, must be kept at reset value
+ */
+#define ONEBIT	11U		//One sample bit method enable
+#define CTSIE	10U		//CTS interrupt enable
+#define CTSE	9U		//CTS enable
+#define RTSE	8U		//RTS enable
+#define DMAT	7U		//DMA enable transmitter
+#define DMAR	6U		//DMA enable receiver
+#define SCEN	5U		//Smartcard mode enable
+#define NACK	4U		//Smartcard NACK enable
+#define HDSEl	3U		//Half-duplex selection
+#define IRLP	2U		//IrDA low-power
+#define IREN	1U		//IrDA mode enable
+#define EIE		0U		//Error interrupt enable
 
 
 #include "../Inc/gpio_driver.h"

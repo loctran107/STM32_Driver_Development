@@ -60,8 +60,8 @@ void SPI2_Handler_Setup(SPI_Handle_t* SPI_Handler) {
 	SPI_Handler->SPI_Config.BusConfig = SPI_BUS_CONFIG_FULL_DUPLX;
 	SPI_Handler->SPI_Config.SclkSpeed = SPI_SCLK_SPEED_DIV2; //8MHz since we're using 16MHz HSI
 	SPI_Handler->SPI_Config.DFF = SPI_DFF_8_BIT;
-	SPI_Handler->SPI_Config.CPOL = SPI_CPOL_LOW;
-	SPI_Handler->SPI_Config.CPHA = SPI_CPHA_LOW;
+	SPI_Handler->SPI_Config.CPOLConfig = SPI_CPOL_LOW;
+	SPI_Handler->SPI_Config.CPHAConfig = SPI_CPHA_LOW;
 	SPI_Handler->SPI_Config.SSM = SPI_SSM; //software slave management enabled for NSS pin
 	SPI_Init(SPI_Handler);
 }

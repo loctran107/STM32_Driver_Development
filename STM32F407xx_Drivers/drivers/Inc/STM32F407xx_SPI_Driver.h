@@ -118,8 +118,8 @@ typedef struct {
 	uint8_t  BusConfig;		//@SPI_BUS
 	uint8_t  SSM;			//Slave Select Management
 	uint8_t  DFF;   		//Data Frame Format
-	uint8_t  CPOL;  		//Clock Polarity
-	uint8_t  CPHA;  		//Clock Phase
+	uint8_t  CPOLConfig;  		//Clock Polarity
+	uint8_t  CPHAConfig;  		//Clock Phase
 } SPI_Config_t;
 
 

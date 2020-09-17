@@ -91,7 +91,7 @@ void I2C_ApplicationEventCallBack(I2C_Handle_t* pI2CHandler, uint8_t appEvt) {
 							}
 							break;
 	//End I2C Slave Transmission mode
-	//Invalid the commandCode and the counter so that slave no
+	//Invalidate the commandCode and the counter so that slave no
 	//longer sends data bytes to master.
 	case I2C_ERR_AF:		if (commandCode == COMMAND_REQUEST) {
 								commandCode = 0xff;

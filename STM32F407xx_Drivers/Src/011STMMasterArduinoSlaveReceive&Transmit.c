@@ -396,8 +396,8 @@ void SPI_MasterInit(SPI_Handle_t* SPI_Master) {
 	SPI_Master->SPI_Config.DFF = SPI_DFF_8_BIT;
 	SPI_Master->SPI_Config.SSM = SPI_HSM;
 	SPI_Master->SPI_Config.SclkSpeed = SPI_SCLK_SPEED_DIV8;
-	SPI_Master->SPI_Config.CPHA = SPI_CPHA_LOW;
-	SPI_Master->SPI_Config.CPOL = SPI_CPOL_LOW;
+	SPI_Master->SPI_Config.CPHAConfig = SPI_CPHA_LOW;
+	SPI_Master->SPI_Config.CPOLConfig = SPI_CPOL_LOW;
 	SPI_Init(SPI_Master);
 }
 

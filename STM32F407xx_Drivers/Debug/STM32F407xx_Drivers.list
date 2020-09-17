@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00003074  00000000  00000000  0002006c  2**0
+ 12 .debug_info   0000307a  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 0000072a  00000000  00000000  000230e0  2**0
+ 13 .debug_abbrev 0000072a  00000000  00000000  000230e6  2**0
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_aranges 00000208  00000000  00000000  00023810  2**3
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 000001d0  00000000  00000000  00023a18  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00002be6  00000000  00000000  00023be8  2**0
+ 16 .debug_macro  00002d5f  00000000  00000000  00023be8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00001af1  00000000  00000000  000267ce  2**0
+ 17 .debug_line   00001af1  00000000  00000000  00026947  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000bd19  00000000  00000000  000282bf  2**0
+ 18 .debug_str    0000c1ed  00000000  00000000  00028438  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00033fd8  2**0
+ 19 .comment      0000007b  00000000  00000000  00034625  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000820  00000000  00000000  00034054  2**2
+ 20 .debug_frame  00000820  00000000  00000000  000346a0  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -262,7 +262,7 @@ void I2C_ApplicationEventCallBack(I2C_Handle_t* pI2CHandler, uint8_t appEvt) {
 							break;
  8000314:	e01c      	b.n	8000350 <I2C_ApplicationEventCallBack+0xe8>
 	//End I2C Slave Transmission mode
-	//Invalid the commandCode and the counter so that slave no
+	//Invalidate the commandCode and the counter so that slave no
 	//longer sends data bytes to master.
 	case I2C_ERR_AF:		if (commandCode == COMMAND_REQUEST) {
  8000316:	4b11      	ldr	r3, [pc, #68]	; (800035c <I2C_ApplicationEventCallBack+0xf4>)

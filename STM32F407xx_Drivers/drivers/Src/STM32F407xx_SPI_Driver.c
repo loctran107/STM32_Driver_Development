@@ -82,8 +82,8 @@ void SPI_Init(SPI_Handle_t* pSPIHandler) {
 
 	//Select the CPOL and CPHA bits to define one of the 4 relationships
 	//between the data transfer and the serial clock
-	temp |= SPIConf.CPOL << SPI_CR1_CPOL;
-	temp |= SPIConf.CPHA << SPI_CR1_CPHA;
+	temp |= SPIConf.CPOLConfig << SPI_CR1_CPOL;
+	temp |= SPIConf.CPHAConfig << SPI_CR1_CPHA;
 
 	//Set the SSM pin to select either Hardware Slave Management
 	//Software Slave Management (potentially configure the SSI pin)

@@ -1181,3 +1181,153 @@ Finished building: STM32F407xx_Drivers.bin
 Finished building: STM32F407xx_Drivers.list
  
  
+14:00:27 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/015MasterArduinoSlaveSTMSendReceive4byte.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/015MasterArduinoSlaveSTMSendReceive4byte.d" -MT"Src/015MasterArduinoSlaveSTMSendReceive4byte.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/015MasterArduinoSlaveSTMSendReceive4byte.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\Desktop\workspace_STM32\MCU1\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5908	     68	   1604	   7580	   1d9c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:25:26 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/015MasterArduinoSlaveSTMSendReceive4byte.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/015MasterArduinoSlaveSTMSendReceive4byte.d" -MT"Src/015MasterArduinoSlaveSTMSendReceive4byte.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/015MasterArduinoSlaveSTMSendReceive4byte.o"
+In file included from ../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:11:0,
+                 from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:
+../drivers/Src/../Inc/stm32f407xx.h:666:14: error: expected identifier or '(' before numeric constant
+ #define CPOL 10U  //Clock polarity
+              ^
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:121:11: note: in expansion of macro 'CPOL'
+  uint8_t  CPOL;    //Clock Polarity
+           ^~~~
+../drivers/Src/../Inc/stm32f407xx.h:667:14: error: expected identifier or '(' before numeric constant
+ #define CPHA 9U  //Clock phase
+              ^
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:122:11: note: in expansion of macro 'CPHA'
+  uint8_t  CPHA;    //Clock Phase
+           ^~~~
+In file included from ../drivers/Src/../Inc/stm32f407xx.h:678:0,
+                 from ../drivers/Src/../Inc/STM32F407xx_I2C_Driver.h:11,
+                 from ../drivers/Src/STM32F407xx_I2C_Driver.c:8:
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:123:1: warning: no semicolon at end of struct or union
+ } SPI_Config_t;
+ ^
+In file included from ../drivers/Src/../Inc/gpio_driver.h:12:0,
+                 from ../drivers/Src/gpio_driver.c:9:
+../drivers/Src/../Inc/stm32f407xx.h:666:14: error: expected identifier or '(' before numeric constant
+ #define CPOL 10U  //Clock polarity
+              ^
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:121:11: note: in expansion of macro 'CPOL'
+  uint8_t  CPOL;    //Clock Polarity
+           ^~~~
+../drivers/Src/../Inc/stm32f407xx.h:667:14: error: expected identifier or '(' before numeric constant
+ #define CPHA 9U  //Clock phase
+              ^
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:122:11: note: in expansion of macro 'CPHA'
+  uint8_t  CPHA;    //Clock Phase
+           ^~~~
+In file included from ../drivers/Src/../Inc/stm32f407xx.h:678:0,
+                 from ../drivers/Src/../Inc/gpio_driver.h:12,
+                 from ../drivers/Src/gpio_driver.c:9:
+../drivers/Src/../Inc/../Inc/STM32F407xx_SPI_Driver.h:123:1: warning: no semicolon at end of struct or union
+ } SPI_Config_t;
+ ^
+In file included from ../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:12:0,
+                 from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:
+../drivers/Src/../Inc/stm32f407xx.h:666:14: error: expected identifier or '(' before numeric constant
+ #define CPOL 10U  //Clock polarity
+              ^
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:121:11: note: in expansion of macro 'CPOL'
+  uint8_t  CPOL;    //Clock Polarity
+           ^~~~
+../drivers/Src/../Inc/stm32f407xx.h:667:14: error: expected identifier or '(' before numeric constant
+ #define CPHA 9U  //Clock phase
+              ^
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:122:11: note: in expansion of macro 'CPHA'
+  uint8_t  CPHA;    //Clock Phase
+           ^~~~
+In file included from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:0:
+../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:123:1: warning: no semicolon at end of struct or union
+ } SPI_Config_t;
+ ^
+In file included from ../drivers/Src/../Inc/STM32F407xx_SPI_Driver.h:12:0,
+                 from ../drivers/Src/STM32F407xx_SPI_Driver.c:10:
+../drivers/Src/STM32F407xx_SPI_Driver.c: In function 'SPI_Init':
+../drivers/Src/../Inc/stm32f407xx.h:666:14: error: expected identifier before numeric constant
+ #define CPOL 10U  //Clock polarity
+              ^
+../drivers/Src/STM32F407xx_SPI_Driver.c:85:18: note: in expansion of macro 'CPOL'
+  temp |= SPIConf.CPOL << SPI_CR1_CPOL;
+                  ^~~~
+../drivers/Src/../Inc/stm32f407xx.h:667:14: error: expected identifier before numeric constant
+ #define CPHA 9U  //Clock phase
+              ^
+../drivers/Src/STM32F407xx_SPI_Driver.c:86:18: note: in expansion of macro 'CPHA'
+  temp |= SPIConf.CPHA << SPI_CR1_CPHA;
+                  ^~~~
+In file included from ../Src/015MasterArduinoSlaveSTMSendReceive4byte.c:15:0:
+../Src/../drivers/Inc/stm32f407xx.h:666:14: error: expected identifier or '(' before numeric constant
+ #define CPOL 10U  //Clock polarity
+              ^
+../Src/../drivers/Inc/../Inc/STM32F407xx_SPI_Driver.h:121:11: note: in expansion of macro 'CPOL'
+  uint8_t  CPOL;    //Clock Polarity
+           ^~~~
+../Src/../drivers/Inc/stm32f407xx.h:667:14: error: expected identifier or '(' before numeric constant
+ #define CPHA 9U  //Clock phase
+              ^
+../Src/../drivers/Inc/../Inc/STM32F407xx_SPI_Driver.h:122:11: note: in expansion of macro 'CPHA'
+  uint8_t  CPHA;    //Clock Phase
+           ^~~~
+In file included from ../Src/../drivers/Inc/stm32f407xx.h:678:0,
+                 from ../Src/015MasterArduinoSlaveSTMSendReceive4byte.c:15:
+../Src/../drivers/Inc/../Inc/STM32F407xx_SPI_Driver.h:123:1: warning: no semicolon at end of struct or union
+ } SPI_Config_t;
+ ^
+make: *** [drivers/Src/subdir.mk:24: drivers/Src/STM32F407xx_I2C_Driver.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [drivers/Src/subdir.mk:28: drivers/Src/gpio_driver.o] Error 1
+make: *** [drivers/Src/subdir.mk:26: drivers/Src/STM32F407xx_SPI_Driver.o] Error 1
+make: *** [Src/subdir.mk:24: Src/015MasterArduinoSlaveSTMSendReceive4byte.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:29:18 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_I2C_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_I2C_Driver.d" -MT"drivers/Src/STM32F407xx_I2C_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_I2C_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/STM32F407xx_SPI_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/STM32F407xx_SPI_Driver.d" -MT"drivers/Src/STM32F407xx_SPI_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/STM32F407xx_SPI_Driver.o"
+arm-none-eabi-gcc "../drivers/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/gpio_driver.d" -MT"drivers/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "drivers/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Src/015MasterArduinoSlaveSTMSendReceive4byte.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/015MasterArduinoSlaveSTMSendReceive4byte.d" -MT"Src/015MasterArduinoSlaveSTMSendReceive4byte.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/015MasterArduinoSlaveSTMSendReceive4byte.o"
+arm-none-eabi-gcc -o "STM32F407xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\tranq\Desktop\workspace_STM32\MCU1\STM32F407xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32F407xx_Drivers.elf
+ 
+arm-none-eabi-objdump -h -S  STM32F407xx_Drivers.elf  > "STM32F407xx_Drivers.list"
+arm-none-eabi-objcopy  -O binary  STM32F407xx_Drivers.elf  "STM32F407xx_Drivers.bin"
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5908	     68	   1604	   7580	   1d9c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32F407xx_Drivers.bin
+Finished building: STM32F407xx_Drivers.list
+ 
+ 
+14:29:22 **** Incremental Build of configuration Debug for project STM32F407xx_Drivers ****
+make -j8 all 
+arm-none-eabi-size   STM32F407xx_Drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5908	     68	   1604	   7580	   1d9c	STM32F407xx_Drivers.elf
+Finished building: default.size.stdout
+ 

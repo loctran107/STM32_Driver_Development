@@ -244,10 +244,10 @@ void USART_ReceiveData(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, uint32
 			//be received
 			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
 				//Write buffer into the data register at 8-bit data frame
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0xFF);
+				*pRxBuffer = pUSARTHandler->pUSARTx->DR & 0xFF;
 			} else {
 				//if parity bit is enabled, only 7 bit will be received
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0x7F);
+				*pRxBuffer = pUSARTHandler->pUSARTx->DR & 0x7F;
 			}
 			pRxBuffer++;
 		}

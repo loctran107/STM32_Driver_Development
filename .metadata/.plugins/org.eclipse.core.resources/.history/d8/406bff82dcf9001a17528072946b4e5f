@@ -71,10 +71,9 @@
 /*
  * @USART Status flags
  */
-#define USART_FLAG_SR_TXE			(1 << USART_SR_TXE)
-#define USART_FLAG_SR_RXNE			(1 << USART_SR_RXNE)
-#define USART_FLAG_SR_TC			(1 << USART_SR_TC)
-
+#define USART_FLAG_SR1_TXE			0U
+#define USART_FLAG_SR1_RXNE			1U
+#define USART_FLAG_SR1_TC			2U
 /****************************USART_FUNCTION_MACROS******************/
 /*
  * I2C Peripheral Clock Enable
@@ -141,8 +140,8 @@ void USART_PeripheralEnable(USART_Reg_t* pUSARTx, uint8_t EnOrDi);
 /*
  * USART Send and Receive APIs
  */
-void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t len);
-void USART_ReceiveData(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, uint32_t len);
+void USART_SendData(USART_Reg_t* pUSARTx, uint8_t* pTxBuffer, uint32_t len);
+void USART_ReceiveData(USART_Reg_t* pUSARTx, uint8_t* pRxBuffer, uint32_t len);
 
 /*
  * USART Send and Receive IT APIs

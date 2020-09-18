@@ -141,8 +141,8 @@ void USART_PeripheralEnable(USART_Reg_t* pUSARTx, uint8_t EnOrDi);
 /*
  * USART Send and Receive APIs
  */
-void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t len);
-void USART_ReceiveData(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, uint32_t len);
+void USART_SendData(USART_Reg_t* pUSARTx, uint8_t* pTxBuffer, uint32_t len);
+void USART_ReceiveData(USART_Reg_t* pUSARTx, uint8_t* pRxBuffer, uint32_t len);
 
 /*
  * USART Send and Receive IT APIs

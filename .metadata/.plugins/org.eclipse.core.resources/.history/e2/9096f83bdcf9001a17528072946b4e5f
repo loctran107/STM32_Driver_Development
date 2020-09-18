@@ -619,7 +619,7 @@ typedef struct USART_Register {
  */
 #define USART_SR_CTS		9U		//CST flag
 #define USART_SR_LBD		8U		//LIN break detection flag
-#define USART_SR_TXE		7U		//Transmit data register empty
+#define USART_SR_TXE		7U		//Transmit data register emtpy
 #define USART_SR_TC			6U		//Transmission complete
 #define USART_SR_RXNE		5U		//Read data register not empty
 #define USART_SR_IDLE		4U		//IDLE line is detected

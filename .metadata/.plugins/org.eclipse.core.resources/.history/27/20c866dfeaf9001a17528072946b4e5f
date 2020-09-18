@@ -177,24 +177,17 @@ void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t 
 		//Poll until TXE is set
 		while (!USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_TXE));
 
-		//Check if the word length is 8 or 9-bit data frame
 		if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
 
 			//2 bytes of data will be sent, 9-bit masking is necessary
 			pUSARTHandler->pUSARTx->DR = *((uint16_t*) pTxBuffer) & ((uint16_t) 0x1FF);
-
-			//When parity bit is disabled, the data sent is 2 bytes
-			//For more, see page 991 in MCU Reference Manual
 			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
 				(uint16_t*) pTxBuffer++;
 			} else {
-				//Parity bit is used in this transfer. Thus, 8 bits of user data
-				//will be sent. The 9th bit will be replaced with parity bit
-				//by hardware
 				pTxBuffer++;
 			}
 		} else {
-			//Write buffer into the data register at 8-bit data frame
+			//Write buffer into the data register
 			pUSARTHandler->pUSARTx->DR = *pTxBuffer & ((uint8_t) 0xFF);
 			pTxBuffer++;
 		}
@@ -220,39 +213,24 @@ void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t 
  */
 void USART_ReceiveData(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, uint32_t len) {
 
+	/*//Enable the USART by writing UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, ENABLE);
+
 	while (len) {
 		//Poll until TXE is set
-		while (!USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_RXNE));
+		while (!USART_CheckStatusFlag(&pUSARTx->SR, USART_FLAG_SR_TXE));
 
-		//Check if the word length is 8 or 9-bit data frame
-		if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
 
-			//When parity bit is disabled, 9-bit of data will be received and no parity bit
-			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
-				//2 bytes of data will be sent, 9-bit masking is necessary
-				*((uint16_t*) pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0x1FF);
-				(uint16_t*) pRxBuffer++;
-			} else {
-				//Parity bit is used in this transfer. Thus, 8 bits of user data
-				//will be received. The 9th bit will be replaced with parity bit
-				//by hardware
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0xFF);
-				pRxBuffer++;
-			}
-		} else {
-			//In 8-bit data frame, if parity bit is disabled, 8 bits will
-			//be received
-			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
-				//Write buffer into the data register at 8-bit data frame
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0xFF);
-			} else {
-				//if parity bit is enabled, only 7 bit will be received
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0x7F);
-			}
-			pRxBuffer++;
-		}
+		//Write buffer into the data register
+		*pRxBuffer = pUSARTx->DR;
 		len--;
+		pRxBuffer++;
 	}
+
+	//Disable the USART by resetting UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, DISABLE);*/
+
+
 }
 
 /*****************************************************

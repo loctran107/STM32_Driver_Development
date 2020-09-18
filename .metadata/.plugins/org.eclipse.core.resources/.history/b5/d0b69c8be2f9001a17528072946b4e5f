@@ -52,22 +52,6 @@ void USART_Init(USART_Handle_t* pUSARTHandler) {
 	//Enable the peripheral clock
 	USART_PeriClkCtrl(pUSARTHandler->pUSARTx, ENABLE);
 
-
-	//Configure USART mode
-	switch (pUSARTHandler->USART_Config.Mode) {
-	case USART_MODE_ONLY_TX:	//Set the TE bit in USART_CR to send an idle frame as the first transmission
-								pUSARTHandler->pUSARTx->CR1 |= 1 << USART_CR1_TE;
-								break;
-
-	case USART_MODE_ONLY_RX:	//Set the TE bit in USART_CR to send an idle frame as the first transmission
-								pUSARTHandler->pUSARTx->CR1 |= 1 << USART_CR1_RE;
-								break;
-
-	case USART_MODE_TX_RX:		pUSARTHandler->pUSARTx->CR1 |= 1 << USART_CR1_TE;
-								pUSARTHandler->pUSARTx->CR1 |= 1 << USART_CR1_RE;
-								break;
-
-	}
 	//Configure the parity control
 	if (pUSARTHandler->USART_Config.ParityControl != USART_PARITY_DI) {
 
@@ -82,11 +66,12 @@ void USART_Init(USART_Handle_t* pUSARTHandler) {
 	//Configure the over-sampling
 	pUSARTHandler->pUSARTx->CR1 |= pUSARTHandler->USART_Config.Oversampling << USART_CR1_OVER8;
 
-	//Configure the word length
-	pUSARTHandler->pUSARTx->CR1 |= pUSARTHandler->USART_Config.WordLength << USART_CR1_M;
-
-	//Configure the number of stop bits
-	pUSARTHandler->pUSARTx->CR2 |= pUSARTHandler->USART_Config.NoOfStopBits << USART_CR2_STOP;
+	//Baud rate configuration
+	USARTDiv = getUSARTDiv(pUSARTHandler);
+	mantissa = (uint16_t) USARTDiv;
+	fraction = USARTDiv - mantissa;
+	pUSARTHandler->pUSARTx->BRR |= mantissa << USART_BRR_DIV_MANTISSA;
+	pUSARTHandler->pUSARTx->BRR |= fraction << USART_BRR_DIV_FRACTION;
 
 	//Configure the HW flow control
 	if (pUSARTHandler->USART_Config.HWFlowControl != USART_HW_FLOW_CTRL_NONE) {
@@ -106,12 +91,12 @@ void USART_Init(USART_Handle_t* pUSARTHandler) {
 		}
 	}
 
-	//Baud rate configuration
-	USARTDiv = getUSARTDiv(pUSARTHandler);
-	mantissa = (uint16_t) USARTDiv;
-	fraction = USARTDiv - mantissa;
-	pUSARTHandler->pUSARTx->BRR |= mantissa << USART_BRR_DIV_MANTISSA;
-	pUSARTHandler->pUSARTx->BRR |= fraction << USART_BRR_DIV_FRACTION;
+	//Configure the number of stop bits
+	pUSARTHandler->pUSARTx->CR2 |= pUSARTHandler->USART_Config.NoOfStopBits << USART_CR2_STOP;
+
+	//Configure the word length
+	pUSARTHandler->pUSARTx->CR1 |= pUSARTHandler->USART_Config.WordLength << USART_CR1_M;
+
 }
 
 /*****************************************************
@@ -171,39 +156,29 @@ void USART_PeripheralEnable(USART_Reg_t* pUSARTx, uint8_t EnOrDi) {
  * @return				- none
  * @note				- See the MCU Reference Manual for more details
  */
-void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t len) {
+void USART_SendData(USART_Reg_t* pUSARTx, uint8_t* pTxBuffer, uint32_t len) {
+
+	//Enable the USART by writing UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, ENABLE);
+
+	//Set the TE bit in USART_CR to send an idle frame as the first transmission
+	pUSARTx->CR1 |= 1 << USART_CR1_TE;
 
 	while (len) {
 		//Poll until TXE is set
-		while (!USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_TXE));
+		while (!USART_CheckStatusFlag(&pUSARTx->SR, USART_FLAG_SR_TXE));
 
-		//Check if the word length is 8 or 9-bit data frame
-		if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
-
-			//2 bytes of data will be sent, 9-bit masking is necessary
-			pUSARTHandler->pUSARTx->DR = *((uint16_t*) pTxBuffer) & ((uint16_t) 0x1FF);
-
-			//When parity bit is disabled, the data sent is 2 bytes
-			//For more, see page 991 in MCU Reference Manual
-			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
-				(uint16_t*) pTxBuffer++;
-			} else {
-				//Parity bit is used in this transfer. Thus, 8 bits of user data
-				//will be sent. The 9th bit will be replaced with parity bit
-				//by hardware
-				pTxBuffer++;
-			}
-		} else {
-			//Write buffer into the data register at 8-bit data frame
-			pUSARTHandler->pUSARTx->DR = *pTxBuffer & ((uint8_t) 0xFF);
-			pTxBuffer++;
-		}
+		//Write buffer into the data register
+		pUSARTx->DR = *pTxBuffer;
 		len--;
+		pTxBuffer++;
+
+		//Wait until the transmission is complete
+		while (!USART_CheckStatusFlag(&pUSARTx->SR, USART_FLAG_SR_TC));
 	}
 
-	//Wait until the transmission is complete
-	while (!USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_TC));
-
+	//Disable the USART by resetting UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, DISABLE);
 }
 
 /*****************************************************
@@ -218,41 +193,28 @@ void USART_SendData(USART_Handle_t* pUSARTHandler, uint8_t* pTxBuffer, uint32_t 
  * @return				- none
  * @note				- See the MCU Reference Manual for more details
  */
-void USART_ReceiveData(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, uint32_t len) {
+void USART_ReceiveData(USART_Reg_t* pUSARTx, uint8_t* pRxBuffer, uint32_t len) {
+
+	//Enable the USART by writing UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, ENABLE);
+
+	//Set the TE bit in USART_CR to send an idle frame as the first transmission
+	pUSARTx->CR1 |= 1 << USART_CR1_RE;
 
 	while (len) {
 		//Poll until TXE is set
-		while (!USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_RXNE));
+		while (!USART_CheckStatusFlag(&pUSARTx->SR, USART_FLAG_SR_TXE));
 
-		//Check if the word length is 8 or 9-bit data frame
-		if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
-
-			//When parity bit is disabled, 9-bit of data will be received and no parity bit
-			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
-				//2 bytes of data will be sent, 9-bit masking is necessary
-				*((uint16_t*) pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0x1FF);
-				(uint16_t*) pRxBuffer++;
-			} else {
-				//Parity bit is used in this transfer. Thus, 8 bits of user data
-				//will be received. The 9th bit will be replaced with parity bit
-				//by hardware
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0xFF);
-				pRxBuffer++;
-			}
-		} else {
-			//In 8-bit data frame, if parity bit is disabled, 8 bits will
-			//be received
-			if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
-				//Write buffer into the data register at 8-bit data frame
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0xFF);
-			} else {
-				//if parity bit is enabled, only 7 bit will be received
-				*pRxBuffer = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0x7F);
-			}
-			pRxBuffer++;
-		}
+		//Write buffer into the data register
+		*pRxBuffer = pUSARTx->DR;
 		len--;
+		pTxBuffer++;
 	}
+
+	//Disable the USART by resetting UE bit in USART_CR1 register
+	USART_PeripheralEnable(pUSARTx, DISABLE);
+
+
 }
 
 /*****************************************************

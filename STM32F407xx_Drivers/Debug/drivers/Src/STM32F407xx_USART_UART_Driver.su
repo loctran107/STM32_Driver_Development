@@ -1,0 +1,12 @@
+STM32F407xx_USART_UART_Driver.c:28:6:USART_PeriClkCtrl	16	static
+STM32F407xx_USART_UART_Driver.c:47:6:USART_Init	40	static
+STM32F407xx_USART_UART_Driver.c:112:6:USART_DeInit	16	static
+STM32F407xx_USART_UART_Driver.c:139:6:USART_PeripheralEnable	16	static
+STM32F407xx_USART_UART_Driver.c:159:6:USART_SendData	24	static
+STM32F407xx_USART_UART_Driver.c:175:6:USART_ReceiveData	24	static
+STM32F407xx_USART_UART_Driver.c:190:6:USART_IRQITConfig	24	static
+STM32F407xx_USART_UART_Driver.c:218:6:USART_IRQPriorityConfig	32	static
+STM32F407xx_USART_UART_Driver.c:238:9:USART_CheckStatusFlag	16	static
+STM32F407xx_USART_UART_Driver.c:256:17:getPLLClkFreq	4	static
+STM32F407xx_USART_UART_Driver.c:273:17:getAPBxClkFreq	72	static
+STM32F407xx_USART_UART_Driver.c:305:15:getUSARTDiv	32	static

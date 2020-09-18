@@ -617,80 +617,81 @@ typedef struct USART_Register {
  * Status Register USART_SR macros
  * Note: Bits 31:10 must be kept at reset value
  */
-#define CTS		9U		//CST flag
-#define LBD		8U		//LIN break detection flag
-#define TXE		7U		//Transmit data register emtpy
-#define TC		6U		//Transmission complete
-#define RXNE	5U		//Read data register not empty
-#define IDLE	4U		//IDLE line is detected
-#define ORE		3U		//Overrun error
-#define NF		2U		//Noise detection flag
-#define FE		1U		//Framing error
-#define PE		0U		//Parity error
+#define USART_SR_CTS		9U		//CST flag
+#define USART_SR_LBD		8U		//LIN break detection flag
+#define USART_SR_TXE		7U		//Transmit data register emtpy
+#define USART_SR_TC			6U		//Transmission complete
+#define USART_SR_RXNE		5U		//Read data register not empty
+#define USART_SR_IDLE		4U		//IDLE line is detected
+#define USART_SR_ORE		3U		//Overrun error
+#define USART_SR_NF			2U		//Noise detection flag
+#define USART_SR_FE			1U		//Framing error
+#define USART_SR_PE			0U		//Parity error
 
 /*
  * Baud rate register (USART_BRR)
  * Note: Bits 31:16 must be kept at reset value
  */
-#define DIV_Mantissa		0U 				//Mantissa of USARTDIV, [11:0]
-#define DIV_Fraction		DIV_Mantissa	//Fraction of USARTDIV, [3:0]
+#define USART_BRR_DIV_FRACTION		0U 	//Mantissa of USARTDIV, [11:0]
+#define USART_BRR_DIV_MANTISSA		4U	//Fraction of USARTDIV, [3:0]
 
 /*
  * Control register 1 (USART_CR1)
  * Note: Bit 31:16 must be kept at reset value
  */
-#define OVER8	15U		//Over-sampling mode
+#define USART_CR1_OVER8		15U		//Over-sampling mode
 //Bit 14 must be kept at reset value
-#define UE		13U		//USART enable
-#define M		12U		//Word length
-#define WAKE	11U		//Wake-up method
-#define PCE		10U		//Parity control enable
-#define PS		9U		//Parity selection
-#define PEIE	8U		//Interrupt enable
-#define TXEIE	7U		//TXE interrupt enable
-#define TCIE	6U		//Transmission complete interrupt enable
-#define RXNEIE	5U		//RXNE interrupt enable
-#define IDLEIE	4U		//IDLE interrupt enable
-#define TE		3U		//Transmitter enable
-#define RE		2U		//Receiver enable
-#define RWU		1U		//Receiver wake-up
-#define SBK		0U		//Send break
+#define USART_CR1_UE		13U		//USART enable
+#define USART_CR1_M			12U		//Word length
+#define USART_CR1_WAKE		11U		//Wake-up method
+#define USART_CR1_PCE		10U		//Parity control enable
+#define USART_CR1_PS		9U		//Parity selection
+#define USART_CR1_PEIE		8U		//Interrupt enable
+#define USART_CR1_TXEIE		7U		//TXE interrupt enable
+#define USART_CR1_TCIE		6U		//Transmission complete interrupt enable
+#define USART_CR1_RXNEIE	5U		//RXNE interrupt enable
+#define USART_CR1_IDLEIE	4U		//IDLE interrupt enable
+#define USART_CR1_TE		3U		//Transmitter enable
+#define USART_CR1_RE		2U		//Receiver enable
+#define USART_CR1_RWU		1U		//Receiver wake-up
+#define USART_CR1_SBK		0U		//Send break
 
 /*
  * Control Register 2 (USART_CR2)
  * Note: Bits 31:15 must be kept at reset value
  */
-#define LINEN	14U		//LIN mode enable
-#define STOP	12U		//STOP bits
-#define CLKEN	11U		//Clock enable
-#define CPOL	10U		//Clock polarity
-#define CPHA	9U		//Clock phase
-#define BCL		8U		//Last bit clock pulse
+#define USART_CR2_LINEN		14U		//LIN mode enable
+#define USART_CR2_STOP		12U		//STOP bits
+#define USART_CR2_CLKEN		11U		//Clock enable
+#define USART_CR2_CPOL		10U		//Clock polarity
+#define USART_CR2_CPHA		9U		//Clock phase
+#define USART_CR2_BCL		8U		//Last bit clock pulse
 //Bit 7 is reserved, must be kept at reset value
-#define LBDIE	6U		//LIN break detection interrupt enable
-#define LBDL	5U		//LIN break detection length
+#define USART_CR2_LBDIE		6U		//LIN break detection interrupt enable
+#define USART_CR2_LBDL		5U		//LIN break detection length
 //Bit 4 is reserved, must be kept at reset value
-#define ADD		0U		//Address of the USART node
+#define USART_CR2_ADD		0U		//Address of the USART node
 
 /*
  * Control Register 3 (USART_CR3)
  * Note: Bits 31:12 are reserved, must be kept at reset value
  */
-#define ONEBIT	11U		//One sample bit method enable
-#define CTSIE	10U		//CTS interrupt enable
-#define CTSE	9U		//CTS enable
-#define RTSE	8U		//RTS enable
-#define DMAT	7U		//DMA enable transmitter
-#define DMAR	6U		//DMA enable receiver
-#define SCEN	5U		//Smartcard mode enable
-#define NACK	4U		//Smartcard NACK enable
-#define HDSEl	3U		//Half-duplex selection
-#define IRLP	2U		//IrDA low-power
-#define IREN	1U		//IrDA mode enable
-#define EIE		0U		//Error interrupt enable
+#define USART_CR3_ONEBIT	11U		//One sample bit method enable
+#define USART_CR3_CTSIE		10U		//CTS interrupt enable
+#define USART_CR3_CTSE		9U		//CTS enable
+#define USART_CR3_RTSE		8U		//RTS enable
+#define USART_CR3_DMAT		7U		//DMA enable transmitter
+#define USART_CR3_DMAR		6U		//DMA enable receiver
+#define USART_CR3_SCEN		5U		//Smartcard mode enable
+#define USART_CR3_NACK		4U		//Smartcard NACK enable
+#define USART_CR3_HDSEl		3U		//Half-duplex selection
+#define USART_CR3_IRLP		2U		//IrDA low-power
+#define USART_CR3_IREN		1U		//IrDA mode enable
+#define USART_CR3_EIE		0U		//Error interrupt enable
 
 
 #include "../Inc/gpio_driver.h"
 #include "../Inc/STM32F407xx_SPI_Driver.h"
 #include "../Inc/STM32F407xx_I2C_Driver.h"
+#include "../Inc/STM32F407xx_USART_UART_Driver.h"
 #endif /* INC_STM32F407XX_H_ */

@@ -29,7 +29,7 @@ static void closeMasterRx(I2C_Handle_t* pI2CHandler);
 /*****************************************************
  * @fn					- I2C_PeriClkCtrl
  *
- * @brief				- Enable or disable the SPIx clock peripherals
+ * @brief				- Enable or disable the I2Cx clock peripherals
  *
  * @param[in]			- I2C_Reg_t* pI2Cx: Base address of the specific I2C
  * @param[in]			- ENABLE or DISABLE macro
@@ -139,7 +139,7 @@ void I2C_Init(I2C_Handle_t* pI2CHandler) {
  *
  * @brief				- Reset the entire register configuration of the specific I2C port
  *
- * @param[in]			- Base address of the specific SPI peripherals (SPI_Reg_t* pI2Cx)
+ * @param[in]			- Base address of the specific SPI peripherals (I2C_Reg_t* pI2Cx)
  *
  * @return				- none
  * @note				- The implementation so far only covers only 3 I2C ports
@@ -159,7 +159,7 @@ void I2C_DeInit(I2C_Reg_t* pI2Cx) {
  *
  * @brief				- Enable that specific I2C peripheral
  *
- * @param[in]			- Base address of the specific SPI peripherals (I2C_Reg_t* pI2Cx)
+ * @param[in]			- Base address of the specific I2C peripherals (I2C_Reg_t* pI2Cx)
  * @param[in]			= ENABLE or DISABLE macro
  *
  * @return				- none

@@ -1,0 +1,176 @@
+/*
+ * STM32F407xx_USART_UART_Driver.c
+ *
+ *  Created on: Sep 16, 2020
+ *      Author: Donavan Tran
+ */
+
+#include "../drivers/Inc/stm32f407xx.h"
+
+
+/*****************************************************
+ * @fn					- USART_PeriClkCtrl
+ *
+ * @brief				- Enable or disable the USARTx clock peripherals
+ *
+ * @param[in]			- Base address of the specific USART
+ * @param[in]			- ENABLE or DISABLE macro
+ *
+ * @return				- none
+ * @note				- none
+ */
+void USART_PeriClkCtrl(USART_Reg_t* pUSARTx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		USARTx_PCLK_EN(pUSARTx); //Go to I2Cx_PCLK_EN macro for more details
+	} else {
+		USARTx_PCLK_DI(pUSARTx); //Go to I2Cx_PCLK_DI macro for more details
+	}
+}
+
+/*****************************************************
+ * @fn					- USART_Init
+ *
+ * @brief				- Initialize the USART port given the handle structure
+ *
+ * @param[in]			- Handle Structure of USART that contains all USART configuration
+ * 						  and port
+ *
+ * @return				- none
+ * @note				- none
+ */
+void USART_Init(USART_Handle_t* pUSARTHandler) {
+
+}
+
+/*****************************************************
+ * @fn					- USART_DeInit
+ *
+ * @brief				- Reset the entire register configuration of the specific USART port
+ *
+ * @param[in]			- Base address of the specific SPI peripherals (USART_Reg_t* pUSARTx)
+ *
+ * @return				- none
+ * @note				- The implementation so far only covers only 6 USART/USART ports
+ */
+void USART_DeInit(USART_Reg_t* pUSARTx) {
+	if (pUSARTx == USART1) {
+		USART1_PCLK_RST();
+	} else if (pUSARTx == USART2) {
+		USART2_PCLK_RST();
+	} else if (pUSARTx == USART3) {
+		USART3_PCLK_RST();
+	} else if (pUSARTx == UART4) {
+		UART4_PCLK_RST();
+	} else if (pUSARTx == UART5) {
+		UART5_PCLK_RST();
+	} else {
+		USART6_PCLK_RST();
+	}
+}
+
+/*****************************************************
+ * @fn					- USART_PeripheralEnable
+ *
+ * @brief				- Enable that specific USART peripheral
+ *
+ * @param[in]			- Base address of the specific USART peripherals (USART_Reg_t* pUSARTx)
+ * @param[in]			= ENABLE or DISABLE macro
+ *
+ * @return				- none
+ * @note				- none
+ */
+void USART_PeripheralEnable(USART_Reg_t* pUSARTx, uint8_t EnOrDi) {
+	if (EnOrDi) {
+		pUSARTx->CR1 |= 1 << USART_CR1_UE;
+	} else {
+		pUSARTx->CR1 &= ~(1 << USART_CR1_UE);
+	}
+}
+
+/*****************************************************
+ * @fn					- USART_SendData
+ *
+ * @brief				- Send data to other USART/UART connected device
+ *
+ * @param[in]			- Base address of the specific USART peripherals (USART_Reg_t* pUSARTx)
+ * @param[in]			- buffer for transmission (TxBuffer)
+ * @param[in]			- length of the buffer (len)
+ *
+ * @return				- none
+ * @note				- See the Transfer Sequence diagram for master recevier on page 850
+ * 						  in MCU Reference Manual for more details
+ */
+void USART_SendData(USART_Reg_t* pUSARTx, uint8_t* pTxBuffer, uint32_t len) {
+
+}
+
+void USART_ReceiveData(USART_Reg_t* pUSARTx, uint8_t* pRxBuffer, uint32_t len) {
+
+
+}
+
+/*****************************************************
+ * @fn					- USART_IRQITConfig
+ *
+ * @brief				- USART Interrupt configuration
+ *
+ * @param[in]			- IRQ Number of the USART interrupt peripheral
+ * @param[in]			= ENABLE or DISABLE macro
+ *
+ * @return				- none
+ * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
+ */
+void USART_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi) {
+	//In order to trigger the interrupt on the processor side,
+	//configuration enable on the ISER of the NVIC is needed
+	//Note: There are 7 different NVIC_ISER and NVIC_ICER register
+	//at certain range
+	uint32_t indx, remainder;
+	indx = IRQNumber >> 5U; //Index to configure the correct NVIC_ISER
+	if (indx >= 0U  && indx <= 7U) {
+		remainder = IRQNumber & (~(~(int)0 << 5U)); //find the remainder
+		if (EnOrDi) {
+			NVIC_ISER(indx) |= 1 << remainder; //See NVIC_ISER(__INDEX__) declaration for more implementation details
+		} else {
+			NVIC_ICER(indx) |= 1 << remainder; //See NVIC_ICER(__INDEX__) declaration for more implementation details
+		}
+	}
+}
+
+/*****************************************************
+ * @fn					- USART_IRQPriorityConfig
+ *
+ * @brief				- USART Interrupt Priority Configuration
+ *
+ * @param[in]			- IRQ number of the I2C interrupt peripheral
+ * @param[in]			= The priority value of that USART interrupt peripheral
+ *
+ * @return				- none
+ * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
+ */
+void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue) {
+	uint32_t indx = IRQNumber >> 2U; //Note: There are IRQ Priority field in each IPR register
+	uint32_t remainder = IRQNumber & (~(~(int)0 << 2U));
+	uint32_t shift_amount = (remainder * 8U) + IMPLEMENTED_IRQ_PRIORITY_BIT;
+
+	//Configure the IRQ_PR register
+	NVIC_IPR(indx) |= IRQPriorityValue << shift_amount;
+}
+
+/*****************************************************
+ * @fn					- USART_CheckStatusFlag
+ *
+ * @brief				- Check the status of the given flag in register
+ *
+ * @param[in]			- address of status register of specific USART peripherals
+ * @param[in]			- the status flag
+ *
+ * @return				- none
+ * @note				- none
+ */
+uint8_t USART_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag) {
+	if ((*statusReg) & flag) {
+		return FLAG_SET;
+	}
+	return FLAG_RESET;
+}

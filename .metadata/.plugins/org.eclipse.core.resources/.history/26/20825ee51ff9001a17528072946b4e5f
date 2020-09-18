@@ -1,0 +1,45 @@
+/*
+ * STM32F407xx_USART_UART_Driver.h
+ *
+ *  Created on: Sep 16, 2020
+ *      Author: Donavan Tran
+ */
+
+#ifndef INC_STM32F407XX_USART_UART_DRIVER_H_
+#define INC_STM32F407XX_USART_UART_DRIVER_H_
+
+/***************************USART_CONFIG_MACROS******************/
+/*
+ * USART_MODE macros
+ */
+#define USART_MODE_ASYNC		0U
+#define USART_MODE_SYNC			1U
+
+
+
+
+/****************************************************************/
+/*
+ * Configuration structure of USART
+ */
+typedef struct {
+	uint8_t Mode;	//See @USART_MODE macros for details
+	uint8_t BaudRate;
+	uint8_t NoOfStopBits;
+	uint8_t WordLength;
+	uint8_t ParityControl;
+	uint8_t HWFlowControl;
+	uint8_t Oversampling;
+
+} USART_Config_t;
+
+/*
+ * Handle structure of USART
+ */
+typedef struct {
+	USART_Reg_t* pUSARTs;
+
+} USART_Handle_t;
+
+
+#endif /* INC_STM32F407XX_USART_UART_DRIVER_H_ */

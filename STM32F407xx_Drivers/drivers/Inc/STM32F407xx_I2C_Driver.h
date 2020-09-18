@@ -149,8 +149,8 @@ typedef struct {
 void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
 
 /*
- * SPI initialization and de-initialization
- * Parameter: Pointer to the GPIO Handle Structure
+ * I2C initialization and de-initialization
+ * Parameter: Pointer to the I2C Handle Structure
  */
 void I2C_Init(I2C_Handle_t* pI2CHandler);
 
@@ -201,6 +201,7 @@ void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
 void I2C_EV_IRQHandling(I2C_Handle_t* pI2CHandler);
 void I2C_ER_IRQHandling(I2C_Handle_t* pI2CHandler);
 void I2C_InterruptCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi);
+
 /*
  * Check if the I2C is still busy transmitting bytes of data
  */

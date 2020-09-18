@@ -1,0 +1,108 @@
+/*
+ * STM32F407xx_USART_UART_Driver.h
+ *
+ *  Created on: Sep 16, 2020
+ *      Author: Donavan Tran
+ */
+
+#ifndef INC_STM32F407XX_USART_UART_DRIVER_H_
+#define INC_STM32F407XX_USART_UART_DRIVER_H_
+
+/***************************USART_CONFIG_MACROS******************/
+/*
+ * USART_MODE macros
+ */
+#define USART_MODE_ASYNC		0U
+#define USART_MODE_SYNC			1U
+
+
+
+
+/****************************USART_FUNCTION_MACROS******************/
+/*
+ * I2C Peripheral Clock Enable
+ */
+#define USARTx_PCLK_EN(__USARTx__) 	((__USARTx__) == USART1) ? USART1_PCLK_EN() :\
+								    ((__USARTx__) == USART2) ? USART2_PCLK_EN() :\
+								    ((__USARTx__) == USART3) ? USART3_PCLK_EN() :\
+								    ((__USARTx__) == UART4)  ? UART4_PCLK_EN()	:\
+								    ((__USARTx__) == UART5)  ? UART5_PCLK_EN()	: USART6_PCLK_EN()
+/*
+ * I2C Peripheral Clock Disable
+ */
+#define USARTx_PCLK_DI(__USARTx__) 	((__USARTx__) == USART1) ? USART1_PCLK_DI() :\
+								    ((__USARTx__) == USART2) ? USART2_PCLK_DI() :\
+								    ((__USARTx__) == USART3) ? USART3_PCLK_DI() :\
+								    ((__USARTx__) == UART4)  ? UART4_PCLK_DI()	:\
+								    ((__USARTx__) == UART5)  ? UART5_PCLK_DI()	: USART6_PCLK_DI()
+
+
+
+/*******************************************************************/
+/*
+ * Configuration structure of USART
+ */
+typedef struct {
+	uint32_t BaudRate;
+	uint8_t Mode;	//See @USART_MODE macros for details
+	uint8_t NoOfStopBits;
+	uint8_t WordLength;
+	uint8_t ParityControl;
+	uint8_t HWFlowControl;
+	uint8_t Oversampling;
+} USART_Config_t;
+
+/*
+ * Handle structure of USART
+ */
+typedef struct {
+	USART_Reg_t* pUSARTx;
+	USART_Config_t USART_Config;
+} USART_Handle_t;
+
+/*******************************USART_API************************/
+
+/*
+ * Peripheral clock control
+ */
+void USART_PeriClkCtrl(USART_Reg_t* pUSARTx, uint8_t EnOrDi);
+
+/*
+ * USART initialization and de-initialization
+ * Parameter: Pointer to the USART Handle Structure
+ */
+void USART_Init(USART_Handle_t* pUSARTHandler);
+
+/* Consult the RCC Peripheral reset registers for more details*/
+void USART_DeInit(USART_Reg_t* pUSARTx);
+
+/*
+ * Enable the USART/UART peripherals
+ */
+void USART_PeripheralEnable(USART_Reg_t* pUSARTx, uint8_t EnOrDi);
+
+/*
+ * USART Send and Receive APIs
+ */
+void USART_SendData(USART_Reg_t* pUSARTx, uint8_t* pTxBuffer, uint32_t len);
+void USART_ReceiveData(USART_Reg_t* pUSARTx, uint8_t* pRxBuffer, uint32_t len);
+
+/*
+ * USART Send and Receive IT APIs
+ */
+void USART_SendDataIT(USART_Handle_t* USARTHandler, uint8_t* pTxBuffer, uint32_t len);
+void USART_ReceiveDataIT(USART_Handle_t* USARTHandler, uint8_t* pRxBuffer, uint32_t len);
+
+
+/*
+ * USART Interrupt Configuration and Handling
+ */
+void USART_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
+void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
+
+/*
+ * Check if the USART/UART is still busy transmitting bytes of data
+ */
+uint8_t USART_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag);
+
+#endif /* INC_STM32F407XX_USART_UART_DRIVER_H_ */

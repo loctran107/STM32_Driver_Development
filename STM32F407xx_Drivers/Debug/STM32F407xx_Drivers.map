@@ -11,12 +11,14 @@ c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externalt
 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-memset.o)
                               c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o (memset)
 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-strlen.o)
-                              Src/015MasterArduinoSlaveSTMSendReceive4byte.o (strlen)
+                              Src/016StmUSARTArduinoTx.o (strlen)
 
 Allocating common symbols
 Common symbol       size              file
 
-I2C_Handler         0x20              Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+GPIO_Button         0x1c              Src/016StmUSARTArduinoTx.o
+USART_GPIO          0x1c              Src/016StmUSARTArduinoTx.o
+USART_Handler       0x24              Src/016StmUSARTArduinoTx.o
 
 Discarded input sections
 
@@ -31,53 +33,39 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x20 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .group         0x0000000000000000        0xc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .text          0x0000000000000000        0x0 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .data          0x0000000000000000        0x0 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .bss           0x0000000000000000        0x0 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .text.delay    0x0000000000000000       0x28 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .group         0x0000000000000000        0xc Src/016StmUSARTArduinoTx.o
+ .text          0x0000000000000000        0x0 Src/016StmUSARTArduinoTx.o
+ .data          0x0000000000000000        0x0 Src/016StmUSARTArduinoTx.o
+ .bss           0x0000000000000000        0x0 Src/016StmUSARTArduinoTx.o
  .group         0x0000000000000000        0xc Src/syscalls.o
  .group         0x0000000000000000        0xc Src/syscalls.o
  .group         0x0000000000000000        0xc Src/syscalls.o
@@ -320,24 +308,77 @@ Discarded input sections
  .text          0x0000000000000000        0x0 drivers/Src/STM32F407xx_I2C_Driver.o
  .data          0x0000000000000000        0x0 drivers/Src/STM32F407xx_I2C_Driver.o
  .bss           0x0000000000000000        0x0 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_PeriClkCtrl
+                0x0000000000000000       0x9c drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_Init
+                0x0000000000000000      0x1a0 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_DeInit
+                0x0000000000000000       0x7c drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_PeripheralEnable
+                0x0000000000000000       0x3c drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_MasterSendData
                 0x0000000000000000       0xdc drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_MasterReceiveData
                 0x0000000000000000       0x9e drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_SlaveSendData
+                0x0000000000000000       0x1e drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_SlaveReceiveData
+                0x0000000000000000       0x1a drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_CheckStatusFlag
+                0x0000000000000000       0x2a drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_IRQITConfig
+                0x0000000000000000       0x88 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_IRQPriorityConfig
                 0x0000000000000000       0x56 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_MasterSendDataIT
                 0x0000000000000000       0x84 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_MasterReceiveDataIT
                 0x0000000000000000       0x8a drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_EV_IRQHandling
+                0x0000000000000000      0x2d0 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_ER_IRQHandling
+                0x0000000000000000      0x1ba drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.I2C_InterruptCtrl
+                0x0000000000000000       0x68 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.I2C_ApplicationEventCallBack
                 0x0000000000000000       0x18 drivers/Src/STM32F407xx_I2C_Driver.o
+ .rodata        0x0000000000000000       0x1e drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.getAPB1ClkFreq
+                0x0000000000000000       0xd4 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.getPLLClkFreq
+                0x0000000000000000       0x10 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.generateStartCondition
                 0x0000000000000000       0x20 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.generateStopCondition
+                0x0000000000000000       0x20 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.clearFlagSB
+                0x0000000000000000       0x1a drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.clearFlagADDR
+                0x0000000000000000       0x20 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.clearFlagSTOPF
+                0x0000000000000000       0x22 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.ctrlBitACK
+                0x0000000000000000       0x38 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.ctrlBitPOS
+                0x0000000000000000       0x38 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.sendAddressToSlaveWrite
+                0x0000000000000000       0x22 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.sendAddressToSlaveRead
+                0x0000000000000000       0x26 drivers/Src/STM32F407xx_I2C_Driver.o
  .text.singleDataRecepHandler
                 0x0000000000000000       0x4e drivers/Src/STM32F407xx_I2C_Driver.o
  .text.multipleDataRecepHandler
                 0x0000000000000000       0x7e drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.closeMasterTx
+                0x0000000000000000       0x46 drivers/Src/STM32F407xx_I2C_Driver.o
+ .text.closeMasterRx
+                0x0000000000000000       0x5c drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_info    0x0000000000000000     0x1497 drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_abbrev  0x0000000000000000      0x2f8 drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_aranges
+                0x0000000000000000      0x118 drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_ranges  0x0000000000000000      0x108 drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_macro   0x0000000000000000      0x1bf drivers/Src/STM32F407xx_I2C_Driver.o
  .debug_macro   0x0000000000000000      0xa66 drivers/Src/STM32F407xx_I2C_Driver.o
  .debug_macro   0x0000000000000000       0x22 drivers/Src/STM32F407xx_I2C_Driver.o
  .debug_macro   0x0000000000000000       0x8e drivers/Src/STM32F407xx_I2C_Driver.o
@@ -367,6 +408,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x15c drivers/Src/STM32F407xx_I2C_Driver.o
  .debug_macro   0x0000000000000000       0xdc drivers/Src/STM32F407xx_I2C_Driver.o
  .debug_macro   0x0000000000000000      0x118 drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_macro   0x0000000000000000      0x12a drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_line    0x0000000000000000      0xaae drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_str     0x0000000000000000     0xc124 drivers/Src/STM32F407xx_I2C_Driver.o
+ .comment       0x0000000000000000       0x7c drivers/Src/STM32F407xx_I2C_Driver.o
+ .debug_frame   0x0000000000000000      0x4e4 drivers/Src/STM32F407xx_I2C_Driver.o
+ .ARM.attributes
+                0x0000000000000000       0x39 drivers/Src/STM32F407xx_I2C_Driver.o
  .group         0x0000000000000000        0xc drivers/Src/STM32F407xx_SPI_Driver.o
  .group         0x0000000000000000        0xc drivers/Src/STM32F407xx_SPI_Driver.o
  .group         0x0000000000000000        0xc drivers/Src/STM32F407xx_SPI_Driver.o
@@ -513,16 +561,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .data          0x0000000000000000        0x0 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .bss           0x0000000000000000        0x0 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.USART_PeriClkCtrl
-                0x0000000000000000      0x12c drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.USART_Init
-                0x0000000000000000      0x1f0 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.USART_DeInit
                 0x0000000000000000       0xf0 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.USART_PeripheralEnable
-                0x0000000000000000       0x38 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.USART_SendData
-                0x0000000000000000       0x8a drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.USART_ReceiveData
                 0x0000000000000000       0xa2 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.USART_SendDataIT
@@ -535,25 +575,10 @@ Discarded input sections
                 0x0000000000000000       0x56 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.USART_IRQHandling
                 0x0000000000000000       0xc4 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.USART_CheckStatusFlag
-                0x0000000000000000       0x2a drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.getPLLClkFreq
-                0x0000000000000000       0x10 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .rodata        0x0000000000000000       0x1e drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.getAPBxClkFreq
-                0x0000000000000000      0x118 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .text.getUSARTDiv
-                0x0000000000000000       0x4e drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.TXEInterruptHandler
                 0x0000000000000000       0x6e drivers/Src/STM32F407xx_USART_UART_Driver.o
  .text.RXNEInterruptHandler
                 0x0000000000000000       0x9e drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_info    0x0000000000000000     0x10c5 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_abbrev  0x0000000000000000      0x2c6 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_aranges
-                0x0000000000000000       0xa0 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_ranges  0x0000000000000000       0x90 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_macro   0x0000000000000000      0x1b5 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_macro   0x0000000000000000      0xa66 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_macro   0x0000000000000000       0x22 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_macro   0x0000000000000000       0x8e drivers/Src/STM32F407xx_USART_UART_Driver.o
@@ -584,12 +609,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xdc drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_macro   0x0000000000000000      0x130 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_macro   0x0000000000000000      0x118 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_line    0x0000000000000000      0x8e3 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_str     0x0000000000000000     0xbff2 drivers/Src/STM32F407xx_USART_UART_Driver.o
- .comment       0x0000000000000000       0x7c drivers/Src/STM32F407xx_USART_UART_Driver.o
- .debug_frame   0x0000000000000000      0x29c drivers/Src/STM32F407xx_USART_UART_Driver.o
- .ARM.attributes
-                0x0000000000000000       0x39 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
  .group         0x0000000000000000        0xc drivers/Src/gpio_driver.o
@@ -623,8 +642,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 drivers/Src/gpio_driver.o
  .data          0x0000000000000000        0x0 drivers/Src/gpio_driver.o
  .bss           0x0000000000000000        0x0 drivers/Src/gpio_driver.o
- .text.GPIO_ReadFromInputPin
-                0x0000000000000000       0x2c drivers/Src/gpio_driver.o
+ .text.GPIO_DeInit
+                0x0000000000000000      0x1b8 drivers/Src/gpio_driver.o
  .text.GPIO_ReadFromInputPort
                 0x0000000000000000       0x1a drivers/Src/gpio_driver.o
  .text.GPIO_WriteToOutputPin
@@ -724,7 +743,7 @@ Linker script and memory map
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
-LOAD Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+LOAD Src/016StmUSARTArduinoTx.o
 LOAD Src/syscalls.o
 LOAD Src/sysmem.o
 LOAD Startup/startup_stm32f407vgtx.o
@@ -763,326 +782,276 @@ LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000008000000                g_pfnVectors
                 0x00000000080001a8                . = ALIGN (0x4)
 
-.text           0x00000000080001a8     0x154c
+.text           0x00000000080001a8      0xc98
                 0x00000000080001a8                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080001a8       0x40 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .text          0x00000000080001e8       0x10 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-strlen.o)
                 0x00000000080001e8                strlen
  *(.text*)
- .text.main     0x00000000080001f8       0x70 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+ .text.main     0x00000000080001f8       0x78 Src/016StmUSARTArduinoTx.o
                 0x00000000080001f8                main
- .text.I2C_ApplicationEventCallBack
-                0x0000000008000268      0x108 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000008000268                I2C_ApplicationEventCallBack
- .text.I2C1_EV_IRQHandler
-                0x0000000008000370       0x14 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000008000370                I2C1_EV_IRQHandler
- .text.I2C1_ER_IRQHandler
-                0x0000000008000384       0x14 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000008000384                I2C1_ER_IRQHandler
- .text.GPIO_ButtonInit
-                0x0000000008000398       0x44 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000008000398                GPIO_ButtonInit
- .text.GPIO_I2CInit
-                0x00000000080003dc       0x50 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x00000000080003dc                GPIO_I2CInit
- .text.I2C_HandlerInit
-                0x000000000800042c       0x44 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x000000000800042c                I2C_HandlerInit
+ .text.delay    0x0000000008000270       0x2c Src/016StmUSARTArduinoTx.o
+                0x0000000008000270                delay
+ .text.GPIO_Button_Init
+                0x000000000800029c       0x34 Src/016StmUSARTArduinoTx.o
+                0x000000000800029c                GPIO_Button_Init
+ .text.USART_GPIO_Init
+                0x00000000080002d0       0x40 Src/016StmUSARTArduinoTx.o
+                0x00000000080002d0                USART_GPIO_Init
+ .text.USART_Handler_Init
+                0x0000000008000310       0x48 Src/016StmUSARTArduinoTx.o
+                0x0000000008000310                USART_Handler_Init
  .text.Reset_Handler
-                0x0000000008000470       0x50 Startup/startup_stm32f407vgtx.o
-                0x0000000008000470                Reset_Handler
+                0x0000000008000358       0x50 Startup/startup_stm32f407vgtx.o
+                0x0000000008000358                Reset_Handler
  .text.Default_Handler
-                0x00000000080004c0        0x2 Startup/startup_stm32f407vgtx.o
-                0x00000000080004c0                RTC_Alarm_IRQHandler
-                0x00000000080004c0                HASH_RNG_IRQHandler
-                0x00000000080004c0                EXTI2_IRQHandler
-                0x00000000080004c0                TIM8_CC_IRQHandler
-                0x00000000080004c0                DebugMon_Handler
-                0x00000000080004c0                TIM1_CC_IRQHandler
-                0x00000000080004c0                DMA2_Stream5_IRQHandler
-                0x00000000080004c0                HardFault_Handler
-                0x00000000080004c0                DMA1_Stream5_IRQHandler
-                0x00000000080004c0                SysTick_Handler
-                0x00000000080004c0                PVD_IRQHandler
-                0x00000000080004c0                SDIO_IRQHandler
-                0x00000000080004c0                TAMP_STAMP_IRQHandler
-                0x00000000080004c0                PendSV_Handler
-                0x00000000080004c0                NMI_Handler
-                0x00000000080004c0                CAN2_RX1_IRQHandler
-                0x00000000080004c0                EXTI3_IRQHandler
-                0x00000000080004c0                TIM8_TRG_COM_TIM14_IRQHandler
-                0x00000000080004c0                TIM1_UP_TIM10_IRQHandler
-                0x00000000080004c0                TIM8_UP_TIM13_IRQHandler
-                0x00000000080004c0                I2C3_ER_IRQHandler
-                0x00000000080004c0                LCD_TFT_IRQHandler
-                0x00000000080004c0                EXTI0_IRQHandler
-                0x00000000080004c0                I2C2_EV_IRQHandler
-                0x00000000080004c0                DMA1_Stream2_IRQHandler
-                0x00000000080004c0                CAN1_RX0_IRQHandler
-                0x00000000080004c0                FPU_IRQHandler
-                0x00000000080004c0                OTG_HS_WKUP_IRQHandler
-                0x00000000080004c0                UsageFault_Handler
-                0x00000000080004c0                CAN2_SCE_IRQHandler
-                0x00000000080004c0                DMA2_Stream2_IRQHandler
-                0x00000000080004c0                SPI1_IRQHandler
-                0x00000000080004c0                TIM6_DAC_IRQHandler
-                0x00000000080004c0                TIM1_BRK_TIM9_IRQHandler
-                0x00000000080004c0                DCMI_IRQHandler
-                0x00000000080004c0                CAN2_RX0_IRQHandler
-                0x00000000080004c0                DMA2_Stream3_IRQHandler
-                0x00000000080004c0                USART6_IRQHandler
-                0x00000000080004c0                USART3_IRQHandler
-                0x00000000080004c0                CRYP_IRQHandler
-                0x00000000080004c0                CAN1_RX1_IRQHandler
-                0x00000000080004c0                UART5_IRQHandler
-                0x00000000080004c0                DMA2_Stream0_IRQHandler
-                0x00000000080004c0                TIM4_IRQHandler
-                0x00000000080004c0                DMA1_Stream6_IRQHandler
-                0x00000000080004c0                DMA1_Stream1_IRQHandler
-                0x00000000080004c0                UART4_IRQHandler
-                0x00000000080004c0                LCD_TFT_1_IRQHandler
-                0x00000000080004c0                TIM3_IRQHandler
-                0x00000000080004c0                RCC_IRQHandler
-                0x00000000080004c0                TIM8_BRK_TIM12_IRQHandler
-                0x00000000080004c0                Default_Handler
-                0x00000000080004c0                EXTI15_10_IRQHandler
-                0x00000000080004c0                ADC_IRQHandler
-                0x00000000080004c0                DMA1_Stream7_IRQHandler
-                0x00000000080004c0                TIM7_IRQHandler
-                0x00000000080004c0                CAN2_TX_IRQHandler
-                0x00000000080004c0                TIM5_IRQHandler
-                0x00000000080004c0                DMA2_Stream7_IRQHandler
-                0x00000000080004c0                I2C3_EV_IRQHandler
-                0x00000000080004c0                EXTI9_5_IRQHandler
-                0x00000000080004c0                RTC_WKUP_IRQHandler
-                0x00000000080004c0                ETH_WKUP_IRQHandler
-                0x00000000080004c0                SPI2_IRQHandler
-                0x00000000080004c0                OTG_HS_EP1_IN_IRQHandler
-                0x00000000080004c0                MemManage_Handler
-                0x00000000080004c0                DMA1_Stream0_IRQHandler
-                0x00000000080004c0                CAN1_TX_IRQHandler
-                0x00000000080004c0                SVC_Handler
-                0x00000000080004c0                EXTI4_IRQHandler
-                0x00000000080004c0                FSMC_IRQHandler
-                0x00000000080004c0                ETH_IRQHandler
-                0x00000000080004c0                OTG_HS_EP1_OUT_IRQHandler
-                0x00000000080004c0                WWDG_IRQHandler
-                0x00000000080004c0                TIM2_IRQHandler
-                0x00000000080004c0                OTG_FS_WKUP_IRQHandler
-                0x00000000080004c0                TIM1_TRG_COM_TIM11_IRQHandler
-                0x00000000080004c0                OTG_HS_IRQHandler
-                0x00000000080004c0                EXTI1_IRQHandler
-                0x00000000080004c0                USART2_IRQHandler
-                0x00000000080004c0                I2C2_ER_IRQHandler
-                0x00000000080004c0                DMA2_Stream1_IRQHandler
-                0x00000000080004c0                CAN1_SCE_IRQHandler
-                0x00000000080004c0                DMA2_Stream4_IRQHandler
-                0x00000000080004c0                BusFault_Handler
-                0x00000000080004c0                USART1_IRQHandler
-                0x00000000080004c0                OTG_FS_IRQHandler
-                0x00000000080004c0                SPI3_IRQHandler
-                0x00000000080004c0                DMA1_Stream4_IRQHandler
-                0x00000000080004c0                DMA2_Stream6_IRQHandler
-                0x00000000080004c0                DMA1_Stream3_IRQHandler
- *fill*         0x00000000080004c2        0x2 
- .text.I2C_PeriClkCtrl
-                0x00000000080004c4       0x9c drivers/Src/STM32F407xx_I2C_Driver.o
-                0x00000000080004c4                I2C_PeriClkCtrl
- .text.I2C_Init
-                0x0000000008000560      0x1a0 drivers/Src/STM32F407xx_I2C_Driver.o
-                0x0000000008000560                I2C_Init
- .text.I2C_DeInit
-                0x0000000008000700       0x7c drivers/Src/STM32F407xx_I2C_Driver.o
-                0x0000000008000700                I2C_DeInit
- .text.I2C_PeripheralEnable
-                0x000000000800077c       0x3c drivers/Src/STM32F407xx_I2C_Driver.o
-                0x000000000800077c                I2C_PeripheralEnable
- .text.I2C_SlaveSendData
-                0x00000000080007b8       0x1e drivers/Src/STM32F407xx_I2C_Driver.o
-                0x00000000080007b8                I2C_SlaveSendData
- .text.I2C_SlaveReceiveData
-                0x00000000080007d6       0x1a drivers/Src/STM32F407xx_I2C_Driver.o
-                0x00000000080007d6                I2C_SlaveReceiveData
- .text.I2C_CheckStatusFlag
-                0x00000000080007f0       0x2a drivers/Src/STM32F407xx_I2C_Driver.o
-                0x00000000080007f0                I2C_CheckStatusFlag
- *fill*         0x000000000800081a        0x2 
- .text.I2C_IRQITConfig
-                0x000000000800081c       0x88 drivers/Src/STM32F407xx_I2C_Driver.o
-                0x000000000800081c                I2C_IRQITConfig
- .text.I2C_EV_IRQHandling
-                0x00000000080008a4      0x2d0 drivers/Src/STM32F407xx_I2C_Driver.o
-                0x00000000080008a4                I2C_EV_IRQHandling
- .text.I2C_ER_IRQHandling
-                0x0000000008000b74      0x1ba drivers/Src/STM32F407xx_I2C_Driver.o
-                0x0000000008000b74                I2C_ER_IRQHandling
- .text.I2C_InterruptCtrl
-                0x0000000008000d2e       0x68 drivers/Src/STM32F407xx_I2C_Driver.o
-                0x0000000008000d2e                I2C_InterruptCtrl
- *fill*         0x0000000008000d96        0x2 
- .text.getAPB1ClkFreq
-                0x0000000008000d98       0xd4 drivers/Src/STM32F407xx_I2C_Driver.o
+                0x00000000080003a8        0x2 Startup/startup_stm32f407vgtx.o
+                0x00000000080003a8                RTC_Alarm_IRQHandler
+                0x00000000080003a8                HASH_RNG_IRQHandler
+                0x00000000080003a8                EXTI2_IRQHandler
+                0x00000000080003a8                TIM8_CC_IRQHandler
+                0x00000000080003a8                DebugMon_Handler
+                0x00000000080003a8                TIM1_CC_IRQHandler
+                0x00000000080003a8                DMA2_Stream5_IRQHandler
+                0x00000000080003a8                HardFault_Handler
+                0x00000000080003a8                DMA1_Stream5_IRQHandler
+                0x00000000080003a8                SysTick_Handler
+                0x00000000080003a8                PVD_IRQHandler
+                0x00000000080003a8                SDIO_IRQHandler
+                0x00000000080003a8                TAMP_STAMP_IRQHandler
+                0x00000000080003a8                PendSV_Handler
+                0x00000000080003a8                NMI_Handler
+                0x00000000080003a8                CAN2_RX1_IRQHandler
+                0x00000000080003a8                EXTI3_IRQHandler
+                0x00000000080003a8                TIM8_TRG_COM_TIM14_IRQHandler
+                0x00000000080003a8                TIM1_UP_TIM10_IRQHandler
+                0x00000000080003a8                TIM8_UP_TIM13_IRQHandler
+                0x00000000080003a8                I2C3_ER_IRQHandler
+                0x00000000080003a8                LCD_TFT_IRQHandler
+                0x00000000080003a8                EXTI0_IRQHandler
+                0x00000000080003a8                I2C2_EV_IRQHandler
+                0x00000000080003a8                DMA1_Stream2_IRQHandler
+                0x00000000080003a8                CAN1_RX0_IRQHandler
+                0x00000000080003a8                FPU_IRQHandler
+                0x00000000080003a8                OTG_HS_WKUP_IRQHandler
+                0x00000000080003a8                UsageFault_Handler
+                0x00000000080003a8                CAN2_SCE_IRQHandler
+                0x00000000080003a8                DMA2_Stream2_IRQHandler
+                0x00000000080003a8                SPI1_IRQHandler
+                0x00000000080003a8                TIM6_DAC_IRQHandler
+                0x00000000080003a8                TIM1_BRK_TIM9_IRQHandler
+                0x00000000080003a8                DCMI_IRQHandler
+                0x00000000080003a8                CAN2_RX0_IRQHandler
+                0x00000000080003a8                DMA2_Stream3_IRQHandler
+                0x00000000080003a8                USART6_IRQHandler
+                0x00000000080003a8                USART3_IRQHandler
+                0x00000000080003a8                CRYP_IRQHandler
+                0x00000000080003a8                CAN1_RX1_IRQHandler
+                0x00000000080003a8                UART5_IRQHandler
+                0x00000000080003a8                DMA2_Stream0_IRQHandler
+                0x00000000080003a8                TIM4_IRQHandler
+                0x00000000080003a8                I2C1_EV_IRQHandler
+                0x00000000080003a8                DMA1_Stream6_IRQHandler
+                0x00000000080003a8                DMA1_Stream1_IRQHandler
+                0x00000000080003a8                UART4_IRQHandler
+                0x00000000080003a8                LCD_TFT_1_IRQHandler
+                0x00000000080003a8                TIM3_IRQHandler
+                0x00000000080003a8                RCC_IRQHandler
+                0x00000000080003a8                TIM8_BRK_TIM12_IRQHandler
+                0x00000000080003a8                Default_Handler
+                0x00000000080003a8                EXTI15_10_IRQHandler
+                0x00000000080003a8                ADC_IRQHandler
+                0x00000000080003a8                DMA1_Stream7_IRQHandler
+                0x00000000080003a8                TIM7_IRQHandler
+                0x00000000080003a8                CAN2_TX_IRQHandler
+                0x00000000080003a8                TIM5_IRQHandler
+                0x00000000080003a8                DMA2_Stream7_IRQHandler
+                0x00000000080003a8                I2C3_EV_IRQHandler
+                0x00000000080003a8                EXTI9_5_IRQHandler
+                0x00000000080003a8                RTC_WKUP_IRQHandler
+                0x00000000080003a8                ETH_WKUP_IRQHandler
+                0x00000000080003a8                SPI2_IRQHandler
+                0x00000000080003a8                OTG_HS_EP1_IN_IRQHandler
+                0x00000000080003a8                MemManage_Handler
+                0x00000000080003a8                DMA1_Stream0_IRQHandler
+                0x00000000080003a8                CAN1_TX_IRQHandler
+                0x00000000080003a8                SVC_Handler
+                0x00000000080003a8                EXTI4_IRQHandler
+                0x00000000080003a8                FSMC_IRQHandler
+                0x00000000080003a8                ETH_IRQHandler
+                0x00000000080003a8                OTG_HS_EP1_OUT_IRQHandler
+                0x00000000080003a8                WWDG_IRQHandler
+                0x00000000080003a8                TIM2_IRQHandler
+                0x00000000080003a8                OTG_FS_WKUP_IRQHandler
+                0x00000000080003a8                TIM1_TRG_COM_TIM11_IRQHandler
+                0x00000000080003a8                OTG_HS_IRQHandler
+                0x00000000080003a8                EXTI1_IRQHandler
+                0x00000000080003a8                USART2_IRQHandler
+                0x00000000080003a8                I2C2_ER_IRQHandler
+                0x00000000080003a8                DMA2_Stream1_IRQHandler
+                0x00000000080003a8                CAN1_SCE_IRQHandler
+                0x00000000080003a8                DMA2_Stream4_IRQHandler
+                0x00000000080003a8                BusFault_Handler
+                0x00000000080003a8                USART1_IRQHandler
+                0x00000000080003a8                OTG_FS_IRQHandler
+                0x00000000080003a8                SPI3_IRQHandler
+                0x00000000080003a8                DMA1_Stream4_IRQHandler
+                0x00000000080003a8                I2C1_ER_IRQHandler
+                0x00000000080003a8                DMA2_Stream6_IRQHandler
+                0x00000000080003a8                DMA1_Stream3_IRQHandler
+ *fill*         0x00000000080003aa        0x2 
+ .text.USART_PeriClkCtrl
+                0x00000000080003ac      0x12c drivers/Src/STM32F407xx_USART_UART_Driver.o
+                0x00000000080003ac                USART_PeriClkCtrl
+ .text.USART_Init
+                0x00000000080004d8      0x1f0 drivers/Src/STM32F407xx_USART_UART_Driver.o
+                0x00000000080004d8                USART_Init
+ .text.USART_PeripheralEnable
+                0x00000000080006c8       0x38 drivers/Src/STM32F407xx_USART_UART_Driver.o
+                0x00000000080006c8                USART_PeripheralEnable
+ .text.USART_SendData
+                0x0000000008000700       0x8a drivers/Src/STM32F407xx_USART_UART_Driver.o
+                0x0000000008000700                USART_SendData
+ .text.USART_CheckStatusFlag
+                0x000000000800078a       0x2a drivers/Src/STM32F407xx_USART_UART_Driver.o
+                0x000000000800078a                USART_CheckStatusFlag
  .text.getPLLClkFreq
-                0x0000000008000e6c       0x10 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.generateStopCondition
-                0x0000000008000e7c       0x20 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.clearFlagSB
-                0x0000000008000e9c       0x1a drivers/Src/STM32F407xx_I2C_Driver.o
- .text.clearFlagADDR
-                0x0000000008000eb6       0x20 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.clearFlagSTOPF
-                0x0000000008000ed6       0x22 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.ctrlBitACK
-                0x0000000008000ef8       0x38 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.ctrlBitPOS
-                0x0000000008000f30       0x38 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.sendAddressToSlaveWrite
-                0x0000000008000f68       0x22 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.sendAddressToSlaveRead
-                0x0000000008000f8a       0x26 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.closeMasterTx
-                0x0000000008000fb0       0x46 drivers/Src/STM32F407xx_I2C_Driver.o
- .text.closeMasterRx
-                0x0000000008000ff6       0x5c drivers/Src/STM32F407xx_I2C_Driver.o
- *fill*         0x0000000008001052        0x2 
+                0x00000000080007b4       0x10 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .text.getAPBxClkFreq
+                0x00000000080007c4      0x118 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .text.getUSARTDiv
+                0x00000000080008dc       0x4e drivers/Src/STM32F407xx_USART_UART_Driver.o
+ *fill*         0x000000000800092a        0x2 
  .text.GPIO_PeriClkCtrl
-                0x0000000008001054      0x21c drivers/Src/gpio_driver.o
-                0x0000000008001054                GPIO_PeriClkCtrl
+                0x000000000800092c      0x21c drivers/Src/gpio_driver.o
+                0x000000000800092c                GPIO_PeriClkCtrl
  .text.GPIO_Init
-                0x0000000008001270      0x25c drivers/Src/gpio_driver.o
-                0x0000000008001270                GPIO_Init
- .text.GPIO_DeInit
-                0x00000000080014cc      0x1b8 drivers/Src/gpio_driver.o
-                0x00000000080014cc                GPIO_DeInit
+                0x0000000008000b48      0x25c drivers/Src/gpio_driver.o
+                0x0000000008000b48                GPIO_Init
+ .text.GPIO_ReadFromInputPin
+                0x0000000008000da4       0x2c drivers/Src/gpio_driver.o
+                0x0000000008000da4                GPIO_ReadFromInputPin
  .text.__libc_init_array
-                0x0000000008001684       0x48 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-init.o)
-                0x0000000008001684                __libc_init_array
- .text.memset   0x00000000080016cc       0x10 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-memset.o)
-                0x00000000080016cc                memset
+                0x0000000008000dd0       0x48 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-init.o)
+                0x0000000008000dd0                __libc_init_array
+ .text.memset   0x0000000008000e18       0x10 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-memset.o)
+                0x0000000008000e18                memset
  *(.glue_7)
- .glue_7        0x00000000080016dc        0x0 linker stubs
+ .glue_7        0x0000000008000e28        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x00000000080016dc        0x0 linker stubs
+ .glue_7t       0x0000000008000e28        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x00000000080016dc        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .eh_frame      0x0000000008000e28        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  *(.init)
- .init          0x00000000080016dc        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x00000000080016dc                _init
- .init          0x00000000080016e0        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ .init          0x0000000008000e28        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008000e28                _init
+ .init          0x0000000008000e2c        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  *(.fini)
- .fini          0x00000000080016e8        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x00000000080016e8                _fini
- .fini          0x00000000080016ec        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
-                0x00000000080016f4                . = ALIGN (0x4)
-                0x00000000080016f4                _etext = .
+ .fini          0x0000000008000e34        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008000e34                _fini
+ .fini          0x0000000008000e38        0x8 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                0x0000000008000e40                . = ALIGN (0x4)
+                0x0000000008000e40                _etext = .
 
-.vfp11_veneer   0x00000000080016f4        0x0
- .vfp11_veneer  0x00000000080016f4        0x0 linker stubs
+.vfp11_veneer   0x0000000008000e40        0x0
+ .vfp11_veneer  0x0000000008000e40        0x0 linker stubs
 
-.v4_bx          0x00000000080016f4        0x0
- .v4_bx         0x00000000080016f4        0x0 linker stubs
+.v4_bx          0x0000000008000e40        0x0
+ .v4_bx         0x0000000008000e40        0x0 linker stubs
 
-.iplt           0x00000000080016f4        0x0
- .iplt          0x00000000080016f4        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.iplt           0x0000000008000e40        0x0
+ .iplt          0x0000000008000e40        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.rodata         0x00000000080016f4       0x20
-                0x00000000080016f4                . = ALIGN (0x4)
+.rodata         0x0000000008000e40       0x20
+                0x0000000008000e40                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x00000000080016f4       0x1e drivers/Src/STM32F407xx_I2C_Driver.o
+ .rodata        0x0000000008000e40       0x1e drivers/Src/STM32F407xx_USART_UART_Driver.o
  *(.rodata*)
-                0x0000000008001714                . = ALIGN (0x4)
- *fill*         0x0000000008001712        0x2 
+                0x0000000008000e60                . = ALIGN (0x4)
+ *fill*         0x0000000008000e5e        0x2 
 
-.rel.dyn        0x0000000008001714        0x0
- .rel.iplt      0x0000000008001714        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.rel.dyn        0x0000000008000e60        0x0
+ .rel.iplt      0x0000000008000e60        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.ARM.extab      0x0000000008001714        0x0
-                0x0000000008001714                . = ALIGN (0x4)
+.ARM.extab      0x0000000008000e60        0x0
+                0x0000000008000e60                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008001714                . = ALIGN (0x4)
+                0x0000000008000e60                . = ALIGN (0x4)
 
-.ARM            0x0000000008001714        0x0
-                0x0000000008001714                . = ALIGN (0x4)
-                0x0000000008001714                __exidx_start = .
+.ARM            0x0000000008000e60        0x0
+                0x0000000008000e60                . = ALIGN (0x4)
+                0x0000000008000e60                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008001714                __exidx_end = .
-                0x0000000008001714                . = ALIGN (0x4)
+                0x0000000008000e60                __exidx_end = .
+                0x0000000008000e60                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008001714        0x0
-                0x0000000008001714                . = ALIGN (0x4)
-                0x0000000008001714                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008000e60        0x0
+                0x0000000008000e60                . = ALIGN (0x4)
+                0x0000000008000e60                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008001714                PROVIDE (__preinit_array_end = .)
-                0x0000000008001714                . = ALIGN (0x4)
+                0x0000000008000e60                PROVIDE (__preinit_array_end = .)
+                0x0000000008000e60                . = ALIGN (0x4)
 
-.init_array     0x0000000008001714        0x4
-                0x0000000008001714                . = ALIGN (0x4)
-                0x0000000008001714                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008000e60        0x4
+                0x0000000008000e60                . = ALIGN (0x4)
+                0x0000000008000e60                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008001714        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
-                0x0000000008001718                PROVIDE (__init_array_end = .)
-                0x0000000008001718                . = ALIGN (0x4)
+ .init_array    0x0000000008000e60        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x0000000008000e64                PROVIDE (__init_array_end = .)
+                0x0000000008000e64                . = ALIGN (0x4)
 
-.fini_array     0x0000000008001718        0x4
-                0x0000000008001718                . = ALIGN (0x4)
+.fini_array     0x0000000008000e64        0x4
+                0x0000000008000e64                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008001718        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .fini_array    0x0000000008000e64        0x4 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x000000000800171c                . = ALIGN (0x4)
-                0x000000000800171c                _sidata = LOADADDR (.data)
+                0x0000000008000e68                . = ALIGN (0x4)
+                0x0000000008000e68                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x3c load address 0x000000000800171c
+.data           0x0000000020000000      0x400 load address 0x0000000008000e68
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
  *(.data*)
- .data.Txdata   0x0000000020000000       0x39 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000020000000                Txdata
-                0x000000002000003c                . = ALIGN (0x4)
- *fill*         0x0000000020000039        0x3 
-                0x000000002000003c                _edata = .
+ .data.TxBuffer
+                0x0000000020000000      0x400 Src/016StmUSARTArduinoTx.o
+                0x0000000020000000                TxBuffer
+                0x0000000020000400                . = ALIGN (0x4)
+                0x0000000020000400                _edata = .
 
-.igot.plt       0x000000002000003c        0x0 load address 0x0000000008001758
- .igot.plt      0x000000002000003c        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
-                0x000000002000003c                . = ALIGN (0x4)
+.igot.plt       0x0000000020000400        0x0 load address 0x0000000008001268
+ .igot.plt      0x0000000020000400        0x0 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x0000000020000400                . = ALIGN (0x4)
 
-.bss            0x000000002000003c       0x40 load address 0x0000000008001758
-                0x000000002000003c                _sbss = .
-                0x000000002000003c                __bss_start__ = _sbss
+.bss            0x0000000020000400       0x78 load address 0x0000000008001268
+                0x0000000020000400                _sbss = .
+                0x0000000020000400                __bss_start__ = _sbss
  *(.bss)
- .bss           0x000000002000003c       0x1c c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .bss           0x0000000020000400       0x1c c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  *(.bss*)
- .bss.commandCode
-                0x0000000020000058        0x1 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x0000000020000058                commandCode
- .bss.counter.7905
-                0x0000000020000059        0x1 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .bss.write_byte.7906
-                0x000000002000005a        0x1 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
  *(COMMON)
- *fill*         0x000000002000005b        0x1 
- COMMON         0x000000002000005c       0x20 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                0x000000002000005c                I2C_Handler
-                0x000000002000007c                . = ALIGN (0x4)
-                0x000000002000007c                _ebss = .
-                0x000000002000007c                __bss_end__ = _ebss
+ COMMON         0x000000002000041c       0x5c Src/016StmUSARTArduinoTx.o
+                0x000000002000041c                GPIO_Button
+                0x0000000020000438                USART_GPIO
+                0x0000000020000454                USART_Handler
+                0x0000000020000478                . = ALIGN (0x4)
+                0x0000000020000478                _ebss = .
+                0x0000000020000478                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x000000002000007c      0x604 load address 0x0000000008001758
-                0x0000000020000080                . = ALIGN (0x8)
- *fill*         0x000000002000007c        0x4 
-                0x0000000020000080                PROVIDE (end = .)
+                0x0000000020000478      0x600 load address 0x0000000008001268
+                0x0000000020000478                . = ALIGN (0x8)
+                0x0000000020000478                PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x0000000020000280                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000080      0x200 
-                0x0000000020000680                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000280      0x400 
-                0x0000000020000680                . = ALIGN (0x8)
+                0x0000000020000678                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000478      0x200 
+                0x0000000020000a78                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000678      0x400 
+                0x0000000020000a78                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -1097,11 +1066,11 @@ LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .ARM.attributes
                 0x0000000000000022       0x34 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .ARM.attributes
-                0x0000000000000056       0x39 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+                0x0000000000000056       0x39 Src/016StmUSARTArduinoTx.o
  .ARM.attributes
                 0x000000000000008f       0x21 Startup/startup_stm32f407vgtx.o
  .ARM.attributes
-                0x00000000000000b0       0x39 drivers/Src/STM32F407xx_I2C_Driver.o
+                0x00000000000000b0       0x39 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .ARM.attributes
                 0x00000000000000e9       0x39 drivers/Src/gpio_driver.o
  .ARM.attributes
@@ -1114,108 +1083,94 @@ LOAD c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x00000000000001a5       0x22 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(STM32F407xx_Drivers.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x314b
- .debug_info    0x0000000000000000      0xd4d Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_info    0x0000000000000d4d       0x22 Startup/startup_stm32f407vgtx.o
- .debug_info    0x0000000000000d6f     0x1497 drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_info    0x0000000000002206      0xf45 drivers/Src/gpio_driver.o
+.debug_info     0x0000000000000000     0x2c97
+ .debug_info    0x0000000000000000      0xc6b Src/016StmUSARTArduinoTx.o
+ .debug_info    0x0000000000000c6b       0x22 Startup/startup_stm32f407vgtx.o
+ .debug_info    0x0000000000000c8d     0x10c5 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_info    0x0000000000001d52      0xf45 drivers/Src/gpio_driver.o
 
-.debug_abbrev   0x0000000000000000      0x799
- .debug_abbrev  0x0000000000000000      0x231 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_abbrev  0x0000000000000231       0x12 Startup/startup_stm32f407vgtx.o
- .debug_abbrev  0x0000000000000243      0x2f8 drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_abbrev  0x000000000000053b      0x25e drivers/Src/gpio_driver.o
+.debug_abbrev   0x0000000000000000      0x738
+ .debug_abbrev  0x0000000000000000      0x202 Src/016StmUSARTArduinoTx.o
+ .debug_abbrev  0x0000000000000202       0x12 Startup/startup_stm32f407vgtx.o
+ .debug_abbrev  0x0000000000000214      0x2c6 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_abbrev  0x00000000000004da      0x25e drivers/Src/gpio_driver.o
 
-.debug_aranges  0x0000000000000000      0x208
+.debug_aranges  0x0000000000000000      0x178
  .debug_aranges
-                0x0000000000000000       0x58 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+                0x0000000000000000       0x40 Src/016StmUSARTArduinoTx.o
  .debug_aranges
-                0x0000000000000058       0x28 Startup/startup_stm32f407vgtx.o
+                0x0000000000000040       0x28 Startup/startup_stm32f407vgtx.o
  .debug_aranges
-                0x0000000000000080      0x118 drivers/Src/STM32F407xx_I2C_Driver.o
+                0x0000000000000068       0xa0 drivers/Src/STM32F407xx_USART_UART_Driver.o
  .debug_aranges
-                0x0000000000000198       0x70 drivers/Src/gpio_driver.o
+                0x0000000000000108       0x70 drivers/Src/gpio_driver.o
 
-.debug_ranges   0x0000000000000000      0x1d0
- .debug_ranges  0x0000000000000000       0x48 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_ranges  0x0000000000000048       0x20 Startup/startup_stm32f407vgtx.o
- .debug_ranges  0x0000000000000068      0x108 drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_ranges  0x0000000000000170       0x60 drivers/Src/gpio_driver.o
+.debug_ranges   0x0000000000000000      0x140
+ .debug_ranges  0x0000000000000000       0x30 Src/016StmUSARTArduinoTx.o
+ .debug_ranges  0x0000000000000030       0x20 Startup/startup_stm32f407vgtx.o
+ .debug_ranges  0x0000000000000050       0x90 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_ranges  0x00000000000000e0       0x60 drivers/Src/gpio_driver.o
 
-.debug_macro    0x0000000000000000     0x3104
- .debug_macro   0x0000000000000000      0x28c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000028c      0xa66 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000cf2       0x22 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000d14       0x8e Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000da2       0x51 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000df3       0xef Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000ee2       0x6a Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000000f4c      0x1df Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000112b       0x46 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001171       0x18 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001189       0x3c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000011c5       0x34 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000011f9      0x174 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000136d       0x52 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000013bf       0x1f Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000013de       0x43 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001421       0x20 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001441      0x1a3 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000015e4      0x330 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001914       0x10 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001924       0x35 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001959       0x20 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001979       0x16 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000198f       0x16 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000019a5       0x29 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000019ce      0x1e1 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000001baf      0x868 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002417      0x15c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002573       0xdc Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000264f      0x130 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x000000000000277f      0x118 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002897       0x1c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000028b3       0x10 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000028c3       0x10 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000028d3       0x1c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000028ef       0x52 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002941       0x40 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002981       0x10 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002991       0x40 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x00000000000029d1       0xd7 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002aa8       0x1c Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002ac4       0x3d Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002b01       0x16 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002b17      0x145 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_macro   0x0000000000002c5c      0x1bf drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_macro   0x0000000000002e1b      0x12a drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_macro   0x0000000000002f45      0x1bf drivers/Src/gpio_driver.o
+.debug_macro    0x0000000000000000     0x2b34
+ .debug_macro   0x0000000000000000      0x1b5 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000001b5      0xa66 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000c1b       0x22 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000c3d       0x8e Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000ccb       0x51 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000d1c       0xef Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000e0b       0x6a Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000000e75      0x1df Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001054       0x46 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000109a       0x18 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000010b2       0x3c Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000010ee       0x34 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001122      0x174 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001296       0x52 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000012e8       0x1f Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001307       0x43 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000134a       0x20 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000136a      0x1a3 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000150d      0x330 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000183d       0x10 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000184d       0x35 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001882       0x20 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000018a2       0x16 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000018b8       0x16 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000018ce       0x29 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000018f7      0x1e1 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000001ad8      0x868 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000002340      0x15c Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x000000000000249c       0xdc Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x0000000000002578      0x130 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000026a8      0x118 Src/016StmUSARTArduinoTx.o
+ .debug_macro   0x00000000000027c0      0x1b5 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_macro   0x0000000000002975      0x1bf drivers/Src/gpio_driver.o
 
-.debug_line     0x0000000000000000     0x1b78
- .debug_line    0x0000000000000000      0x768 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_line    0x0000000000000768       0x84 Startup/startup_stm32f407vgtx.o
- .debug_line    0x00000000000007ec      0xaae drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_line    0x000000000000129a      0x8de drivers/Src/gpio_driver.o
+.debug_line     0x0000000000000000     0x18b5
+ .debug_line    0x0000000000000000      0x653 Src/016StmUSARTArduinoTx.o
+ .debug_line    0x0000000000000653       0x84 Startup/startup_stm32f407vgtx.o
+ .debug_line    0x00000000000006d7      0x900 drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_line    0x0000000000000fd7      0x8de drivers/Src/gpio_driver.o
 
-.debug_str      0x0000000000000000     0xd38a
- .debug_str     0x0000000000000000     0xcdb2 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
-                                       0xd075 (size before relaxing)
- .debug_str     0x000000000000cdb2       0x31 Startup/startup_stm32f407vgtx.o
+.debug_str      0x0000000000000000     0xbfff
+ .debug_str     0x0000000000000000     0xbb2b Src/016StmUSARTArduinoTx.o
+                                       0xbdfc (size before relaxing)
+ .debug_str     0x000000000000bb2b       0x31 Startup/startup_stm32f407vgtx.o
                                          0x77 (size before relaxing)
- .debug_str     0x000000000000cde3      0x433 drivers/Src/STM32F407xx_I2C_Driver.o
-                                       0xc124 (size before relaxing)
- .debug_str     0x000000000000d216      0x174 drivers/Src/gpio_driver.o
+ .debug_str     0x000000000000bb5c      0x339 drivers/Src/STM32F407xx_USART_UART_Driver.o
+                                       0xbff2 (size before relaxing)
+ .debug_str     0x000000000000be95      0x16a drivers/Src/gpio_driver.o
                                        0xbf77 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
- .comment       0x0000000000000000       0x7b Src/015MasterArduinoSlaveSTMSendReceive4byte.o
+ .comment       0x0000000000000000       0x7b Src/016StmUSARTArduinoTx.o
                                          0x7c (size before relaxing)
- .comment       0x000000000000007b       0x7c drivers/Src/STM32F407xx_I2C_Driver.o
+ .comment       0x000000000000007b       0x7c drivers/Src/STM32F407xx_USART_UART_Driver.o
  .comment       0x000000000000007b       0x7c drivers/Src/gpio_driver.o
 
-.debug_frame    0x0000000000000000      0x820
- .debug_frame   0x0000000000000000      0x124 Src/015MasterArduinoSlaveSTMSendReceive4byte.o
- .debug_frame   0x0000000000000124      0x4e4 drivers/Src/STM32F407xx_I2C_Driver.o
- .debug_frame   0x0000000000000608      0x1cc drivers/Src/gpio_driver.o
- .debug_frame   0x00000000000007d4       0x2c c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000000800       0x20 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-memset.o)
+.debug_frame    0x0000000000000000      0x55c
+ .debug_frame   0x0000000000000000       0xa8 Src/016StmUSARTArduinoTx.o
+ .debug_frame   0x00000000000000a8      0x29c drivers/Src/STM32F407xx_USART_UART_Driver.o
+ .debug_frame   0x0000000000000344      0x1cc drivers/Src/gpio_driver.o
+ .debug_frame   0x0000000000000510       0x2c c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x000000000000053c       0x20 c:/st/stm32cubeide_1.2.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard\libc_nano.a(lib_a-memset.o)

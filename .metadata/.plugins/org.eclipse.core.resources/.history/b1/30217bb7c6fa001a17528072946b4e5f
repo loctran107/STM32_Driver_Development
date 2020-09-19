@@ -1,0 +1,38 @@
+/*
+ * 016StmUSARTArduinoTx.c
+ *
+ *  Created on: Sep 19, 2020
+ *      Author: Donavan Tran
+ *      Description: Write a program to send some message over UART from STM32
+ *      			 board to Arduino board. The Arduino board will display
+ *      			 the message (on Arduino Serial monitor) sent from the ST
+ *      			 board
+ *
+ *      			 Baudrate: 115200 bps
+ *      			 Frame format: 1 stop bit, 8 bits data frame, no parity
+ */
+
+#include "../drivers/Inc/stm32f407xx.h"
+
+GPIO_Handle_t GPIO_Button;
+GPIO_Handle_t USART_GPIO;
+USART_Handle_t USART_Handler;
+
+void GPIO_Button_Init();
+void USART_GPIO_Init();
+void USART_Handler_Init();
+int main(void) {
+
+	//Set all element to 0
+	memset(&GPIO_Button, 0, sizeof(GPIO_Button));
+	memset(&USART_GPIO, 0, sizeof(USART_GPIO));
+	memset(&USART_Handler, 0, sizeof(USART_Handler));
+
+	GPIO_Button_Init();
+	USART_GPIO_Init();
+	USART_Handler_Init();
+
+	while(1);
+	return EXIT_SUCCESS;
+
+}

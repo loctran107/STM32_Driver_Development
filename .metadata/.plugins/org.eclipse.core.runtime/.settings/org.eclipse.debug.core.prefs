@@ -5,4 +5,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
 org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="NMI_Handler"/>\r\n<expression enabled\="true" text\="USART2_IRQHandler"/>\r\n<expression enabled\="true" text\="I2C_Handler"/>\r\n<expression enabled\="true" text\="RXNE_CMPLT"/>\r\n<expression enabled\="true" text\="AF_FLAG"/>\r\n<expression enabled\="true" text\="commandCode"/>\r\n<expression enabled\="true" text\="counter"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n<expression enabled\="true" text\="GPIO_Button"/>\r\n<expression enabled\="true" text\="USART_GPIO"/>\r\n<expression enabled\="true" text\="USART_Handler"/>\r\n</watchExpressions>\r\n

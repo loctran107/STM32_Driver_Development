@@ -432,7 +432,7 @@ void USART_IRQHandling(USART_Handle_t* pUSARTHandler) {
 
 		//When TCE is set, this signals the end of USART/UART transmission
 		//Note: TCE is set by hardware and cleared by software by software
-		//		sequence,
+		//		sequence, b
 
 
 	}
@@ -551,7 +551,7 @@ static uint32_t getAPBxClkFreq(USART_Reg_t* pUSARTx) {
  */
 static uint32_t getUSARTDiv(USART_Handle_t* pUSARTHandler) {
 
-	uint8_t factor = (pUSARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 1U : 0U;
+	uint8_t factor = (pUSARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 0U : 1U;
 	uint32_t APBxClkFreq = getAPBxClkFreq(pUSARTHandler->pUSARTx);
 
 	return (APBxClkFreq * 25U) / (2 * (2 - factor) * pUSARTHandler->USART_Config.BaudRate);

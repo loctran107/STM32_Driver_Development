@@ -1,8 +1,0 @@
-015MasterArduinoSlaveSTMSendReceive4byte.c:34:5:main	64	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:64:6:I2C_ApplicationEventCallBack	24	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:114:6:I2C1_EV_IRQHandler	8	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:119:6:I2C1_ER_IRQHandler	8	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:123:6:GPIO_ButtonInit	16	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:134:6:GPIO_I2CInit	16	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:147:6:I2C_HandlerInit	16	static
-015MasterArduinoSlaveSTMSendReceive4byte.c:158:6:delay	16	static

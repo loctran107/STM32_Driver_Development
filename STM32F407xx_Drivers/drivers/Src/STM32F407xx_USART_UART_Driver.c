@@ -12,7 +12,9 @@
  */
 static uint32_t getAPBxClkFreq(USART_Reg_t* pUSARTx);
 static uint32_t getPLLClkFreq();
-static double getUSARTDiv(USART_Handle_t* pUARTHandler);
+static uint32_t getUSARTDiv(USART_Handle_t* pUSARTHandler);
+static void TXEInterruptHandler(USART_Handle_t* pUSARTHandler);
+static void RXNEInterruptHandler(USART_Handle_t* pUSARTHandler);
 
 /*****************************************************
  * @fn					- USART_PeriClkCtrl
@@ -45,9 +47,8 @@ void USART_PeriClkCtrl(USART_Reg_t* pUSARTx, uint8_t EnOrDi) {
  * @note				- none
  */
 void USART_Init(USART_Handle_t* pUSARTHandler) {
-
-	double USARTDiv;
-	uint16_t mantissa;
+	uint32_t USARTDiv;
+	uint16_t mantissa, temp;
 	uint8_t fraction;
 	//Enable the peripheral clock
 	USART_PeriClkCtrl(pUSARTHandler->pUSARTx, ENABLE);
@@ -108,8 +109,41 @@ void USART_Init(USART_Handle_t* pUSARTHandler) {
 
 	//Baud rate configuration
 	USARTDiv = getUSARTDiv(pUSARTHandler);
+
+	//Note: Floating point calculation can be fatal sometimes.
+	// 		Thus, avoid using it only when necessary.
+	//		Both solution using floating point and normal calculation would yield
+	//		the same result, however, one tends to be safer and less complex than
+	//		the others
+	//FIRST APPROACH uses fclk / 8 * baudrate
+
+	/*
+	float temp1;
+	uint16_t temp2;
 	mantissa = (uint16_t) USARTDiv;
-	fraction = USARTDiv - mantissa;
+	temp1 = USARTDiv - mantissa;
+	temp1 *= (pUSARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 8U : 16U;
+
+	//Check for round up or down
+	temp2 = temp1 * 10U;
+	temp2 = (temp2 % ((temp2 / 10U) * 10U)) >= 5 ? ceil(temp1) : floor(temp1);
+	if (temp2 > 15U) {
+		//Add the carry to mantissa
+		mantissa += temp2 - 15U;
+	}
+	fraction = (uint8_t) temp2;*/
+
+	//SECOND APPROACH
+	mantissa = USARTDiv / 100U;
+	temp = USARTDiv - (mantissa * 100U);
+	temp *= (pUSARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 8U : 16U;
+	temp = (temp + 50U) / 100U; //always round up
+	if (temp > 15U) {
+		mantissa += temp - 15U;
+		fraction = 15U;
+	} else {
+		fraction = temp;
+	}
 	pUSARTHandler->pUSARTx->BRR |= mantissa << USART_BRR_DIV_MANTISSA;
 	pUSARTHandler->pUSARTx->BRR |= fraction << USART_BRR_DIV_FRACTION;
 }
@@ -371,6 +405,63 @@ void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue) {
 }
 
 /*****************************************************
+ * @fn					- USART_IRQHandling
+ *
+ * @brief				- USART API that handles all interrupt event
+ *
+ * @param[in]			- IRQ number of the I2C interrupt peripheral
+ * @param[in]			= The priority value of that USART interrupt peripheral
+ *
+ * @return				- none
+ * @note				- Refer to the Cortex M4 Generic User Guide the NVIC register table
+ */
+void USART_IRQHandling(USART_Handle_t* pUSARTHandler) {
+
+	uint8_t temp1, temp2;
+/**********************************TXE_INTERRPUT_HANDLER**********************************/
+	temp1 = USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_TXE);
+	temp2 = pUSARTHandler->pUSARTx->CR1 & (1 << USART_CR1_TXEIE);
+	if (temp1 && temp2) {
+		TXEInterruptHandler(pUSARTHandler);
+	}
+
+/**********************************TC_INTERRUPT_HANDLER********************************/
+	temp1 = USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_TC);
+	temp2 = pUSARTHandler->pUSARTx->CR1 & (1 << USART_CR1_TCIE);
+	if (temp1 && temp2) {
+
+		//When TCE is set, this signals the end of USART/UART transmission
+		//Note: TCE is set by hardware and cleared by software by software
+		//		sequence, b
+
+
+	}
+
+/**********************************CTS_INTERRUPT_HANDLER*******************************/
+	temp1 = USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_CTS);
+	temp2 = pUSARTHandler->pUSARTx->CR3 & (1 << USART_CR3_CTSIE);
+	if (temp1 && temp2) {
+
+
+	}
+
+/*********************************RXNE_INTERRUPT_HANDLER*********************************/
+	temp1 = USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_RXNE);
+	temp2 = pUSARTHandler->pUSARTx->CR1 & (1 << USART_CR1_RXNEIE);
+	if (temp1 && temp2) {
+		RXNEInterruptHandler(pUSARTHandler);
+
+	}
+
+/**********************************PE_INTERRUPT_HANDLER***********************************/
+	temp1 = USART_CheckStatusFlag(&pUSARTHandler->pUSARTx->SR, USART_FLAG_SR_PE);
+	temp2 = pUSARTHandler->pUSARTx->CR1 & (1 << USART_CR1_PEIE);
+	if (temp1 && temp2) {
+
+	}
+}
+
+/*****************************************************
  * @fn					- USART_CheckStatusFlag
  *
  * @brief				- Check the status of the given flag in register
@@ -448,10 +539,99 @@ static uint32_t getAPBxClkFreq(USART_Reg_t* pUSARTx) {
 	return (sysClk / AHB1Prescalar) / APBxPrescalar;
 }
 
-static double getUSARTDiv(USART_Handle_t* pUARTHandler) {
+/*****************************************************
+ * @fn					- getUSARTDiv
+ *
+ * @brief				- helper function that calculates the USART baud rate
+ *
+ * @param[in]			- handle structure of specific UART peripheral
+ *
+ * @return				- return the USART baud rate
+ * @note				- none
+ */
+static uint32_t getUSARTDiv(USART_Handle_t* pUSARTHandler) {
 
-	uint8_t factor = (pUARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 8 : 16;
-	uint32_t APBxClkFreq = getAPBxClkFreq(pUARTHandler->pUSARTx);
+	uint8_t factor = (pUSARTHandler->USART_Config.Oversampling == USART_OVERSAMPLING_BY_8) ? 0U : 1U;
+	uint32_t APBxClkFreq = getAPBxClkFreq(pUSARTHandler->pUSARTx);
 
-	return APBxClkFreq / (factor * pUARTHandler->USART_Config.BaudRate);
+	return (APBxClkFreq * 25U) / (2 * (2 - factor) * pUSARTHandler->USART_Config.BaudRate);
 }
+
+/*****************************************************
+ * @fn					- TXEInterruptHandler
+ *
+ * @brief				- helper function that handles the TXE interrupt
+ *
+ * @param[in]			- handle structure of specific UART peripheral
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void TXEInterruptHandler(USART_Handle_t* pUSARTHandler) {
+	//Check if the word length is 8 or 9-bit data frame
+	if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
+
+		//2 bytes of data will be sent, 9-bit masking is necessary
+		pUSARTHandler->pUSARTx->DR = *((uint16_t*) pUSARTHandler->pTxBuffer) & ((uint16_t) 0x1FF);
+
+		//When parity bit is disabled, the data sent is 2 bytes
+		//For more, see page 991 in MCU Reference Manual
+		if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
+			(uint16_t*) pUSARTHandler->pTxBuffer++;
+		} else {
+			//Parity bit is used in this transfer. Thus, 8 bits of user data
+			//will be sent. The 9th bit will be replaced with parity bit
+			//by hardware
+			pUSARTHandler->pTxBuffer++;
+		}
+	} else {
+		//Write buffer into the data register at 8-bit data frame
+		pUSARTHandler->pUSARTx->DR = *(pUSARTHandler->pTxBuffer) & ((uint8_t) 0xFF);
+		pUSARTHandler->pTxBuffer++;
+	}
+	pUSARTHandler->TxLen--;
+}
+
+/*****************************************************
+ * @fn					- RXNEInterruptHandler
+ *
+ * @brief				- helper function that handles the RXNE interrupt
+ *
+ * @param[in]			- handle structure of specific UART peripheral
+ *
+ * @return				- none
+ * @note				- none
+ */
+static void RXNEInterruptHandler(USART_Handle_t* pUSARTHandler) {
+	//Check if the word length is 8 or 9-bit data frame
+	if (pUSARTHandler->USART_Config.WordLength == USART_WORDLEN_9BITS) {
+
+		//When parity bit is disabled, 9-bit of data will be received and no parity bit
+		if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
+			//2 bytes of data will be sent, 9-bit masking is necessary
+			*((uint16_t*) pUSARTHandler->pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0x1FF);
+			(uint16_t*) pUSARTHandler->pRxBuffer++;
+		} else {
+			//Parity bit is used in this transfer. Thus, 8 bits of user data
+			//will be received. The 9th bit will be replaced with parity bit
+			//by hardware
+			*(pUSARTHandler->pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint16_t) 0xFF);
+			pUSARTHandler->pRxBuffer++;
+		}
+	} else {
+		//In 8-bit data frame, if parity bit is disabled, 8 bits will
+		//be received
+		if (pUSARTHandler->USART_Config.ParityControl == USART_PARITY_DI) {
+			//Write buffer into the data register at 8-bit data frame
+			*(pUSARTHandler->pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0xFF);
+		} else {
+			//if parity bit is enabled, only 7 bit will be received
+			*(pUSARTHandler->pRxBuffer) = pUSARTHandler->pUSARTx->DR & ((uint8_t) 0x7F);
+		}
+		pUSARTHandler->pRxBuffer++;
+	}
+	pUSARTHandler->RxLen--;
+}
+
+//This API is up to the user application to implement
+__weak void USART_ApplicationEventCallback(USART_Handle_t* pUSARTHandler, uint8_t appEvnt);

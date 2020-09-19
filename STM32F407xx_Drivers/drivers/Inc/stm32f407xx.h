@@ -13,6 +13,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <math.h>
 
 /*
  * Some generic macros

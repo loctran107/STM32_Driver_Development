@@ -74,7 +74,13 @@
 #define USART_FLAG_SR_TXE			(1 << USART_SR_TXE)
 #define USART_FLAG_SR_RXNE			(1 << USART_SR_RXNE)
 #define USART_FLAG_SR_TC			(1 << USART_SR_TC)
-
+#define USART_FLAG_SR_CTS			(1 << USART_SR_CTS)
+#define USART_FLAG_SR_PE			(1 << USART_SR_PE)
+#define USART_FLAG_SR_LBD			(1 << USART_SR_LBD)
+#define USART_FLAG_SR_IDLE			(1 << USART_SR_IDLE)
+#define USART_FLAG_SR_ORE			(1 << USART_SR_ORE)
+#define USART_FLAG_SR_NF			(1 << USART_SR_NF)
+#define USART_FLAG_SR_FE			(1 << USART_SR_FE)
 /*
  * @USART state
  */
@@ -168,10 +174,14 @@ uint8_t USART_ReceiveDataIT(USART_Handle_t* pUSARTHandler, uint8_t* pRxBuffer, u
  */
 void USART_IRQITConfig(uint8_t IRQNumber, uint8_t EnOrDi);
 void USART_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriorityValue);
-
+void USART_IRQHandling(USART_Handle_t* pUSARTHandler);
 /*
  * Check if the USART/UART is still busy transmitting bytes of data
  */
 uint8_t USART_CheckStatusFlag(__vo uint32_t* statusReg, uint16_t flag);
 
+/*
+ * Other supporting APIs
+ */
+void USART_ApplicationEventCallback(USART_Handle_t* pUSARTHandler, uint8_t appEvnt);
 #endif /* INC_STM32F407XX_USART_UART_DRIVER_H_ */

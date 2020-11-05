@@ -71,12 +71,12 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1767165622" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.756352403.1197199755" name="015MasterArduinoSlaveSTMSendReceive4byte.c" rcbsApplicability="disable" resourcePath="Src/015MasterArduinoSlaveSTMSendReceive4byte.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832.1060901601">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832.1060901601" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.756352403.389795431" name="003LEDHandlingUsingSTM32Button.c" rcbsApplicability="disable" resourcePath="Src/003LEDHandlingUsingSTM32Button.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832.39264010">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832.39264010" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.678506832"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="015MasterArduinoSlaveSTMSendReceive4byte.c|014MasterArduinoSTMSlaveSendReceive.c|013MasterSTMSlaveArduinoRecepSend.c|012MasterSTMSlaveArduinoI2C.c|Ex1LEDTogglePushPull.c|003LEDHandlingUsingSTM32Button.c|011STMMasterArduinoSlaveReceive&amp;Transmit.c|009SPIMasterArduinoSlave.c|010SPIMasterArduinoSlaveOnBoardButton.c|008TestSPI_Part1.c|005LEDInterruptTogglingButton.c|004LEDHandlingUsingExternalButton.c|Ex2LEDToggleOpenDrain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="016StmUSARTArduinoTx.c|015MasterArduinoSlaveSTMSendReceive4byte.c|014MasterArduinoSTMSlaveSendReceive.c|013MasterSTMSlaveArduinoRecepSend.c|012MasterSTMSlaveArduinoI2C.c|Ex1LEDTogglePushPull.c|011STMMasterArduinoSlaveReceive&amp;Transmit.c|009SPIMasterArduinoSlave.c|010SPIMasterArduinoSlaveOnBoardButton.c|008TestSPI_Part1.c|005LEDInterruptTogglingButton.c|004LEDHandlingUsingExternalButton.c|Ex2LEDToggleOpenDrain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drivers"/>
 					</sourceEntries>

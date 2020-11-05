@@ -58,9 +58,6 @@ void I2C_PeriClkCtrl(I2C_Reg_t* pI2Cx, uint8_t EnOrDi) {
  */
 void I2C_Init(I2C_Handle_t* pI2CHandler) {
 
-
-
-
 	uint16_t ccr_value;
 	uint32_t APB1ClkFreq;
 	uint64_t temp;

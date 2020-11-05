@@ -54,9 +54,12 @@ int main(void)
 
 	//handle the LED pressing application
 	while (1) {
-		if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0)) {
+		if (GPIO_ReadFromInputPin(GPIOA, GPIO_PIN_0)) { //Button is pressed
 			GPIO_WriteToOutputPin(GPIOD, GPIO_LED.GPIOx_PinConfig.GPIO_PinNumber, 1);
-			//delay();
+			FILE* fp; //create a file descriptor
+			fp = fopen("command.txt", "w+");
+			fputs("Start", fp);
+			fclose(fp);
 		} else {
 			GPIO_WriteToOutputPin(GPIOD, GPIO_LED.GPIOx_PinConfig.GPIO_PinNumber, 0);
 		}
